@@ -20,3 +20,4 @@ yarn-error.log*
 
 # Ignore editor-specific files
 .vscode/
+.vercel
