@@ -1,4 +1,6 @@
-
+body{
+  background-color: rgb(255, 255, 255);
+}
 .swiper {
   width: 100%;
   height: 100%;
@@ -9,28 +11,24 @@
   font-size: 18px;
   background: #fff;
 
-  /* Center slide text vertically */
-  display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .swiper-slide img {
-  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.zoom img {
-  transition: transform 0.5s ease;
-}
-
-.zoom:hover img {
-  transform: scale(1.1); /* Zoom by 10% */
-}
 
 .mySwiper {
-  height: 50vh; /* Full viewport height for vertical sliding */
+  height: 70vh;
 }
 
+
+
+.serviceswiper{
+  height: 40vh;
+  margin-top: 50px;
+}

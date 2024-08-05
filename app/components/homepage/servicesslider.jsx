@@ -21,7 +21,7 @@ export default function ServicesSliderSection() {
           clickable: true,
         }}
         modules={[Pagination]}
-        className="mySwiper"
+        className="serviceswiper"
       >
         <SwiperSlide>Slide 1</SwiperSlide>
         <SwiperSlide>Slide 2</SwiperSlide>

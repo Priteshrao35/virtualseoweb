@@ -24,7 +24,7 @@ export default function App() {
           clickable: true,
         }}
         autoplay={{
-          delay: 5000, // 5 seconds delay
+          delay: 5000, 
           disableOnInteraction: false,
         }}
         modules={[Pagination, Autoplay]}
