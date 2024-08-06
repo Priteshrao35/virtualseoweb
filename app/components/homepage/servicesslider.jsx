@@ -14,7 +14,7 @@ import { Pagination, Navigation } from "swiper/modules";
 
 export default function ServicesSliderSection() {
   return (
-    <div className="bg-white p-5">
+    <div className="bg-gray-200 p-10">
       <div className="services-container">
         <div className="text-container md:ml-72">
           <p className="p-2 mt-10 text-xl font-bold text-black ml-10">
@@ -45,7 +45,7 @@ export default function ServicesSliderSection() {
           modules={[Pagination, Navigation]}
           className="serviceswiper"
         >
-          <SwiperSlide className="border hover:border-red-600 hover:bg-gray-100 transition duration-300">
+          <SwiperSlide className="border hover:border-red-600 hover:bg-gray-100 transition duration-300 rounded-xl">
             <p className="text-black mt-10 text-2xl font-bold hover:text-red-600">
               SEO and Optimization
             </p>
@@ -83,7 +83,7 @@ export default function ServicesSliderSection() {
           </SwiperSlide>
 
 
-          <SwiperSlide className="border hover:border-red-600 hover:bg-gray-100 transition duration-300">
+          <SwiperSlide className="border hover:border-red-600 hover:bg-gray-100 transition duration-300 rounded-xl">
             <p className="text-black mt-10 text-2xl font-bold hover:text-red-600">
               SEO and Optimization
             </p>
@@ -121,7 +121,7 @@ export default function ServicesSliderSection() {
           </SwiperSlide>
 
 
-          <SwiperSlide className="border hover:border-red-600 hover:bg-gray-100 transition duration-300">
+          <SwiperSlide className="border hover:border-red-600 hover:bg-gray-100 transition duration-300 rounded-xl">
             <p className="text-black mt-10 text-2xl font-bold hover:text-red-600">
               SEO and Optimization
             </p>
@@ -159,7 +159,7 @@ export default function ServicesSliderSection() {
           </SwiperSlide>
 
 
-          <SwiperSlide className="border hover:border-red-600 hover:bg-gray-100 transition duration-300">
+          <SwiperSlide className="border hover:border-red-600 hover:bg-gray-100 transition duration-300 rounded-xl">
             <p className="text-black mt-10 text-2xl font-bold hover:text-red-600">
               SEO and Optimization
             </p>
@@ -197,7 +197,7 @@ export default function ServicesSliderSection() {
           </SwiperSlide>
 
 
-          <SwiperSlide className="border hover:border-red-600 hover:bg-gray-100 transition duration-300">
+          <SwiperSlide className="border hover:border-red-600 hover:bg-gray-100 transition duration-300 rounded-xl">
             <p className="text-black mt-10 text-2xl font-bold hover:text-red-600">
               SEO and Optimization
             </p>
