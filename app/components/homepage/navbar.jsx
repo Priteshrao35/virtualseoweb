@@ -39,27 +39,28 @@ const Navbar = () => {
           )}
         </div>
 
-        <div className="max-w-8xl mx-auto flex justify-center items-center space-x-5">
-        {/* Left Side: Dropdowns */}
+   
+
+
         <div
           className="relative group"
-          onMouseEnter={() => handleDropdown(1)}
+          onMouseEnter={() => handleDropdown(3)}
           onMouseLeave={() => handleDropdown(null)}
         >
           <div className="text-black hover:text-blue-600 cursor-pointer flex items-center">
             <span className="text-lg font-bold">Social Marketing Optimization</span>
             <FaChevronDown className="ml-2" />
           </div>
-          {dropdown === 1 && (
+          {dropdown === 3 && (
             <div className="absolute bg-white shadow-lg mt-2 rounded group-hover:block">
-              <Link href="/seo1">
+              <Link href="/web1">
                 <div className="px-4 py-2 text-black hover:bg-gray-200 cursor-pointer">
-                  SEO Service 1
+                  Web Service 1
                 </div>
               </Link>
-              <Link href="/seo2">
+              <Link href="/web2">
                 <div className="px-4 py-2 text-black hover:bg-gray-200 cursor-pointer">
-                  SEO Service 2
+                  Web Service 2
                 </div>
               </Link>
             </div>
