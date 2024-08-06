@@ -1,5 +1,6 @@
+/* Main Slider Css */
 body{
-  background-color: rgb(255, 255, 255);
+  background-color: #fdfcfa;
 }
 .swiper {
   width: 100%;
@@ -27,8 +28,40 @@ body{
 }
 
 
-
-.serviceswiper{
-  height: 40vh;
-  margin-top: 50px;
+/* Services Slider Css */
+.serviceswiper {
+  height: 50vh;
+  margin-top: 10px;
+  position: relative;
 }
+
+.services-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.services-container .text-container {
+  flex-grow: 1;
+}
+
+.services-container .swiper-buttons {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+}
+
+.swiper-button-nexts,
+.swiper-button-prevs {
+  background: none;
+  color: rgb(9, 28, 196);
+  width: auto;
+  height: auto;
+  padding: 0;
+  margin: 0;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+

@@ -32,29 +32,15 @@ export default function App() {
       >
         <SwiperSlide>
           <div className="zoom">
-            <img src="/homepage/6.jpg" alt="Slide 1" />
+            <img src="/homepage/seo.png" alt="Slide 1" />
           </div>
         </SwiperSlide>
         <SwiperSlide>
           <div className="zoom">
-            <img src="/homepage/6.jpg" alt="Slide 2" />
+            <img src="/homepage/web.jpeg" alt="Slide 2" />
           </div>
         </SwiperSlide>
-        <SwiperSlide>
-          <div className="zoom">
-            <img src="/homepage/6.jpg" alt="Slide 3" />
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="zoom">
-            <img src="/homepage/6.jpg" alt="Slide 4" />
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="zoom">
-            <img src="/homepage/6.jpg" alt="Slide 5" />
-          </div>
-        </SwiperSlide>
+        
       </Swiper>
     </>
   );
