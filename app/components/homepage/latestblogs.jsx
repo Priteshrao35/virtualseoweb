@@ -10,7 +10,7 @@ import "./styles.css";
 // import required modules
 import { Pagination, Navigation } from "swiper/modules";
 
-export default function OurProjects() {
+export default function LatestBlog() {
   return (
     <div className="bg-blue-50 p-10">
       <div className="services-container">

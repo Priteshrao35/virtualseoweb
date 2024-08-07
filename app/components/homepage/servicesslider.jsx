@@ -45,7 +45,7 @@ export default function ServicesSliderSection() {
           modules={[Pagination, Navigation]}
           className="serviceswiper"
         >
-          <SwiperSlide className="border hover:border-red-600 hover:bg-gray-100 transition duration-300 rounded-xl">
+          <SwiperSlide className="border border-black hover:border-green-600 hover:bg-gray-100 transition duration-300 rounded-xl p-5">
             <p className="text-black mt-10 text-2xl font-bold hover:text-red-600">
               SEO and Optimization
             </p>
@@ -82,8 +82,7 @@ export default function ServicesSliderSection() {
             </p>
           </SwiperSlide>
 
-
-          <SwiperSlide className="border hover:border-red-600 hover:bg-gray-100 transition duration-300 rounded-xl">
+          <SwiperSlide className="border border-black hover:border-green-600 hover:bg-gray-100 transition duration-300 rounded-xl p-5">
             <p className="text-black mt-10 text-2xl font-bold hover:text-red-600">
               SEO and Optimization
             </p>
@@ -120,8 +119,7 @@ export default function ServicesSliderSection() {
             </p>
           </SwiperSlide>
 
-
-          <SwiperSlide className="border hover:border-red-600 hover:bg-gray-100 transition duration-300 rounded-xl">
+          <SwiperSlide className="border border-black hover:border-green-600 hover:bg-gray-100 transition duration-300 rounded-xl p-5">
             <p className="text-black mt-10 text-2xl font-bold hover:text-red-600">
               SEO and Optimization
             </p>
@@ -158,8 +156,7 @@ export default function ServicesSliderSection() {
             </p>
           </SwiperSlide>
 
-
-          <SwiperSlide className="border hover:border-red-600 hover:bg-gray-100 transition duration-300 rounded-xl">
+          <SwiperSlide className="border border-black hover:border-green-600 hover:bg-gray-100 transition duration-300 rounded-xl p-5">
             <p className="text-black mt-10 text-2xl font-bold hover:text-red-600">
               SEO and Optimization
             </p>
@@ -196,8 +193,7 @@ export default function ServicesSliderSection() {
             </p>
           </SwiperSlide>
 
-
-          <SwiperSlide className="border hover:border-red-600 hover:bg-gray-100 transition duration-300 rounded-xl">
+          <SwiperSlide className="border border-black hover:border-green-600 hover:bg-gray-100 transition duration-300 rounded-xl p-5">
             <p className="text-black mt-10 text-2xl font-bold hover:text-red-600">
               SEO and Optimization
             </p>
@@ -233,8 +229,6 @@ export default function ServicesSliderSection() {
               Learn More ....................
             </p>
           </SwiperSlide>
-
-         
         </Swiper>
       </div>
     </div>

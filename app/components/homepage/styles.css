@@ -1,36 +1,34 @@
 /* Main Slider Css */
-body{
-  background-color: #fdfcfa;
-}
-.swiper {
-  width: 100%;
-  height: 100%;
-}
-
-.swiper-slide {
-  text-align: center;
-  font-size: 18px;
-  background: #fff;
-
-  justify-content: center;
-  align-items: center;
-}
-
-.swiper-slide img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
 
 .mySwiper {
-  height: 70vh;
+  width: 100%;
+  height: 60vh;
 }
+
+.zoom-in {
+  overflow: hidden;
+}
+
+.zoom-in img {
+  width: 100%;
+  animation: zoomIn 5s ease-in-out infinite;
+}
+
+@keyframes zoomIn {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.2);
+  }
+}
+
+
 
 
 /* Services Slider Css */
 .serviceswiper {
-  height: 55vh;
+  height: 50vh;
   margin-top: 10px;
   position: relative;
 }
@@ -63,5 +61,14 @@ body{
   margin: 0;
   font-size: 1.5rem;
   cursor: pointer;
+}
+
+
+
+/* project swiper */
+.projectswiper {
+  height: 50vh;
+  margin-top: 10px;
+  position: relative;
 }
 
