@@ -50,7 +50,7 @@ export default function OurProjects() {
               alt="Design"
               layout="responsive"
               preview={false}
-              width={390}
+              width={350}
               height={200}
             />
             <hr

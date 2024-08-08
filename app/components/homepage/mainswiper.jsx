@@ -1,5 +1,5 @@
 'use client'
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -9,6 +9,22 @@ import './styles.css';
 import { Pagination, Autoplay } from 'swiper/modules';
 
 export default function App() {
+  const [banners, setBanners] = useState([]);
+
+  useEffect(() => {
+    async function fetchBanners() {
+      try {
+        const response = await fetch('https://virtualseoweb.pythonanywhere.com/mainbanner/');
+        const data = await response.json();
+        setBanners(data);
+      } catch (error) {
+        console.error('Error fetching banners:', error);
+      }
+    }
+
+    fetchBanners();
+  }, []);
+
   return (
     <Swiper
       direction="vertical"
@@ -17,22 +33,19 @@ export default function App() {
         clickable: true,
       }}
       autoplay={{
-        delay: 5000, 
+        delay: 5000,
         disableOnInteraction: false,
       }}
       modules={[Pagination, Autoplay]}
       className="mySwiper"
     >
-      <SwiperSlide>
-        <div className="zoom-in">
-          <img src="/homepage/seo.png" alt="Slide 1" />
-        </div>
-      </SwiperSlide>
-      <SwiperSlide>
-        <div className="zoom-in">
-          <img src="/homepage/web.jpeg" alt="Slide 2" />
-        </div>
-      </SwiperSlide>
+      {banners.map((banner) => (
+        <SwiperSlide key={banner.id}>
+          <div className="zoom-in">
+            <img src={banner.Main_Banner} alt={`Slide ${banner.id}`} />
+          </div>
+        </SwiperSlide>
+      ))}
     </Swiper>
   );
 }

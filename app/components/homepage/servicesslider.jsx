@@ -49,7 +49,7 @@ export default function ServicesSliderSection() {
             <p className="text-black mt-10 text-2xl font-bold hover:text-red-600">
               SEO and Optimization
             </p>
-            <p className="text-black mt-7 px-12 text-center hover:text-red-600">
+            <p className="text-black mt-7 pl-5 text-center hover:text-red-600">
               Improving the quality of traffic to a website from search engines.
             </p>
             <hr
@@ -61,7 +61,7 @@ export default function ServicesSliderSection() {
               }}
             />
             <ul
-              className="text-black text-left pl-16 mt-7 gap-5"
+              className="text-black text-left pl-5 mt-7 gap-5"
               style={{ listStyleType: "disc" }}
             >
               <li className="p-3 hover:bg-gray-200 hover:pl-5 transition duration-300">
@@ -82,153 +82,7 @@ export default function ServicesSliderSection() {
             </p>
           </SwiperSlide>
 
-          <SwiperSlide className="border border-black hover:border-green-600 hover:bg-gray-100 transition duration-300 rounded-xl p-5">
-            <p className="text-black mt-10 text-2xl font-bold hover:text-red-600">
-              SEO and Optimization
-            </p>
-            <p className="text-black mt-7 px-12 text-center hover:text-red-600">
-              Improving the quality of traffic to a website from search engines.
-            </p>
-            <hr
-              style={{
-                width: "80%",
-                margin: "0 auto",
-                borderColor: "red",
-                marginTop: "30px"
-              }}
-            />
-            <ul
-              className="text-black text-left pl-16 mt-7 gap-5"
-              style={{ listStyleType: "disc" }}
-            >
-              <li className="p-3 hover:bg-gray-200 hover:pl-5 transition duration-300">
-                Optimizing the website's content
-              </li>
-              <li className="p-3 hover:bg-gray-200 hover:pl-5 transition duration-300">
-                Optimizing keywords research
-              </li>
-              <li className="p-3 hover:bg-gray-200 hover:pl-5 transition duration-300">
-                Meta tag optimization and links.
-              </li>
-              <li className="p-3 hover:bg-gray-200 hover:pl-5 transition duration-300">
-                User-friendly, mobile-responsive
-              </li>
-            </ul>
-            <p className="text-blue-500 text-left pl-16 mt-5 hover:text-blue-700 transition duration-300">
-              Learn More ....................
-            </p>
-          </SwiperSlide>
-
-          <SwiperSlide className="border border-black hover:border-green-600 hover:bg-gray-100 transition duration-300 rounded-xl p-5">
-            <p className="text-black mt-10 text-2xl font-bold hover:text-red-600">
-              SEO and Optimization
-            </p>
-            <p className="text-black mt-7 px-12 text-center hover:text-red-600">
-              Improving the quality of traffic to a website from search engines.
-            </p>
-            <hr
-              style={{
-                width: "80%",
-                margin: "0 auto",
-                borderColor: "red",
-                marginTop: "30px"
-              }}
-            />
-            <ul
-              className="text-black text-left pl-16 mt-7 gap-5"
-              style={{ listStyleType: "disc" }}
-            >
-              <li className="p-3 hover:bg-gray-200 hover:pl-5 transition duration-300">
-                Optimizing the website's content
-              </li>
-              <li className="p-3 hover:bg-gray-200 hover:pl-5 transition duration-300">
-                Optimizing keywords research
-              </li>
-              <li className="p-3 hover:bg-gray-200 hover:pl-5 transition duration-300">
-                Meta tag optimization and links.
-              </li>
-              <li className="p-3 hover:bg-gray-200 hover:pl-5 transition duration-300">
-                User-friendly, mobile-responsive
-              </li>
-            </ul>
-            <p className="text-blue-500 text-left pl-16 mt-5 hover:text-blue-700 transition duration-300">
-              Learn More ....................
-            </p>
-          </SwiperSlide>
-
-          <SwiperSlide className="border border-black hover:border-green-600 hover:bg-gray-100 transition duration-300 rounded-xl p-5">
-            <p className="text-black mt-10 text-2xl font-bold hover:text-red-600">
-              SEO and Optimization
-            </p>
-            <p className="text-black mt-7 px-12 text-center hover:text-red-600">
-              Improving the quality of traffic to a website from search engines.
-            </p>
-            <hr
-              style={{
-                width: "80%",
-                margin: "0 auto",
-                borderColor: "red",
-                marginTop: "30px"
-              }}
-            />
-            <ul
-              className="text-black text-left pl-16 mt-7 gap-5"
-              style={{ listStyleType: "disc" }}
-            >
-              <li className="p-3 hover:bg-gray-200 hover:pl-5 transition duration-300">
-                Optimizing the website's content
-              </li>
-              <li className="p-3 hover:bg-gray-200 hover:pl-5 transition duration-300">
-                Optimizing keywords research
-              </li>
-              <li className="p-3 hover:bg-gray-200 hover:pl-5 transition duration-300">
-                Meta tag optimization and links.
-              </li>
-              <li className="p-3 hover:bg-gray-200 hover:pl-5 transition duration-300">
-                User-friendly, mobile-responsive
-              </li>
-            </ul>
-            <p className="text-blue-500 text-left pl-16 mt-5 hover:text-blue-700 transition duration-300">
-              Learn More ....................
-            </p>
-          </SwiperSlide>
-
-          <SwiperSlide className="border border-black hover:border-green-600 hover:bg-gray-100 transition duration-300 rounded-xl p-5">
-            <p className="text-black mt-10 text-2xl font-bold hover:text-red-600">
-              SEO and Optimization
-            </p>
-            <p className="text-black mt-7 px-12 text-center hover:text-red-600">
-              Improving the quality of traffic to a website from search engines.
-            </p>
-            <hr
-              style={{
-                width: "80%",
-                margin: "0 auto",
-                borderColor: "red",
-                marginTop: "30px"
-              }}
-            />
-            <ul
-              className="text-black text-left pl-16 mt-7 gap-5"
-              style={{ listStyleType: "disc" }}
-            >
-              <li className="p-3 hover:bg-gray-200 hover:pl-5 transition duration-300">
-                Optimizing the website's content
-              </li>
-              <li className="p-3 hover:bg-gray-200 hover:pl-5 transition duration-300">
-                Optimizing keywords research
-              </li>
-              <li className="p-3 hover:bg-gray-200 hover:pl-5 transition duration-300">
-                Meta tag optimization and links.
-              </li>
-              <li className="p-3 hover:bg-gray-200 hover:pl-5 transition duration-300">
-                User-friendly, mobile-responsive
-              </li>
-            </ul>
-            <p className="text-blue-500 text-left pl-16 mt-5 hover:text-blue-700 transition duration-300">
-              Learn More ....................
-            </p>
-          </SwiperSlide>
+         
         </Swiper>
       </div>
     </div>
