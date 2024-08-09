@@ -1,6 +1,7 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
+import axios from "axios";
 
 // Import Swiper styles
 import "swiper/css";
@@ -9,10 +10,26 @@ import "swiper/css/navigation";
 
 import "./styles.css";
 
-// import required modules
+// Import required modules
 import { Pagination, Navigation } from "swiper/modules";
 
 export default function ServicesSliderSection() {
+  const [services, setServices] = useState([]);
+
+  useEffect(() => {
+    // Fetch data from the API
+    const fetchServices = async () => {
+      try {
+        const response = await axios.get("https://virtualseoweb.pythonanywhere.com/ourservices/");
+        setServices(response.data);
+      } catch (error) {
+        console.error("Error fetching the services data:", error);
+      }
+    };
+
+    fetchServices();
+  }, []);
+
   return (
     <div className="bg-gray-200 p-10">
       <div className="services-container">
@@ -36,53 +53,59 @@ export default function ServicesSliderSection() {
           slidesPerView={4}
           spaceBetween={30}
           pagination={{
-            clickable: true
+            clickable: true,
           }}
           navigation={{
             nextEl: ".swiper-button-nexts",
-            prevEl: ".swiper-button-prevs"
+            prevEl: ".swiper-button-prevs",
           }}
           modules={[Pagination, Navigation]}
           className="serviceswiper"
         >
-          <SwiperSlide className="border border-black hover:border-green-600 hover:bg-gray-100 transition duration-300 rounded-xl p-5">
-            <p className="text-black mt-10 text-2xl font-bold hover:text-red-600">
-              SEO and Optimization
-            </p>
-            <p className="text-black mt-7 pl-5 text-center hover:text-red-600">
-              Improving the quality of traffic to a website from search engines.
-            </p>
-            <hr
-              style={{
-                width: "80%",
-                margin: "0 auto",
-                borderColor: "red",
-                marginTop: "30px"
-              }}
-            />
-            <ul
-              className="text-black text-left pl-5 mt-7 gap-5"
-              style={{ listStyleType: "disc" }}
+          {services.map((service) => (
+            <SwiperSlide
+              key={service.id}
+              className="border border-black hover:border-green-600 hover:bg-gray-100 transition duration-300 rounded-xl p-5"
             >
-              <li className="p-3 hover:bg-gray-200 hover:pl-5 transition duration-300">
-                Optimizing the website's content
-              </li>
-              <li className="p-3 hover:bg-gray-200 hover:pl-5 transition duration-300">
-                Optimizing keywords research
-              </li>
-              <li className="p-3 hover:bg-gray-200 hover:pl-5 transition duration-300">
-                Meta tag optimization and links.
-              </li>
-              <li className="p-3 hover:bg-gray-200 hover:pl-5 transition duration-300">
-                User-friendly, mobile-responsive
-              </li>
-            </ul>
-            <p className="text-blue-500 text-left pl-16 mt-5 hover:text-blue-700 transition duration-300">
-              Learn More ....................
-            </p>
-          </SwiperSlide>
-
-         
+              <p className="text-black mt-10 text-2xl font-bold hover:text-red-600">
+                {service.Service_Name}
+              </p>
+              <p className="text-black mt-7 pl-5 text-center hover:text-red-600">
+                {service.Sort_descrition}
+              </p>
+              <hr
+                style={{
+                  width: "80%",
+                  margin: "0 auto",
+                  borderColor: "red",
+                  marginTop: "30px",
+                }}
+              />
+              <ul
+                className="text-black text-left pl-5 mt-7 gap-5"
+                style={{ listStyleType: "disc" }}
+              >
+                <li className="p-3 hover:bg-gray-200 hover:pl-5 transition duration-300">
+                  {service.Services_Main_Points_1}
+                </li>
+                <li className="p-3 hover:bg-gray-200 hover:pl-5 transition duration-300">
+                  {service.Services_Main_Points_2}
+                </li>
+                <li className="p-3 hover:bg-gray-200 hover:pl-5 transition duration-300">
+                  {service.Services_Main_Points_3}
+                </li>
+                <li className="p-3 hover:bg-gray-200 hover:pl-5 transition duration-300">
+                  {service.Services_Main_Points_4}
+                </li>
+                <li className="p-3 hover:bg-gray-200 hover:pl-5 transition duration-300">
+                  {service.Services_Main_Points_5}
+                </li>
+              </ul>
+              <p className="text-blue-500 text-left pl-16 mt-5 hover:text-blue-700 transition duration-300">
+                Learn More ....................
+              </p>
+            </SwiperSlide>
+          ))}
         </Swiper>
       </div>
     </div>
