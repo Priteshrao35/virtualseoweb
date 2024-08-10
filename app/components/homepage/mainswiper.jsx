@@ -33,7 +33,7 @@ export default function App() {
         clickable: true,
       }}
       autoplay={{
-        delay: 5000,
+        delay: 6000,
         disableOnInteraction: false,
       }}
       modules={[Pagination, Autoplay]}
