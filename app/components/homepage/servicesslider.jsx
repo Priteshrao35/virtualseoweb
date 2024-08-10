@@ -7,11 +7,12 @@ import axios from "axios";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+import "swiper/css/scrollbar"; // Import scrollbar styles
 
 import "./styles.css";
 
 // Import required modules
-import { Pagination, Navigation } from "swiper/modules";
+import { Pagination, Navigation, Scrollbar } from "swiper/modules";
 
 export default function ServicesSliderSection() {
   const [services, setServices] = useState([]);
@@ -36,7 +37,7 @@ export default function ServicesSliderSection() {
         <div className="text-container md:ml-72">
           <p className="p-2 mt-10 text-xl font-bold text-black ml-10">
             <ul style={{ listStyleType: "disc" }}>
-              <li> Our Services and Solutions</li>
+              <li>Our Services and Solutions</li>
             </ul>
           </p>
           <p className="p-10 text-4xl font-bold text-black ml-10">
@@ -59,7 +60,8 @@ export default function ServicesSliderSection() {
             nextEl: ".swiper-button-nexts",
             prevEl: ".swiper-button-prevs",
           }}
-          modules={[Pagination, Navigation]}
+          scrollbar={{ draggable: true }} // Add scrollbar
+          modules={[Pagination, Navigation, Scrollbar]} // Include Scrollbar module
           className="serviceswiper"
         >
           {services.map((service) => (
@@ -85,21 +87,31 @@ export default function ServicesSliderSection() {
                 className="text-black text-left pl-5 mt-7 gap-5"
                 style={{ listStyleType: "disc" }}
               >
-                <li className="p-3 hover:bg-gray-200 hover:pl-5 transition duration-300">
-                  {service.Services_Main_Points_1}
-                </li>
-                <li className="p-3 hover:bg-gray-200 hover:pl-5 transition duration-300">
-                  {service.Services_Main_Points_2}
-                </li>
-                <li className="p-3 hover:bg-gray-200 hover:pl-5 transition duration-300">
-                  {service.Services_Main_Points_3}
-                </li>
-                <li className="p-3 hover:bg-gray-200 hover:pl-5 transition duration-300">
-                  {service.Services_Main_Points_4}
-                </li>
-                <li className="p-3 hover:bg-gray-200 hover:pl-5 transition duration-300">
-                  {service.Services_Main_Points_5}
-                </li>
+                {service.Services_Main_Points_1 && (
+                  <li className="p-3 hover:bg-gray-200 hover:pl-5 transition duration-300">
+                    {service.Services_Main_Points_1}
+                  </li>
+                )}
+                {service.Services_Main_Points_2 && (
+                  <li className="p-3 hover:bg-gray-200 hover:pl-5 transition duration-300">
+                    {service.Services_Main_Points_2}
+                  </li>
+                )}
+                {service.Services_Main_Points_3 && (
+                  <li className="p-3 hover:bg-gray-200 hover:pl-5 transition duration-300">
+                    {service.Services_Main_Points_3}
+                  </li>
+                )}
+                {service.Services_Main_Points_4 && (
+                  <li className="p-3 hover:bg-gray-200 hover:pl-5 transition duration-300">
+                    {service.Services_Main_Points_4}
+                  </li>
+                )}
+                {service.Services_Main_Points_5 && (
+                  <li className="p-3 hover:bg-gray-200 hover:pl-5 transition duration-300">
+                    {service.Services_Main_Points_5}
+                  </li>
+                )}
               </ul>
               <p className="text-blue-500 text-left pl-16 mt-5 hover:text-blue-700 transition duration-300">
                 Learn More ....................

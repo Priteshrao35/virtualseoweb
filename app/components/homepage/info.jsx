@@ -1,7 +1,61 @@
+"use client";
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/pagination";
+import "./styles.css";
+import { Pagination, Autoplay } from "swiper/modules";
+
+const reviews = [
+  {
+    name: "John Doe",
+    image: "/homepage/f1-200x206.jpg",
+    rating: 4.5,
+    description: "Great service! Really helped me with my project.",
+  },
+  {
+    name: "Jane Smith",
+    image: "/homepage/f1-200x206.jpg",
+    rating: 4.0,
+    description: "The platform is user-friendly and easy to navigate.",
+  },
+  {
+    name: "Emily Johnson",
+    image: "/homepage/f1-200x206.jpg",
+    rating: 5.0,
+    description: "Excellent tools and support. Highly recommend!",
+  },
+  {
+    name: "Michael Brown",
+    image: "/homepage/f1-200x206.jpg",
+    rating: 3.5,
+    description: "Good experience, but some features could be improved.",
+  },
+  {
+    name: "Sophia Wilson",
+    image: "/homepage/f1-200x206.jpg",
+    rating: 4.8,
+    description: "Amazing platform with powerful features.",
+  },
+  {
+    name: "Sophia Wilson",
+    image: "/homepage/f1-200x206.jpg",
+    rating: 4.8,
+    description: "Amazing platform with powerful features.",
+  },
+];
+
+function truncateText(text, wordLimit) {
+  const words = text.split(" ");
+  return words.length > wordLimit
+    ? `${words.slice(0, wordLimit).join(" ")}...`
+    : text;
+}
 
 function InfoSection() {
+  const [activeIndex, setActiveIndex] = useState(0);
+
   return (
     <div className="px-40 bg-white">
       <div className="relative grid grid-cols-1 md:grid-cols-2 gap-6 items-center p-40 bg-white">
@@ -13,51 +67,73 @@ function InfoSection() {
             width={500}
             height={200}
           />
-          <div className="absolute bottom-[10%] right-[-10%] w-72 h-48 bg-white text-white p-4 rounded-lg shadow-lg">
+
+          {/* Testimonials */}
+          <div className="absolute bottom-[20%] right-[-20%] w-72 h-auto bg-white text-white p-4 rounded-lg shadow-lg">
             <div className="flex">
-              <Image
-                src="/homepage/f1-200x206.jpg"
-                alt="Description"
-                className="w-16 h-16 rounded-full"
-                width={64}
-                height={64}
-              />
-              <Image
-                src="/homepage/f1-200x206.jpg"
-                alt="Description"
-                className="w-16 h-16 rounded-full"
-                width={64}
-                height={64}
-              />
-              <Image
-                src="/homepage/f1-200x206.jpg"
-                alt="Description"
-                className="w-16 h-16 rounded-full"
-                width={64}
-                height={64}
-              />
-              <Image
-                src="/homepage/f1-200x206.jpg"
-                alt="Description"
-                className="w-16 h-16 rounded-full"
-                width={64}
-                height={64}
-              />
+              <Swiper
+                slidesPerView={4} // Show 4 testimonials images
+                spaceBetween={10}
+                autoplay={{
+                  delay: 6000,
+                }}
+                pagination={{ clickable: true }}
+                modules={[Autoplay, Pagination]}
+                className="testomySwiper"
+                onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
+              >
+                {reviews.map((review, index) => (
+                  <SwiperSlide key={index}>
+                    <div
+                      className={`cursor-pointer transition-transform duration-300 transform ${
+                        index === activeIndex ? "scale-110" : "scale-100"
+                      }`}
+                    >
+                      <img
+                        src={review.image}
+                        alt={`Review ${index + 1}`}
+                        className="rounded-full w-15 h-15 mx-auto"
+                        style={{ borderRadius: "50%" }}
+                      />
+                    </div>
+                  </SwiperSlide>
+                ))}
+              </Swiper>
             </div>
-            <div className="mt-4 flex items-center space-x-2">
-              <div className="flex space-x-1">
-                {/* Star icons */}
-                <span className="text-yellow-400">★</span>
-                <span className="text-yellow-400">★</span>
-                <span className="text-yellow-400">★</span>
-                <span className="text-yellow-400">★</span>
-                <span className="text-gray-400">★</span>
+
+            {/* Display details of the active testimonial */}
+            <div className="mt-4 text-center text-black">
+              <h3 className="font-bold">{reviews[activeIndex].name}</h3>
+              <div className="flex items-center justify-center space-x-2">
+                <div className="flex space-x-1">
+                  {[...Array(5)].map((star, i) => (
+                    <span
+                      key={i}
+                      className={`${
+                        i < Math.floor(reviews[activeIndex].rating)
+                          ? "text-yellow-400"
+                          : "text-gray-400"
+                      }`}
+                    >
+                      ★
+                    </span>
+                  ))}
+                </div>
+                <span className="text-sm text-black">
+                  {reviews[activeIndex].rating}/5.0
+                </span>
               </div>
-              <span className="text-sm text-black">4.0/5.0</span>
+              <p className="mt-4 text-center text-black">
+                {truncateText(reviews[activeIndex].description, 5)}
+                <span className="text-blue-500 cursor-pointer ml-1">
+                  See more
+                </span>
+              </p>
             </div>
-            <p className="mt-4 text-center text-black"> From +5000 reviews</p>
           </div>
+          {/* End Testimonials */}
         </div>
+
         <div className="p-6 pl-40">
           <div className="text-container">
             <p className="text-xl font-bold text-black">
@@ -78,7 +154,7 @@ function InfoSection() {
           </p>
           <ul style={{ listStyleType: "disc" }} className="text-black mt-10">
             <li>Our platform places emphasis on user experience.</li>
-            <li>Building a website, mobile app or software.</li>
+            <li>Building a website, mobile app, or software.</li>
             <li>Our platform is designed to help you.</li>
             <li>Achieve your goals and exceed expectations.</li>
           </ul>
@@ -86,7 +162,7 @@ function InfoSection() {
       </div>
       <hr />
       <div className="bg-white flex space-x-4 p-5 px-40">
-        <div className="flex flex-col items-center  p-4">
+        <div className="flex flex-col items-center p-4">
           <Image
             src="/homepage/serv11.svg"
             alt="Description"
@@ -102,7 +178,7 @@ function InfoSection() {
           </p>
         </div>
 
-        <div className="flex flex-col items-center  p-4">
+        <div className="flex flex-col items-center p-4">
           <Image
             src="/homepage/serv11.svg"
             alt="Description"
@@ -118,7 +194,7 @@ function InfoSection() {
           </p>
         </div>
 
-        <div className="flex flex-col items-center  p-4">
+        <div className="flex flex-col items-center p-4">
           <Image
             src="/homepage/serv11.svg"
             alt="Description"
@@ -134,7 +210,7 @@ function InfoSection() {
           </p>
         </div>
 
-        <div className="flex flex-col items-center  p-4">
+        <div className="flex flex-col items-center p-4">
           <Image
             src="/homepage/serv11.svg"
             alt="Description"
