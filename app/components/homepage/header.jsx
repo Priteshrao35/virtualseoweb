@@ -1,3 +1,4 @@
+import { Image } from "antd";
 import Link from "next/link";
 import {
   FaFacebook,
@@ -17,7 +18,15 @@ const Header = () => {
         <div className="flex items-center">
           <Link href="/">
             <div className="text-black text-lg font-bold cursor-pointer">
-              Logo
+            <Image
+                className="w-full"
+                src="/favicon.ico"
+                alt="logo"
+                layout="responsive"
+                preview={false}
+                width={150}
+                height={40}
+              />
             </div>
           </Link>
         </div>
