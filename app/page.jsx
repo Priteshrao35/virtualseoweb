@@ -5,8 +5,8 @@ import ServicesSliderSection from "./components/homepage/servicesslider";
 import FooterSection from "./components/homepage/footer";
 import Brands from "./components/homepage/brands";
 import Our_Projects from "./components/homepage/projects";
-import InfoSection from "./components/homepage/info";
-import AboutSection from "./components/homepage/about";
+import InfoSection from "./components/homepage/testomonialsbackviews";
+import AboutSection from "./components/homepage/footerabout";
 import LatestBlog from "./components/homepage/latestblogs";
 import CentralBanner from "./components/homepage/centralbanner";
 

@@ -185,7 +185,7 @@ function FooterSection() {
       </div>
       <div className="bg-gray-700 text-center py-4">
         <p className="text-gray-300 text-sm">
-          © 2024 PRWebTechno. All rights reserved.
+          © 2024 virtualseoweb. All rights reserved.
         </p>
       </div>
     </footer>
