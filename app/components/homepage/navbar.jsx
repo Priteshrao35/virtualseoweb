@@ -11,7 +11,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-white p-4">
+    <nav className="bg-white p-4 hidden md:block">
       <div className="max-w-8xl mx-auto flex justify-center items-center space-x-5">
         {/* Left Side: Dropdowns */}
         <div

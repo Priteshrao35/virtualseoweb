@@ -9,10 +9,12 @@ import InfoSection from "./components/homepage/testomonialsbackviews";
 import AboutSection from "./components/homepage/footerabout";
 import LatestBlog from "./components/homepage/latestblogs";
 import CentralBanner from "./components/homepage/centralbanner";
+import { Layout } from "antd";
 
 export default function Home() {
   return (
-    <div>
+    <Layout >
+      {/* style={{ overflow: "hidden" }} */}
       <Header />
       <hr />
       <Navbar />
@@ -34,6 +36,6 @@ export default function Home() {
       <AboutSection />
 
       <FooterSection />
-    </div>
+    </Layout>
   );
 }

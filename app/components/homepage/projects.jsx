@@ -5,7 +5,6 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Image } from "antd";
-import "./styles.css";
 import { Pagination, Navigation } from "swiper/modules";
 
 export default function OurProjects() {
@@ -20,25 +19,41 @@ export default function OurProjects() {
   }, []);
 
   return (
-    <div className="bg-blue-50 p-10">
-      <div className="services-container">
-        <div className="text-container md:ml-72">
-          <p className="p-2 mt-10 text-xl font-bold text-black ml-10">
-            <ul style={{ listStyleType: "disc" }}>
-              <li> Our Latest Projects</li>
+    <div className="bg-blue-50 p-10 md:ml-20">
+      <div className="flex flex-col md:flex-row md:items-center md:justify-between">
+        <div className="text-center md:text-left">
+          <p className="p-2 mt-10 text-xl font-bold text-black">
+            <ul className="list-disc list-inside">
+              <li>Our Latest Projects</li>
             </ul>
           </p>
-          <p className="p-5 text-4xl font-bold text-black ml-10">Case Studies</p>
+          <p className="p-5 text-4xl font-bold text-black">
+            Case Studies
+          </p>
         </div>
-        <div className="swiper-buttons mr-10">
-          <div className="swiper-button-prevs">Prev</div>
-          <div className="swiper-button-nexts">Next</div>
+        <div className="flex items-center justify-center md:justify-end mt-5 md:mt-0 gap-4">
+          <div className="swiper-button-prevs text-blue-800 cursor-pointer">Prev</div>
+          <div className="swiper-button-nexts text-blue-800 cursor-pointer">Next</div>
         </div>
       </div>
-      <div className="md:pl-72">
+      <div className="mt-2 md:ml-40">
         <Swiper
-          slidesPerView={4}
-          spaceBetween={30}
+          slidesPerView={1} // Show 1 item on mobile
+          spaceBetween={10} // Space between slides on mobile
+          breakpoints={{
+            640: {
+              slidesPerView: 1, // Show 1 item on small screens
+              spaceBetween: 20,
+            },
+            767: {
+              slidesPerView: 2, // Show 2 items on medium screens
+              spaceBetween: 30,
+            },
+            1024: {
+              slidesPerView: 5, // Show 5 items on larger screens
+              spaceBetween: 30,
+            },
+          }}
           pagination={{
             clickable: true,
           }}
@@ -47,7 +62,7 @@ export default function OurProjects() {
             prevEl: ".swiper-button-prevs",
           }}
           modules={[Pagination, Navigation]}
-          className="projectswiper"
+          className="h-[50vh] mt-2 relative"
         >
           {projects.map((project) => (
             <SwiperSlide

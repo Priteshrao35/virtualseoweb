@@ -5,7 +5,6 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/autoplay';
 import 'swiper/css/effect-fade';
-import './styles.css';
 import { Pagination, Autoplay } from 'swiper/modules';
 
 export default function App() {
@@ -37,12 +36,16 @@ export default function App() {
         disableOnInteraction: false,
       }}
       modules={[Pagination, Autoplay]}
-      className="mySwiper"
+      className="w-full md:h-[60vh] h-[15vh] flex items-center justify-center"
     >
       {banners.map((banner) => (
         <SwiperSlide key={banner.id}>
-          <div className="zoom-in">
-            <img src={banner.Main_Banner} alt={`Slide ${banner.id}`} />
+          <div className="transform transition-transform duration-300 hover:scale-110">
+            <img
+              src={banner.Main_Banner}
+              alt={`Slide ${banner.id}`}
+              className="max-w-full max-h-full object-contain"
+            />
           </div>
         </SwiperSlide>
       ))}

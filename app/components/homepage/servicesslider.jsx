@@ -7,12 +7,9 @@ import axios from "axios";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import "swiper/css/scrollbar"; // Import scrollbar styles
+import "swiper/css/scrollbar";
 
-import "./styles.css";
-
-// Import required modules
-import { Pagination, Navigation, Scrollbar } from "swiper/modules";
+import { Navigation } from "swiper/modules";
 
 export default function ServicesSliderSection() {
   const [services, setServices] = useState([]);
@@ -32,27 +29,45 @@ export default function ServicesSliderSection() {
   }, []);
 
   return (
-    <div className="bg-gray-200 p-10">
-      <div className="services-container">
-        <div className="text-container md:ml-72">
-          <p className="p-2 mt-10 text-xl font-bold text-black ml-10">
-            <ul style={{ listStyleType: "disc" }}>
+    <div className="bg-gray-200 p-5 md:p-10">
+      <div className="flex flex-col md:flex-row items-center justify-between w-full mt-2">
+        <div className="flex-grow md:ml-72 text-center md:text-left">
+          <p className="p-2 md:mt-10 text-xl font-bold text-black">
+            <ul className="list-disc">
               <li>Our Services and Solutions</li>
             </ul>
           </p>
-          <p className="p-10 text-4xl font-bold text-black ml-10">
+          <p className="md:p-10 p-2 md:text-4xl text-2xl font-bold text-black">
             Technological Applications
           </p>
         </div>
-        <div className="swiper-buttons mr-10">
-          <div className="swiper-button-prevs">Prev</div>
-          <div className="swiper-button-nexts">Next</div>
+        <div className="flex items-center gap-40 md:gap-12 mt-5 md:mt-0 mr-0 md:mr-10">
+          <div className="bg-none text-blue-800 text-xl md:text-2xl cursor-pointer swiper-button-prevs">
+            Prev
+          </div>
+          <div className="bg-none text-blue-800 text-xl md:text-2xl cursor-pointer swiper-button-nexts">
+            Next
+          </div>
         </div>
       </div>
       <div className="md:pl-72">
         <Swiper
-          slidesPerView={4}
-          spaceBetween={30}
+          slidesPerView={1}
+          spaceBetween={10}
+          breakpoints={{
+            640: {
+              slidesPerView: 2,
+              spaceBetween: 20,
+            },
+            767: {
+              slidesPerView: 3,
+              spaceBetween: 30,
+            },
+            1024: {
+              slidesPerView: 4,
+              spaceBetween: 30,
+            },
+          }}
           pagination={{
             clickable: true,
           }}
@@ -60,9 +75,8 @@ export default function ServicesSliderSection() {
             nextEl: ".swiper-button-nexts",
             prevEl: ".swiper-button-prevs",
           }}
-          scrollbar={{ draggable: true }} // Add scrollbar
-          modules={[Pagination, Navigation, Scrollbar]} // Include Scrollbar module
-          className="serviceswiper"
+          modules={[ Navigation]}
+          className="h-[55vh] mt-2 relative"
         >
           {services.map((service) => (
             <SwiperSlide
@@ -75,18 +89,8 @@ export default function ServicesSliderSection() {
               <p className="text-black mt-7 pl-5 text-center hover:text-red-600">
                 {service.Sort_descrition}
               </p>
-              <hr
-                style={{
-                  width: "80%",
-                  margin: "0 auto",
-                  borderColor: "red",
-                  marginTop: "30px",
-                }}
-              />
-              <ul
-                className="text-black text-left pl-5 mt-7 gap-5"
-                style={{ listStyleType: "disc" }}
-              >
+              <hr className="w-4/5 mx-auto border-red-600 mt-7" />
+              <ul className="text-black text-left pl-5 mt-7 gap-5 list-disc">
                 {service.Services_Main_Points_1 && (
                   <li className="p-3 hover:bg-gray-200 hover:pl-5 transition duration-300">
                     {service.Services_Main_Points_1}

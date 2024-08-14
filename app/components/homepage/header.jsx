@@ -1,5 +1,7 @@
-import { Image } from "antd";
+"use client";
 import Link from "next/link";
+import React, { useState } from "react";
+import { Drawer, Image } from "antd";
 import {
   FaFacebook,
   FaInstagram,
@@ -8,24 +10,66 @@ import {
   FaEnvelope,
   FaSkype
 } from "react-icons/fa";
-import { FaXTwitter } from "react-icons/fa6";
+import { FaXTwitter, FaBars } from "react-icons/fa6";
 
 const Header = () => {
+  {
+    /* mobile drover */
+  }
+  const [open, setOpen] = useState(false);
+  const showDrawer = () => {
+    
+    setOpen(true);
+  };
+  const onClose = () => {
+    setOpen(false);
+  };
+  {
+    /* mobile drover */
+  }
+
   return (
-    <header className="bg-white p-4">
+    <header className="bg-white p-2">
       <div className="container mx-auto flex justify-between items-center">
+        {/* mobile drover */}
+        <div className="md:hidden">
+          <FaBars className="text-2xl cursor-pointer text-blue-900" onClick={showDrawer} />
+          <Drawer title="Basic Drawer" onClose={onClose} open={open}>
+            <p>Some contents...</p>
+            <p>Some contents...</p>
+            <p>Some contents...</p>
+          </Drawer>
+        </div>
+        {/* mobile drover */}
+
         {/* Left Side: Logo */}
-        <div className="flex items-center">
+        <div className="items-center hidden md:block">
           <Link href="/">
             <div className="text-black text-lg font-bold cursor-pointer">
-            <Image
+              <Image
                 className="w-full"
                 src="/favicon.ico"
                 alt="logo"
                 layout="responsive"
                 preview={false}
-                width={150}
-                height={40}
+                width={180}
+                height={30}
+              />
+            </div>
+          </Link>
+        </div>
+
+        <div className="flex items-center md:hidden">
+          <Link href="/">
+            <div className="text-black text-lg font-bold cursor-pointer">
+              <Image
+                className="md:w-full w-5"
+                src="/favicon.ico"
+                alt="logo"
+                layout="responsive"
+                preview={false}
+                width={50}
+                height={30}
               />
             </div>
           </Link>
@@ -34,25 +78,28 @@ const Header = () => {
         {/* Center: Contact Info */}
         <div className="flex space-x-4 items-center">
           <div className="flex items-center space-x-1">
-            <FaPhone className="text-green-500 text-2xl" />
-            <a href="tel:+919450977593" className="text-black text-md">
-              Call Us: +91 9450977593
+            <FaPhone className="text-green-500 md:text-2xl text-sm md:ml-0 ml-2" />
+            <a
+              href="tel:+919450977593"
+              className="text-black md:text-2xl text-sm"
+            >
+              +919450977593
             </a>
           </div>
-          <div className="flex items-center space-x-1">
-            <FaEnvelope className="text-orange-600 text-2xl" />
+          <div className="md:flex items-center space-x-1 hidden">
+            <FaEnvelope className="text-orange-600 md:text-2xl text-sm" />
             <a
               href="mailto:info@virtualseoweb.com"
-              className="text-black text-md"
+              className="text-black md:text-2xl text-sm"
             >
-              Email: info@virtualseoweb.com
+              info@virtualseoweb.com
             </a>
           </div>
-          <div className="flex items-center space-x-1">
-            <FaSkype className="text-blue-400 text-2xl" />
+          <div className="md:flex items-center space-x-1 hidden">
+            <FaSkype className="text-blue-400 md:text-2xl text-sm" />
             <a
               href="skype:live:virtualseoweb?call"
-              className="text-black text-md"
+              className="text-black md:text-2xl text-sm"
             >
               Skype: live:virtualseoweb
             </a>
@@ -60,7 +107,7 @@ const Header = () => {
         </div>
 
         {/* Right Side: Social Media Icons */}
-        <div className="flex space-x-4">
+        <div className="md:flex space-x-4 hidden">
           <Link href="https://www.facebook.com/Virtualseowebsoftware/about">
             <FaFacebook
               className="text-blue-500 hover:text-blue-600 cursor-pointer"
@@ -85,13 +132,12 @@ const Header = () => {
               size={24}
             />
           </Link>
-
-          <Link href="#">
-            <p className="text-white bg-blue-600 hover:bg-white hover:text-blue-600 rounded-xl font-bold px-5">
-              Get Quete
-            </p>
-          </Link>
         </div>
+        <Link href="#">
+          <p className="text-white bg-blue-600 hover:bg-white hover:text-blue-600 rounded-xl font-bold p-2 px-5">
+            Get Quete
+          </p>
+        </Link>
       </div>
     </header>
   );

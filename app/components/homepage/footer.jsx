@@ -4,23 +4,21 @@ function FooterSection() {
   return (
     <footer className="bg-gray-800 text-gray-300">
       <div>
-        <p className="text-white text-4xl text-center p-10">VIRTUALSEOWEB</p>
-        <p className="text-white px-[15em] py-5 text-center">
+        <p className="text-white text-4xl text-center md:p-10 p-2">VIRTUALSEOWEB</p>
+        <p className="text-white md:px-[15em] md:py-5 px-5 py-3 text-center">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias unde
           mollitia, sapiente, nisi pariatur labore nihil molestiae reiciendis,
           neque necessitatibus officiis incidunt quasi magni amet dolores? Ab
           iste eligendi autem. Eaque earum dolores explicabo, nostrum corrupti,
           aperiam suscipit amet dolore provident sequi, quod distinctio quam
-          culpa dignissimos eligendi. Atque aut ea, maxime temporibus voluptate
-          quaerat. Nostrum libero delectus dolores nobis dolore culpa dolorem
-          harum cupiditate aspernatur ad. Facilis facere delectus,
-          necessitatibus itaque inventore nam voluptas, alias aperiam, ut ea
-          amet obcaecati. Facilis, iure accusantium magni reiciendis ullam
-          incidunt asperiores voluptatibus sed expedita praesentium laborum
-          atque, omnis porro voluptates ex vel?
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias unde
+          mollitia, sapiente, nisi pariatur labore nihil molestiae reiciendis,
+          neque necessitatibus officiis incidunt quasi magni amet dolores? Ab
+          iste eligendi autem. Eaque earum dolores explicabo, nostrum corrupti,
+          aperiam suscipit amet dolore provident sequi, quod distinctio quam
         </p>
       </div>
-      <div className="container mx-auto px-6 py-8">
+      <div className="container mx-auto px-6 py-8 md:text-left text-center">
         <div className="grid grid-cols-2 md:grid-cols-5 gap-12">
           {/* Company Section */}
           <div>

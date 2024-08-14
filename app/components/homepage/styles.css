@@ -1,18 +1,3 @@
-.mySwiper {
-  width: 100%;
-  height: 60vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.mySwiper img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-  width: auto;
-  height: auto;
-}
 
 
 
@@ -24,50 +9,4 @@
 
 
 
-
-/* Services Slider Css */
-.serviceswiper {
-  height: 55vh;
-  margin-top: 10px;
-  position: relative;
-}
-
-.services-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  margin-top: 10px;
-}
-
-.services-container .text-container {
-  flex-grow: 1;
-}
-
-.services-container .swiper-buttons {
-  display: flex;
-  align-items: center;
-  gap: 50px;
-}
-
-.swiper-button-nexts,
-.swiper-button-prevs {
-  background: none;
-  color: rgb(9, 28, 196);
-  width: auto;
-  height: auto;
-  padding: 0;
-  margin: 0;
-  font-size: 1.5rem;
-  cursor: pointer;
-}
-
-
-
-/* project swiper */
-.projectswiper {
-  height: 50vh;
-  margin-top: 10px;
-  position: relative;
-}
 
