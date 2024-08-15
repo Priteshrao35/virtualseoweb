@@ -41,30 +41,6 @@ const Navbar = () => {
           )}
         </div>
 
-        <div
-          className="relative group"
-          onMouseEnter={() => handleDropdown(3)}
-          onMouseLeave={() => handleDropdown(null)}
-        >
-          <div className="text-black hover:text-blue-600 cursor-pointer flex items-center">
-            <span className="text-lg font-bold">Hiring Solution</span>
-            <FaChevronDown className="ml-2" />
-          </div>
-          {dropdown === 3 && (
-            <div className="absolute bg-white shadow-lg mt-2 rounded group-hover:block">
-              <Link href="/web1">
-                <div className="px-4 py-2 text-black hover:bg-gray-200 cursor-pointer">
-                  Web Service 1
-                </div>
-              </Link>
-              <Link href="/web2">
-                <div className="px-4 py-2 text-black hover:bg-gray-200 cursor-pointer">
-                  Web Service 2
-                </div>
-              </Link>
-            </div>
-          )}
-        </div>
 
         <div
           className="relative group"
