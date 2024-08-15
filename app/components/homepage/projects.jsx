@@ -5,7 +5,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Image } from "antd";
-import { Pagination, Navigation } from "swiper/modules";
+import { Navigation } from "swiper/modules";
 
 export default function OurProjects() {
   const [projects, setProjects] = useState([]);
@@ -19,17 +19,17 @@ export default function OurProjects() {
   }, []);
 
   return (
-    <div className="bg-slate-100 p-10 md:ml-72">
+    <div className="bg-slate-100 md:p-10 p-5 md:ml-72">
       <div className="flex flex-col md:flex-row md:items-center md:justify-between">
-        <div className="text-center md:text-left">
-          <p className="p-2 mt-10 text-xl font-bold text-black">
+        <div className="text-left">
+          <div className="p-2 md:mt-10 text-xl font-bold text-black">
             <ul className="list-disc list-inside">
               <li>Our Latest Projects</li>
             </ul>
-          </p>
-          <p className="p-5 text-4xl font-bold text-black">Case Studies</p>
+          </div>
+          <p className="md:p-5 md:text-4xl text-2xl font-bold text-black md:ml-10 ml-12">Case Studies</p>
         </div>
-        <div className="flex items-center justify-center md:justify-end mt-5 md:mt-0 gap-4">
+        <div className="flex items-center justify-end mt-5 md:mt-0 md:gap-[10em] gap-5">
           <div className="swiper-button-prevs text-blue-800 cursor-pointer text-2xl">
             Prev
           </div>
@@ -63,16 +63,15 @@ export default function OurProjects() {
             nextEl: ".swiper-button-nexts",
             prevEl: ".swiper-button-prevs",
           }}
-          modules={[Pagination, Navigation]}
+          modules={[Navigation]}
           className="h-auto mt-2 relative"
         >
           {projects.map((project) => (
             <SwiperSlide
               key={project.id}
               className="border border-black hover:border-red-600 hover:bg-gray-100 transition duration-300 flex flex-col items-center p-4 rounded-xl"
-              style={{ width: "350px", height: "500px" }} // Adjust width and height
             >
-              <div className="relative w-full md:h-[250px] h-[200px]"> {/* Fixed height for image */}
+              <div className="relative w-full md:h-[250px] h-auto">
                 <Image
                   src={project.Project_Image}
                   alt={project.Project_Name}
@@ -88,13 +87,13 @@ export default function OurProjects() {
                 }}
               />
               <div className="text-left pl-5">
-                <h3 className="text-xl font-bold text-black hover:bg-gray-200 hover:text-red-500 hover:pl-2 transition duration-300 mb-2">
+                <h3 className="text-2xl font-bold text-black hover:bg-gray-200 hover:text-red-500 hover:pl-2 transition duration-300 mb-2">
                   {project.Project_Name}
                 </h3>
-                <p className="text-black hover:bg-gray-200 hover:text-red-500 hover:pl-2 transition duration-300 mb-2">
+                <p className="text-black hover:bg-gray-200 hover:text-red-500 hover:pl-2 transition duration-300 mb-2 text-xl">
                   {project.Sort_descrition}
                 </p>
-                <p className="text-blue-500 text-left mt-2 hover:text-blue-700 transition duration-300">
+                <p className="text-blue-500 text-left mt-2 hover:text-blue-700 transition duration-300 text-2xl">
                   <a href={project.Project_url_Link} target="_blank" rel="noopener noreferrer">
                     Learn More ....................
                   </a>

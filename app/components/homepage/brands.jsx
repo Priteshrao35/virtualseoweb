@@ -28,13 +28,13 @@ function Brands() {
   }, []);
 
   return (
-    <div className="p-10 md:p-10 bg-white flex items-center justify-center">
+    <div className="w-full bg-white flex items-center justify-center px-10 md:px-[10em] py-10">
       <Swiper
         slidesPerView={1} // Show 1 item on mobile
         spaceBetween={10} // Space between slides on mobile
         breakpoints={{
           768: {
-            slidesPerView: 3, // Show 4 items on desktop and larger screens
+            slidesPerView: 4, // Show 4 items on desktop and larger screens
             spaceBetween: 10, // Space between slides on desktop
           },
         }}
@@ -46,7 +46,7 @@ function Brands() {
           disableOnInteraction: false, // Keep autoplay running after interactions
         }}
         modules={[Autoplay]}
-        className="w-full max-w-screen-2xl"
+        className="w-full"
       >
         {brands.map((brand) => (
           <SwiperSlide key={brand.id} className="flex items-center justify-center">

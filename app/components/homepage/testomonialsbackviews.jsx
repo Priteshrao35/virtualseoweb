@@ -34,7 +34,7 @@ function InfoSection() {
           </div>
         </div>
 
-        <div className="md:p-6 md:pl-40 md:mt-0 mt-[17em]">
+        <div className="md:p-6 md:pl-40 md:mt-0 mt-[20em]">
           <div className="text-container">
             <p className="text-xl font-bold text-black">
               <ul style={{ listStyleType: "disc" }}>
@@ -45,8 +45,8 @@ function InfoSection() {
               {data.Heading}
             </p>
           </div>
-          <p className="text-black mt-4">{data.Content}</p>
-          <ul className="text-black mt-6 list-disc ml-4">
+          <p className="text-black mt-4 md:text-xl">{data.Content}</p>
+          <ul className="text-black mt-6 list-disc ml-4 md:text-xl">
             <li>{data.Important_Topic_1}</li>
             <li>{data.Important_Topic_2}</li>
             <li>{data.Important_Topic_3}</li>

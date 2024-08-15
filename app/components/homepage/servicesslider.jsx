@@ -30,22 +30,22 @@ export default function ServicesSliderSection() {
 
   return (
     <div className="bg-gray-200 p-5 md:p-10">
-      <div className="flex flex-col md:flex-row items-center justify-between w-full mt-2">
-        <div className="flex-grow md:ml-72 text-center md:text-left">
-          <p className="p-2 md:mt-10 text-xl font-bold text-black">
+      <div className="flex flex-col md:flex-row md:items-center justify-between w-full mt-2">
+        <div className="flex-grow md:ml-72 text-left">
+          <div className="p-2 md:mt-10 text-xl font-bold text-black">
             <ul className="list-disc">
               <li>Our Services and Solutions</li>
             </ul>
-          </p>
+          </div>
           <p className="md:p-10 p-2 md:text-4xl text-2xl font-bold text-black">
             Technological Applications
           </p>
         </div>
-        <div className="flex items-center gap-40 md:gap-12 mt-5 md:mt-0 mr-0 md:mr-10">
-          <div className="bg-none text-blue-800 text-xl md:text-2xl cursor-pointer swiper-button-prevs">
+        <div className="flex items-center justify-end mt-5 md:mt-0 md:gap-[10em] gap-5">
+          <div className="swiper-button-prevs text-blue-800 cursor-pointer text-2xl">
             Prev
           </div>
-          <div className="bg-none text-blue-800 text-xl md:text-2xl cursor-pointer swiper-button-nexts">
+          <div className="swiper-button-nexts text-blue-800 cursor-pointer text-2xl">
             Next
           </div>
         </div>
@@ -76,7 +76,7 @@ export default function ServicesSliderSection() {
             prevEl: ".swiper-button-prevs",
           }}
           modules={[ Navigation]}
-          className="h-[55vh] mt-2 relative"
+          className="h-auto mt-2 relative"
         >
           {services.map((service) => (
             <SwiperSlide

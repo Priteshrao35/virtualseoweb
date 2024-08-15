@@ -5,8 +5,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Image } from "antd";
-import "./styles.css";
-import { Pagination, Navigation } from "swiper/modules";
+import { Navigation } from "swiper/modules";
 
 export default function LatestBlog() {
   const [blogs, setBlogs] = useState([]);
@@ -20,25 +19,43 @@ export default function LatestBlog() {
   }, []);
 
   return (
-    <div className="bg-blue-50 p-10">
-      <div className="services-container">
-        <div className="text-container md:ml-72">
-          <p className="p-2 mt-10 text-xl font-bold text-black ml-10">
-            <ul style={{ listStyleType: "disc" }}>
-              <li> Our Latest Blogs</li>
+    <div className="bg-slate-100 md:p-10 p-5 md:ml-72">
+      <div className="flex flex-col md:flex-row md:items-center md:justify-between">
+        <div className="text-left">
+          <div className="p-2 md:mt-10 text-xl font-bold text-black">
+            <ul className="list-disc list-inside">
+              <li>Our Latest Blogs</li>
             </ul>
-          </p>
-          <p className="p-5 text-4xl font-bold text-black ml-10"> Latest Thinking</p>
+          </div>
+          <p className="md:p-5 md:text-4xl text-2xl font-bold text-black md:ml-10 ml-12">Latest Thinking</p>
         </div>
-        <div className="swiper-buttons mr-10">
-          <div className="swiper-button-prevs">Prev</div>
-          <div className="swiper-button-nexts">Next</div>
+        <div className="flex items-center justify-end mt-5 md:mt-0 md:gap-[10em] gap-5">
+          <div className="swiper-button-prevs text-blue-800 cursor-pointer text-2xl">
+            Prev
+          </div>
+          <div className="swiper-button-nexts text-blue-800 cursor-pointer text-2xl">
+            Next
+          </div>
         </div>
       </div>
-      <div className="md:pl-72">
+      <div className="mt-2">
         <Swiper
-          slidesPerView={4}
-          spaceBetween={30}
+          slidesPerView={1} // Show 1 item on mobile
+          spaceBetween={10} // Space between slides on mobile
+          breakpoints={{
+            640: {
+              slidesPerView: 1, // Show 1 item on small screens
+              spaceBetween: 20,
+            },
+            767: {
+              slidesPerView: 2, // Show 2 items on medium screens
+              spaceBetween: 30,
+            },
+            1024: {
+              slidesPerView: 4, // Show 4 items on larger screens
+              spaceBetween: 20,
+            },
+          }}
           pagination={{
             clickable: true,
           }}
@@ -46,39 +63,37 @@ export default function LatestBlog() {
             nextEl: ".swiper-button-nexts",
             prevEl: ".swiper-button-prevs",
           }}
-          modules={[Pagination, Navigation]}
-          className="projectswiper"
+          modules={[Navigation]}
+          className="h-auto mt-2 relative"
         >
           {blogs.map((blog) => (
             <SwiperSlide
               key={blog.id}
               className="border border-black hover:border-red-600 hover:bg-gray-100 transition duration-300 flex flex-col items-center p-4 rounded-xl"
             >
-              <Image
-                className="w-full"
-                src={blog.Blog_Image}
-                alt={blog.Blog_Name}
-                layout="responsive"
-                preview={false}
-                width={350}
-                height={200}
-              />
+              <div className="relative w-full h-auto">
+                <Image
+                  src={blog.Blog_Image}
+                  alt={blog.Blog_Name}
+                  className="object-cover w-full h-full rounded-lg"
+                  preview={false}
+                />
+              </div>
               <hr
                 style={{
                   width: "100%",
-                  margin: "20px auto",
+                  margin: "10px auto",
                   borderColor: "red",
                 }}
               />
               <div className="text-left pl-5">
-                <h3 className="text-xl font-bold text-black hover:bg-gray-200 hover:text-red-500 hover:pl-2 transition duration-300 mb-2">
+                <h3 className="text-2xl font-bold text-black hover:bg-gray-200 hover:text-red-500 hover:pl-2 transition duration-300 mb-2">
                   {blog.Blog_Name}
                 </h3>
-
-                <p className="text-black hover:bg-gray-200 hover:text-red-500 hover:pl-2 transition duration-300 mb-2">
+                <p className="text-black hover:bg-gray-200 hover:text-red-500 hover:pl-2 transition duration-300 mb-2 text-xl">
                   {blog.Sort_descrition}
                 </p>
-                <p className="text-blue-500 text-left mt-5 hover:text-blue-700 transition duration-300">
+                <p className="text-blue-500 text-left mt-2 hover:text-blue-700 transition duration-300 text-2xl">
                   <a href={blog.Blog_URL} target="_blank" rel="noopener noreferrer">
                     Learn More ....................
                   </a>

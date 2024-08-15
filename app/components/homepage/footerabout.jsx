@@ -16,7 +16,7 @@ function AboutSection() {
   if (!data) return <p>Loading...</p>; // Show loading state while data is being fetched
 
   return (
-    <div className="px-0 bg-white">
+    <div className="p-1 bg-white">
       <div className="relative flex flex-col md:flex-row gap-0 items-stretch p-0 bg-white">
         {/* Image Section */}
         <div className="relative flex justify-center flex-1">
@@ -30,9 +30,9 @@ function AboutSection() {
         </div>
 
         {/* Cards Section */}
-        <div className="flex flex-col md:grid md:grid-cols-2 gap-0 p-0 flex-1">
+        <div className="flex-col grid grid-cols-2 gap-0 p-0 flex-1">
           {/* Card 1 */}
-          <div className="bg-black p-14 shadow-lg flex flex-col items-center text-center w-full h-[360px]">
+          <div className="bg-black p-14 shadow-lg flex flex-col items-center text-center w-full">
             <Image
               src={data.Card1_Image} // Use the image URL from the API
               alt="Icon 1"
@@ -44,7 +44,7 @@ function AboutSection() {
             <p className="text-white">{data.Card1_Description}</p>
           </div>
           {/* Card 2 */}
-          <div className="bg-gray-800 p-14 shadow-lg flex flex-col items-center text-center w-full h-[360px]">
+          <div className="bg-gray-800 p-14 shadow-lg flex flex-col items-center text-center w-full">
             <Image
               src={data.Card2_Image} // Use the image URL from the API
               alt="Icon 2"
@@ -56,7 +56,7 @@ function AboutSection() {
             <p className="text-white">{data.Card2_Description}</p>
           </div>
           {/* Card 3 */}
-          <div className="bg-gray-800 p-14 shadow-lg flex flex-col items-center text-center w-full h-[355px]">
+          <div className="bg-gray-800 p-14 shadow-lg flex flex-col items-center text-center w-full">
             <Image
               src={data.Card3_Image} // Use the image URL from the API
               alt="Icon 3"
@@ -68,7 +68,7 @@ function AboutSection() {
             <p className="text-white">{data.Card3_Description}</p>
           </div>
           {/* Card 4 */}
-          <div className="bg-black p-14 shadow-lg flex flex-col items-center text-center w-full h-[355px]">
+          <div className="bg-black p-14 shadow-lg flex flex-col items-center text-center w-full">
             <Image
               src={data.Card4_Image} // Use the image URL from the API
               alt="Icon 4"

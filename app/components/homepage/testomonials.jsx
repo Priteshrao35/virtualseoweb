@@ -3,7 +3,6 @@ import React, { useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
-import "./styles.css";
 import { Pagination, Autoplay } from "swiper/modules";
 
 function truncateText(text, wordLimit) {
@@ -35,7 +34,7 @@ function Testomonialsbackviews() {
   }, []);
 
   return (
-    <div className="absolute md:bottom-[20%] md:right-[-20%] right-[-2em] md:w-[25em] w-[28em] h-auto bg-white text-white md:p-4 rounded-lg shadow-lg">
+    <div className="absolute md:bottom-[20%] md:right-[-20%] right-[-1em] md:w-[30em] w-[26em] h-auto bg-white text-white md:p-4 rounded-lg shadow-lg">
       <Swiper
         slidesPerView={1} // Show one slide at a time
         spaceBetween={10}
@@ -78,7 +77,7 @@ function Testomonialsbackviews() {
               </span>
             </div>
             <p className="text-black pb-7">
-              {truncateText(review.description, 50)}
+              {truncateText(review.description, 15)}
               <span className="text-blue-500 cursor-pointer ml-1">
                 See more
               </span>

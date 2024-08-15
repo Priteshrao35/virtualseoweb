@@ -1,31 +1,53 @@
-import React from "react";
+'use client'
+import React, { useState, useEffect } from "react";
 
 function FooterSection() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768); 
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  const fullText = `
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias unde
+    mollitia, sapiente, nisi pariatur labore nihil molestiae reiciendis,
+    neque necessitatibus officiis incidunt quasi magni amet dolores? Ab
+    iste eligendi autem. Eaque earum dolores explicabo, nostrum corrupti,
+    aperiam suscipit amet dolore provident sequi, quod distinctio quam
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias unde
+    mollitia, sapiente, nisi pariatur labore nihil molestiae reiciendis,
+    neque necessitatibus officiis incidunt quasi magni amet dolores? Ab
+    iste eligendi autem. Eaque earum dolores explicabo, nostrum corrupti,
+    aperiam suscipit amet dolore provident sequi, quod distinctio quam
+  `;
+
+  const mobileText = fullText.split(" ").slice(0, 30).join(" ") + "...";
+
   return (
     <footer className="bg-gray-800 text-gray-300">
       <div>
-        <p className="text-white text-4xl text-center md:p-10 p-2">VIRTUALSEOWEB</p>
-        <p className="text-white md:px-[15em] md:py-5 px-5 py-3 text-center">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias unde
-          mollitia, sapiente, nisi pariatur labore nihil molestiae reiciendis,
-          neque necessitatibus officiis incidunt quasi magni amet dolores? Ab
-          iste eligendi autem. Eaque earum dolores explicabo, nostrum corrupti,
-          aperiam suscipit amet dolore provident sequi, quod distinctio quam
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias unde
-          mollitia, sapiente, nisi pariatur labore nihil molestiae reiciendis,
-          neque necessitatibus officiis incidunt quasi magni amet dolores? Ab
-          iste eligendi autem. Eaque earum dolores explicabo, nostrum corrupti,
-          aperiam suscipit amet dolore provident sequi, quod distinctio quam
+        <p className="text-white text-4xl text-center md:p-10 p-2 mt-10">VIRTUALSEOWEB</p>
+        <p className="text-white md:px-[15em] md:py-5 px-5 py-3">
+          {isMobile ? mobileText : fullText}
         </p>
       </div>
-      <div className="container mx-auto px-6 py-8 md:text-left text-center">
+      <div className="container mx-auto px-6 py-8">
         <div className="grid grid-cols-2 md:grid-cols-5 gap-12">
           {/* Company Section */}
           <div>
             <h2 className="text-lg font-semibold text-white mb-6 uppercase">
               Company
             </h2>
-            <ul className="space-y-4">
+            <ul className="space-y-2">
               <li>
                 <a href="#" className="hover:text-gray-400">
                   About
@@ -54,7 +76,7 @@ function FooterSection() {
             <h2 className="text-lg font-semibold text-white mb-6 uppercase">
               Help Center
             </h2>
-            <ul className="space-y-4">
+            <ul className="space-y-2">
               <li>
                 <a href="#" className="hover:text-gray-400">
                   Discord Server
@@ -83,7 +105,7 @@ function FooterSection() {
             <h2 className="text-lg font-semibold text-white mb-6 uppercase">
               Legal
             </h2>
-            <ul className="space-y-4">
+            <ul className="space-y-2">
               <li>
                 <a href="#" className="hover:text-gray-400">
                   Privacy Policy
@@ -107,7 +129,7 @@ function FooterSection() {
             <h2 className="text-lg font-semibold text-white mb-6 uppercase">
               Download
             </h2>
-            <ul className="space-y-4">
+            <ul className="space-y-2">
               <li>
                 <a href="#" className="hover:text-gray-400">
                   iOS
