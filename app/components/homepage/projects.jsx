@@ -5,7 +5,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Image } from "antd";
-import { Navigation } from "swiper/modules";
+import { Autoplay, Navigation } from "swiper/modules";
 
 export default function OurProjects() {
   const [projects, setProjects] = useState([]);
@@ -40,19 +40,23 @@ export default function OurProjects() {
       </div>
       <div className="mt-2">
         <Swiper
-          slidesPerView={1} // Show 1 item on mobile
-          spaceBetween={10} // Space between slides on mobile
+          slidesPerView={1} 
+          spaceBetween={10} 
+          autoplay={{
+            delay: 5000,
+            disableOnInteraction: false,
+          }}
           breakpoints={{
             640: {
-              slidesPerView: 1, // Show 1 item on small screens
+              slidesPerView: 1,
               spaceBetween: 20,
             },
             767: {
-              slidesPerView: 2, // Show 2 items on medium screens
+              slidesPerView: 2,
               spaceBetween: 30,
             },
             1024: {
-              slidesPerView: 4, // Show 4 items on larger screens
+              slidesPerView: 4,
               spaceBetween: 20,
             },
           }}
@@ -63,7 +67,7 @@ export default function OurProjects() {
             nextEl: ".swiper-button-nexts",
             prevEl: ".swiper-button-prevs",
           }}
-          modules={[Navigation]}
+          modules={[Autoplay, Navigation]}
           className="h-auto mt-2 relative"
         >
           {projects.map((project) => (

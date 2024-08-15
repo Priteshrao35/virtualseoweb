@@ -50,7 +50,7 @@ function Brands() {
       >
         {brands.map((brand) => (
           <SwiperSlide key={brand.id} className="flex items-center justify-center">
-            <div className="flex items-center gap-2 text-black text-xl md:text-3xl font-bold">
+            <div className="flex items-center gap-2 text-black text-xl md:text-2xl font-bold">
               <img
                 src={brand.Brand_Logo}
                 alt={brand.Brand_Name}

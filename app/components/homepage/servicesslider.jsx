@@ -9,7 +9,7 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "swiper/css/scrollbar";
 
-import { Navigation } from "swiper/modules";
+import { Autoplay, Navigation } from "swiper/modules";
 
 export default function ServicesSliderSection() {
   const [services, setServices] = useState([]);
@@ -54,6 +54,10 @@ export default function ServicesSliderSection() {
         <Swiper
           slidesPerView={1}
           spaceBetween={10}
+          autoplay={{
+            delay: 5000,
+            disableOnInteraction: false,
+          }}
           breakpoints={{
             640: {
               slidesPerView: 2,
@@ -75,7 +79,7 @@ export default function ServicesSliderSection() {
             nextEl: ".swiper-button-nexts",
             prevEl: ".swiper-button-prevs",
           }}
-          modules={[ Navigation]}
+          modules={[ Autoplay, Navigation]}
           className="h-auto mt-2 relative"
         >
           {services.map((service) => (

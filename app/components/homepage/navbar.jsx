@@ -98,7 +98,7 @@ const Navbar = () => {
           onMouseLeave={() => handleDropdown(null)}
         >
           <div className="text-black hover:text-blue-600 cursor-pointer flex items-center">
-            <span className="text-lg font-bold">Hiring Solution</span>
+            <span className="text-lg font-bold">Hiring Solutions</span>
             <FaChevronDown className="ml-2" />
           </div>
           {dropdown === 3 && (
