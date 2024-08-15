@@ -28,7 +28,9 @@ function FooterSection() {
     neque necessitatibus officiis incidunt quasi magni amet dolores? Ab
     iste eligendi autem. Eaque earum dolores explicabo, nostrum corrupti,
     aperiam suscipit amet dolore provident sequi, quod distinctio quam
-  `;
+     neque necessitatibus officiis incidunt quasi magni amet dolores? Ab
+    iste eligendi autem. Eaque earum dolores explicabo, nostrum corrupti,
+    aperiam suscipit amet dolore provident`;
 
   const mobileText = fullText.split(" ").slice(0, 30).join(" ") + "...";
 
@@ -36,7 +38,7 @@ function FooterSection() {
     <footer className="bg-gray-800 text-gray-300">
       <div>
         <p className="text-white text-4xl text-center md:p-10 p-2 mt-10">VIRTUALSEOWEB</p>
-        <p className="text-white md:px-[15em] md:py-5 px-5 py-3">
+        <p className="text-white md:px-[5em] md:py-5 px-5 py-3 md:text-center md:text-xl">
           {isMobile ? mobileText : fullText}
         </p>
       </div>
@@ -204,7 +206,7 @@ function FooterSection() {
         </div>
       </div>
       <div className="bg-gray-700 text-center py-4">
-        <p className="text-gray-300 text-sm">
+        <p className="text-gray-300 text-xl">
           © 2024 virtualseoweb. All rights reserved.
         </p>
       </div>
