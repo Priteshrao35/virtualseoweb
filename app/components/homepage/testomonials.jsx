@@ -35,7 +35,7 @@ function Testomonialsbackviews() {
   }, []);
 
   return (
-    <div className="absolute bottom-[20%] right-[-20%] w-72 h-auto bg-white text-white p-4 rounded-lg shadow-lg">
+    <div className="absolute md:bottom-[20%] md:right-[-20%] right-[-2em] md:w-[25em] w-[28em] h-auto bg-white text-white md:p-4 rounded-lg shadow-lg">
       <Swiper
         slidesPerView={1} // Show one slide at a time
         spaceBetween={10}

@@ -120,27 +120,27 @@ const Navbar = () => {
 
         {/* Right Side: Links */}
         <Link href="/about">
-          <div className="text-black hover:text-blue-600 cursor-pointer font-bold">
+          <div className="text-black hover:text-blue-600 cursor-pointer font-bold text-xl">
             Portfolio
           </div>
         </Link>
         <Link href="/services">
-          <div className="text-black hover:text-blue-600 cursor-pointer font-bold">
+          <div className="text-black hover:text-blue-600 cursor-pointer font-bold text-xl">
             Blogs
           </div>
         </Link>
         <Link href="/contact">
-          <div className="text-black hover:text-blue-600 cursor-pointer font-bold">
+          <div className="text-black hover:text-blue-600 cursor-pointer font-bold text-xl">
             About Us
           </div>
         </Link>
         <Link href="/about">
-          <div className="text-black hover:text-blue-600 cursor-pointer font-bold">
+          <div className="text-black hover:text-blue-600 cursor-pointer font-bold text-xl">
             Careers
           </div>
         </Link>
         <Link href="/contact">
-          <div className="text-black hover:text-blue-600 cursor-pointer font-bold">
+          <div className="text-black hover:text-blue-600 cursor-pointer font-bold text-xl">
             Contacts
           </div>
         </Link>

@@ -52,8 +52,8 @@ const Header = () => {
                 alt="logo"
                 layout="responsive"
                 preview={false}
-                width={180}
-                height={30}
+                width={200}
+                height={70}
               />
             </div>
           </Link>
@@ -111,25 +111,25 @@ const Header = () => {
           <Link href="https://www.facebook.com/Virtualseowebsoftware/about">
             <FaFacebook
               className="text-blue-500 hover:text-blue-600 cursor-pointer"
-              size={24}
+              size={30}
             />
           </Link>
           <Link href="#">
             <FaXTwitter
               className="text-black hover:text-blue-400 cursor-pointer"
-              size={24}
+              size={30}
             />
           </Link>
           <Link href="#">
             <FaInstagram
               className="text-orange-900 hover:text-pink-600 cursor-pointer"
-              size={24}
+              size={30}
             />
           </Link>
           <Link href="https://www.facebook.com/Virtualseowebsoftware/about">
             <FaLinkedin
               className="text-blue-700 hover:text-blue-700 cursor-pointer"
-              size={24}
+              size={30}
             />
           </Link>
         </div>

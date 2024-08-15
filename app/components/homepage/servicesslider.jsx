@@ -86,11 +86,11 @@ export default function ServicesSliderSection() {
               <p className="text-black mt-10 text-2xl font-bold hover:text-red-600">
                 {service.Service_Name}
               </p>
-              <p className="text-black mt-7 pl-5 text-center hover:text-red-600">
+              <p className="text-black mt-7 pl-5 text-center hover:text-red-600 text-xl">
                 {service.Sort_descrition}
               </p>
               <hr className="w-4/5 mx-auto border-red-600 mt-7" />
-              <ul className="text-black text-left pl-5 mt-7 gap-5 list-disc">
+              <ul className="text-black text-left pl-5 mt-7 gap-5 list-disc text-xl">
                 {service.Services_Main_Points_1 && (
                   <li className="p-3 hover:bg-gray-200 hover:pl-5 transition duration-300">
                     {service.Services_Main_Points_1}
@@ -117,8 +117,8 @@ export default function ServicesSliderSection() {
                   </li>
                 )}
               </ul>
-              <p className="text-blue-500 text-left pl-16 mt-5 hover:text-blue-700 transition duration-300">
-                Learn More ....................
+              <p className="text-blue-500 pl-16 mt-5 hover:text-blue-700 transition duration-300 text-2xl">
+                Learn More ...
               </p>
             </SwiperSlide>
           ))}
