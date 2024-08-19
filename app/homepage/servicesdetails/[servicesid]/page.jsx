@@ -1,11 +1,16 @@
-"use client";
-import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
-import axios from "axios";
-import Navbar from "../../navbar";
-import Header from "../../header";
-import OurTeam from "../../ourteam";
-import FooterSection from "../../footer";
+'use client';
+import { useRouter } from 'next/navigation';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+import Navbar from '../../navbar';
+import Header from '../../header';
+import OurTeam from '../../ourteam';
+import FooterSection from '../../footer';
+
+// Function to create a slug from a name
+const createSlug = (name) => {
+  return name.toLowerCase().replace(/ /g, '-').replace(/[^\w-]+/g, '');
+};
 
 const ServiceDetailsPage = ({ params }) => {
   const { servicesid } = params;
@@ -14,13 +19,19 @@ const ServiceDetailsPage = ({ params }) => {
 
   useEffect(() => {
     axios
-      .get(`https://virtualseoweb.pythonanywhere.com/menu-items/${servicesid}/`)
+      .get('https://virtualseoweb.pythonanywhere.com/menu-items/')
       .then((response) => {
-        setService(response.data);
+        const data = response.data;
+        const service = data.find(
+          (item) => createSlug(item.name) === servicesid
+        );
+        if (service) {
+          setService(service);
+        }
         setLoading(false);
       })
       .catch((error) => {
-        console.error("Error fetching service details:", error);
+        console.error('Error fetching service details:', error);
         setLoading(false);
       });
   }, [servicesid]);
@@ -34,16 +45,10 @@ const ServiceDetailsPage = ({ params }) => {
   }
 
   return (
-    <div className="bg-white">
+    <div className="bg-gray-100">
       <Header />
       <hr />
       <Navbar />
-
-      <div className="bg-gradient-to-t from-orange-50 to-slate-50 h-[20vh] flex items-center justify-center">
-        <p className="text-black px-[10em] pt-10 text-center">
-          {service.Content || "Content not available"}
-        </p>
-      </div>
 
       <div className="container mx-auto p-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-40">

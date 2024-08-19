@@ -5,6 +5,11 @@ import axios from 'axios';
 import { Space, Dropdown, Spin } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
 
+// Function to create a slug from a name
+const createSlug = (name) => {
+  return name.toLowerCase().replace(/ /g, '-').replace(/[^\w-]+/g, '');
+};
+
 const Navbar = () => {
   const [menuData, setMenuData] = useState({});
   const [loading, setLoading] = useState(true);
@@ -18,12 +23,13 @@ const Navbar = () => {
           if (!acc[item.category]) {
             acc[item.category] = [];
           }
+          const slug = createSlug(item.name);
           acc[item.category].push({
             key: item.id,
             label: (
               <a href="#" onClick={(e) => {
                 e.preventDefault();
-                router.push(`/homepage/servicesdetails/${item.id}`);
+                router.push(`/homepage/servicesdetails/${slug}`);
               }}>
                 {item.name}
               </a>
