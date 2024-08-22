@@ -119,7 +119,6 @@ const ServiceDetailsPage = ({ params }) => {
 
       <Image
         src={service.Service_Image}
-        alt={service.name}
         className="w-full h-auto object-cover"
         preview={false}
       />
