@@ -1,10 +1,13 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import Navbar from "../../navbar";
 import Header from "../../header";
 import FooterSection from "../../footer";
-import { Image } from "antd";
+import { Image, Collapse } from "antd";
+import { CaretDownOutlined } from "@ant-design/icons";
+
+const { Panel } = Collapse;
 
 const createSlug = (name) => {
   return name
@@ -14,6 +17,35 @@ const createSlug = (name) => {
 };
 
 const ServiceDetailsPage = ({ params }) => {
+  const [activeStep, setActiveStep] = useState(0);
+  const stepsRef = useRef([]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const stepElements = stepsRef.current;
+      const scrollPosition = window.scrollY + window.innerHeight / 2; // Center of the viewport
+
+      let newActiveStep = activeStep; // Default to current active step
+      for (let i = 0; i < stepElements.length; i++) {
+        const stepElement = stepElements[i];
+        const rect = stepElement.getBoundingClientRect();
+        const elementTop = rect.top + window.scrollY;
+        const elementBottom = rect.bottom + window.scrollY;
+
+        if (scrollPosition > elementTop && scrollPosition < elementBottom) {
+          newActiveStep = i;
+          break;
+        }
+      }
+      if (newActiveStep !== activeStep) {
+        setActiveStep(newActiveStep);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [activeStep]);
+
   const { servicesid } = params;
   const [service, setService] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -355,6 +387,229 @@ const ServiceDetailsPage = ({ params }) => {
         </div>
       </div>
       {/* List of the SEO Services We Offer */}
+
+      {/* How We Work With You Every Step of The Way! */}
+      <div className="px-[25em] py-8 mt-10">
+        <h1 className="text-6xl font-bold text-center mb-8 mt-10 px-40 text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-500 leading-normal">
+          {service.How_We_Work_Step_Title}
+        </h1>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-20">
+          {/* Left Column - Titles */}
+          <ul className="space-y-4">
+            {service.How_We_Work_Step.map((step, index) => (
+              <li
+                key={index}
+                ref={(el) => (stepsRef.current[index] = el)}
+                className={`font-bold text-xl ${
+                  activeStep === index ? "text-orange-500" : ""
+                }`}
+              >
+                {step.How_We_Work_Step_Title}
+              </li>
+            ))}
+          </ul>
+
+          {/* Right Column - Details */}
+          <div>
+            {service.How_We_Work_Step[activeStep] && (
+              <div className="flex flex-col items-center">
+                <img
+                  src={
+                    service.How_We_Work_Step[activeStep]
+                      .How_We_Work_Step_image_icon
+                  } // Fixed this line
+                  className="w-24 h-24 object-cover mb-2 rounded-full"
+                  alt={
+                    service.How_We_Work_Step[activeStep].How_We_Work_Step_Title
+                  } // Adding alt attribute for accessibility
+                />
+                <p className="text-center font-bold mb-2">
+                  {service.How_We_Work_Step[activeStep].How_We_Work_Step_Title}
+                </p>
+                <p className="text-center px-14">
+                  {
+                    service.How_We_Work_Step[activeStep]
+                      .How_We_Work_Step_short_description
+                  }
+                </p>
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+      {/* How We Work With You Every Step of The Way! */}
+      {/* Industries We’ve Delivered Results In */}
+      <div className="px-[15em] py-8 mt-10">
+        <h1 className="text-6xl font-bold text-center mb-8 mt-10 px-40 text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-500 leading-normal">
+          {service.Industries_We_Delivered_Results_Heading}
+        </h1>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6 mt-20">
+          {service.Industries_We_Delivered_Results.map((serviceItem, index) => (
+            <div
+              key={index}
+              className="flex flex-col items-center p-6 rounded-lg bg-gradient-to-r from-red-500 via-orange-500 to-yellow-500 hover:from-yellow-500 hover:via-red-500 hover:to-orange-500 transition-all duration-300 shadow-lg"
+            >
+              <p className="text-center font-bold text-white">
+                {serviceItem.Industries_We_Delivered_Results_name}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+      {/* Industries We’ve Delivered Results In */}
+
+      {/* FAQ */}
+      <div className="px-[25em] py-8 mt-10">
+        <h1 className="text-6xl font-bold text-center mb-8 mt-10 px-40 text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-500 leading-normal">
+          Frequently Asked Questions
+        </h1>
+
+        <div className="flex flex-col md:flex-row gap-6 mt-20">
+          {/* FAQ Section */}
+          <div className="p-6 flex-1 min-h-[300px]">
+            <Collapse
+              bordered={false}
+              defaultActiveKey={["0"]}
+              expandIcon={({ isActive }) => (
+                <CaretDownOutlined
+                  className={`${isActive ? "rotate-180" : "rotate-0"}`}
+                />
+              )}
+              expandIconPosition="right" // Ensure the icon is on the right
+              className="bg-transparent" // Ensure no background color for Collapse
+            >
+              {service.FAQ.map((serviceItem, index) => (
+                <Panel
+                  header={
+                    <div className="flex items-center justify-between w-full">
+                      <span>{serviceItem.FAQ_heading}</span>
+                      {/* Optional: You can add additional elements here if needed */}
+                    </div>
+                  }
+                  key={index.toString()}
+                  className="bg-transparent" // Ensure no background color for Panel
+                >
+                  <p className="px-6 py-4 text-black">
+                    {serviceItem.FAQ_content}
+                  </p>
+                </Panel>
+              ))}
+            </Collapse>
+          </div>
+
+          {/* Consultation Form */}
+          <div className="md:w-[500px] lg:w-[400px] xl:w-[500px] h-[500px]">
+            <h2 className="text-xl font-semibold mb-3">Send your Query</h2>
+            <form onSubmit={handleSubmit}>
+              <div className="mb-5">
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleInputChange}
+                  required
+                  placeholder="Name"
+                  className={`mt-1 block w-full px-2 py-2 border ${
+                    errors.name ? "border-red-500" : "border-gray-300"
+                  } rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm`}
+                />
+                {errors.name && (
+                  <p className="text-red-600 text-sm">{errors.name}</p>
+                )}
+              </div>
+              <div className="mb-5">
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  required
+                  placeholder="Email"
+                  className={`mt-1 block w-full px-2 py-2 border ${
+                    errors.email ? "border-red-500" : "border-gray-300"
+                  } rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm`}
+                />
+                {errors.email && (
+                  <p className="text-red-600 text-sm">{errors.email}</p>
+                )}
+              </div>
+              <div className="mb-5">
+                <input
+                  type="text"
+                  id="subject"
+                  name="subject"
+                  value={formData.subject}
+                  onChange={handleInputChange}
+                  required
+                  placeholder="Subject"
+                  className={`mt-1 block w-full px-2 py-1 border ${
+                    errors.subject ? "border-red-500" : "border-gray-300"
+                  } rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm`}
+                />
+                {errors.subject && (
+                  <p className="text-red-600 text-sm">{errors.subject}</p>
+                )}
+              </div>
+              <div className="mb-5">
+                <input
+                  type="text"
+                  id="mobile"
+                  name="mobile"
+                  value={formData.mobile}
+                  onChange={handleInputChange}
+                  required
+                  placeholder="Mobile"
+                  className={`mt-1 block w-full px-2 py-2 border ${
+                    errors.mobile ? "border-red-500" : "border-gray-300"
+                  } rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm`}
+                />
+                {errors.mobile && (
+                  <p className="text-red-600 text-sm">{errors.mobile}</p>
+                )}
+              </div>
+              <div className="mb-5">
+                <textarea
+                  id="message"
+                  name="message"
+                  value={formData.message}
+                  onChange={handleInputChange}
+                  required
+                  placeholder="Message"
+                  className={`mt-1 block w-full px-2 py-2 border ${
+                    errors.message ? "border-red-500" : "border-gray-300"
+                  } rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm`}
+                  style={{ minHeight: "80px" }}
+                />
+                {errors.message && (
+                  <p className="text-red-600 text-sm">{errors.message}</p>
+                )}
+              </div>
+              <button
+                type="submit"
+                className="w-full bg-indigo-600 text-white py-2 px-4 border border-transparent rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+              >
+                Send
+              </button>
+            </form>
+            {formStatus && (
+              <p
+                className={`mt-4 text-sm ${
+                  formStatus.includes("successfully")
+                    ? "text-green-600"
+                    : "text-red-600"
+                }`}
+              >
+                {formStatus}
+              </p>
+            )}
+          </div>
+        </div>
+      </div>
+      {/* FAQ */}
 
       <FooterSection />
     </div>
