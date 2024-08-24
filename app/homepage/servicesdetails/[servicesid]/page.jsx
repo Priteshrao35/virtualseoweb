@@ -118,7 +118,7 @@ const ServiceDetailsPage = ({ params }) => {
       <Navbar />
 
       <Image
-        src={service.Service_Image}
+        src={service.service_Banner}
         className="w-full h-auto object-cover"
         preview={false}
       />
@@ -128,7 +128,7 @@ const ServiceDetailsPage = ({ params }) => {
           {/* Content Section */}
           <div className="p-6 rounded-lg max-w-full col-span-2">
             <h2 className="text-2xl font-semibold mb-4">{service.name}</h2>
-            <p>{service.Content}</p>
+            <p>{service.content}</p>
           </div>
 
           {/* Form Section */}
@@ -243,6 +243,119 @@ const ServiceDetailsPage = ({ params }) => {
           </div>
         </div>
       </div>
+
+      {/* Why Hire Seo Agency Section */}
+      <div className="px-[20em] py-8 mt-10">
+        <h1 className="text-6xl font-bold text-center mb-8 mt-10 px-40 text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-500 leading-normal">
+          {service.why_need_agency_heading}
+        </h1>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-20">
+          {service.Why_Hire_Agency.map((agency, index) => (
+            <div key={index} className="flex flex-col items-center">
+              <img
+                src={agency.Why_Hire_Agency_image_icon}
+                className="w-24 h-24 object-cover mb-2 rounded-full"
+              />
+              <p className="text-center font-bold">
+                {agency.Why_Hire_Agency_title}
+              </p>
+              <p className="text-center px-14">
+                {agency.Why_Hire_Agency_description}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+      {/* Why Hire Seo Agency Section */}
+
+      {/* Why Do You Need A SEO Agency */}
+      <div className="px-[20em] py-8 mt-10">
+        <h1 className="text-6xl font-bold text-center mb-8 mt-5 px-40 text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-500 leading-normal">
+          {service.why_need_agency_heading}
+        </h1>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="flex flex-col justify-center px-4">
+            <p className="">{service.why_need_agency_description}</p>
+          </div>
+
+          <div className="flex items-center justify-center">
+            <img
+              src={service.why_need_agency_image}
+              className="w-full h-auto"
+            />
+          </div>
+        </div>
+      </div>
+      {/* Why Do You Need A SEO Agency */}
+
+      {/* Services_Better_Than_Others */}
+      <div className="px-[20em] py-8 mt-10">
+        <h1 className="text-6xl font-bold text-center mb-8 mt-5 px-40 text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-500 leading-normal">
+          {service.Services_Better_Than_Others_heading}
+        </h1>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="flex items-center justify-center">
+            <img
+              src={service.Services_Better_Than_Others_image}
+              className="w-full h-auto"
+            />
+          </div>
+          <div className="flex flex-col justify-center px-4">
+            <p className="">
+              {service.Services_Better_Than_Others_description}
+            </p>
+          </div>
+        </div>
+      </div>
+      {/* Services_Better_Than_Others */}
+
+      {/* Why Do You Need A SEO Agency */}
+      <div className="px-[20em] py-8 mt-10">
+        <h1 className="text-6xl font-bold text-center mb-8 mt-5 px-40 text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-500 leading-normal">
+          {service.why_choose_us_heading}
+        </h1>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="flex flex-col justify-center px-4">
+            <p className="">{service.why_choose_us_description}</p>
+          </div>
+
+          <div className="flex items-center justify-center">
+            <img src={service.why_choose_us_image} className="w-full h-auto" />
+          </div>
+        </div>
+      </div>
+      {/* Why Do You Need A SEO Agency */}
+
+      {/* List of the SEO Services We Offer */}
+      <div className="px-[25em] py-8 mt-10">
+        <h1 className="text-6xl font-bold text-center mb-8 mt-10 px-40 text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-500 leading-normal">
+          {service.why_need_agency_heading}
+        </h1>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-20">
+          {service.List_of_the_SEO_Services_We_Offer.map(
+            (serviceItem, index) => (
+              <div
+                key={index}
+                className="flex flex-col items-center bg-white p-6 rounded-lg shadow-lg"
+              >
+                <p className="text-center font-bold">
+                  {serviceItem.List_of_the_SEO_Services_We_Offer_title}
+                </p>
+                <p className="text-center px-14">
+                  {serviceItem.List_of_the_SEO_Services_We_Offer_description}
+                </p>
+              </div>
+            )
+          )}
+        </div>
+      </div>
+      {/* List of the SEO Services We Offer */}
+
       <FooterSection />
     </div>
   );
