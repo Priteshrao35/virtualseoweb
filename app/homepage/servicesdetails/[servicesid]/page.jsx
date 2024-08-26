@@ -363,7 +363,7 @@ const ServiceDetailsPage = ({ params }) => {
       {/* List of the SEO Services We Offer */}
       <div className="px-[25em] py-8 mt-10">
         <h1 className="text-6xl font-bold text-center mb-8 mt-10 px-40 text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-500 leading-normal">
-          {service.why_need_agency_heading}
+          {service.List_of_the_SEO_Services_We_Offer_Heading}
         </h1>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-20">
@@ -460,7 +460,7 @@ const ServiceDetailsPage = ({ params }) => {
 
       {/* FAQ */}
       <div className="px-[25em] py-8 mt-10">
-        <h1 className="text-6xl font-bold text-center mb-8 mt-10 px-40 text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-500 leading-normal">
+        <h1 className="text-6xl font-bold text-center mb-8 mt-10 px-20 text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-500 leading-normal">
           Frequently Asked Questions
         </h1>
 
