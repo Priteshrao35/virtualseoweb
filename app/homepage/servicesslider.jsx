@@ -10,15 +10,22 @@ import "swiper/css/navigation";
 import "swiper/css/scrollbar";
 
 import { Autoplay, Navigation } from "swiper/modules";
+import { useRouter } from 'next/navigation';
+
+// Function to create a slug from a name
+const createSlug = (name) => {
+  return name.toLowerCase().replace(/ /g, '-').replace(/[^\w-]+/g, '');
+};
 
 export default function ServicesSliderSection() {
   const [services, setServices] = useState([]);
+  const router = useRouter();
 
   useEffect(() => {
     // Fetch data from the API
     const fetchServices = async () => {
       try {
-        const response = await axios.get("https://virtualseoweb.pythonanywhere.com/ourservices/");
+        const response = await axios.get("https://virtualseoweb.pythonanywhere.com/menu-items/");
         setServices(response.data);
       } catch (error) {
         console.error("Error fetching the services data:", error);
@@ -79,49 +86,29 @@ export default function ServicesSliderSection() {
             nextEl: ".swiper-button-nexts",
             prevEl: ".swiper-button-prevs",
           }}
-          modules={[ Autoplay, Navigation]}
+          modules={[Autoplay, Navigation]}
           className="h-auto mt-2 relative"
         >
           {services.map((service) => (
             <SwiperSlide
               key={service.id}
-              className="border border-black hover:border-green-600 hover:bg-gray-100 transition duration-300 rounded-xl p-5"
+              className="border border-black hover:border-green-600 hover:bg-gray-100 transition duration-300 rounded-xl p-5 cursor-pointer"
             >
-              <p className="text-black mt-10 text-2xl font-bold hover:text-red-600">
-                {service.Service_Name}
+              <p
+                onClick={() => router.push(`/homepage/servicesdetails/${createSlug(service.name)}`)}
+                className="text-black mt-10 text-2xl font-bold hover:text-red-600 cursor-pointer"
+              >
+                {service.name}
               </p>
-              <p className="text-black mt-7 pl-5 text-center hover:text-red-600 text-xl">
-                {service.Sort_descrition}
+              <p onClick={() => router.push(`/homepage/servicesdetails/${createSlug(service.name)}`)} className="text-black mt-7 pl-5 hover:text-blue-600 text-xl">
+                {service.services_sort_description}
               </p>
               <hr className="w-4/5 mx-auto border-red-600 mt-7" />
-              <ul className="text-black text-left pl-5 mt-7 gap-5 list-disc text-xl">
-                {service.Services_Main_Points_1 && (
-                  <li className="p-3 hover:bg-gray-200 hover:pl-5 transition duration-300">
-                    {service.Services_Main_Points_1}
-                  </li>
-                )}
-                {service.Services_Main_Points_2 && (
-                  <li className="p-3 hover:bg-gray-200 hover:pl-5 transition duration-300">
-                    {service.Services_Main_Points_2}
-                  </li>
-                )}
-                {service.Services_Main_Points_3 && (
-                  <li className="p-3 hover:bg-gray-200 hover:pl-5 transition duration-300">
-                    {service.Services_Main_Points_3}
-                  </li>
-                )}
-                {service.Services_Main_Points_4 && (
-                  <li className="p-3 hover:bg-gray-200 hover:pl-5 transition duration-300">
-                    {service.Services_Main_Points_4}
-                  </li>
-                )}
-                {service.Services_Main_Points_5 && (
-                  <li className="p-3 hover:bg-gray-200 hover:pl-5 transition duration-300">
-                    {service.Services_Main_Points_5}
-                  </li>
-                )}
-              </ul>
-              <p className="text-blue-500 pl-16 mt-5 hover:text-blue-700 transition duration-300 text-2xl">
+              
+              <p
+                onClick={() => router.push(`/homepage/servicesdetails/${createSlug(service.name)}`)}
+                className="text-blue-500 pl-16 mt-5 hover:text-blue-700 transition duration-300 text-2xl cursor-pointer"
+              >
                 Learn More ...
               </p>
             </SwiperSlide>
