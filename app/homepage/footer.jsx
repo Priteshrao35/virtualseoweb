@@ -1,12 +1,29 @@
-'use client'
+"use client";
 import React, { useState, useEffect } from "react";
 
 function FooterSection() {
   const [isMobile, setIsMobile] = useState(false);
+  const [footerContent, setFooterContent] = useState("");
 
   useEffect(() => {
+    // Fetch data from the API
+    const fetchFooterContent = async () => {
+      try {
+        const response = await fetch(
+          "http://127.0.0.1:8000/footermaincontent/"
+        );
+        const data = await response.json();
+        setFooterContent(data[0].Content); // Assuming the response is an array and you're interested in the first item's content
+      } catch (error) {
+        console.error("Error fetching footer content:", error);
+      }
+    };
+
+    fetchFooterContent();
+
+    // Handle screen size change for mobile
     const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768); 
+      setIsMobile(window.innerWidth <= 768);
     };
 
     handleResize();
@@ -17,29 +34,17 @@ function FooterSection() {
     };
   }, []);
 
-  const fullText = `
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias unde
-    mollitia, sapiente, nisi pariatur labore nihil molestiae reiciendis,
-    neque necessitatibus officiis incidunt quasi magni amet dolores? Ab
-    iste eligendi autem. Eaque earum dolores explicabo, nostrum corrupti,
-    aperiam suscipit amet dolore provident sequi, quod distinctio quam
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias unde
-    mollitia, sapiente, nisi pariatur labore nihil molestiae reiciendis,
-    neque necessitatibus officiis incidunt quasi magni amet dolores? Ab
-    iste eligendi autem. Eaque earum dolores explicabo, nostrum corrupti,
-    aperiam suscipit amet dolore provident sequi, quod distinctio quam
-     neque necessitatibus officiis incidunt quasi magni amet dolores? Ab
-    iste eligendi autem. Eaque earum dolores explicabo, nostrum corrupti,
-    aperiam suscipit amet dolore provident`;
-
-  const mobileText = fullText.split(" ").slice(0, 30).join(" ") + "...";
+  // For mobile devices, truncate content to first 30 words
+  const mobileText = footerContent.split(" ").slice(0, 30).join(" ") + "...";
 
   return (
     <footer className="bg-gray-800 text-gray-300">
       <div>
-        <p className="text-white text-4xl text-center md:p-10 p-2 mt-10">VIRTUALSEOWEB</p>
+        <p className="text-white text-4xl text-center md:p-10 p-2 mt-10">
+          VIRTUALSEOWEB
+        </p>
         <p className="text-white md:px-[5em] md:py-5 px-5 py-3 md:text-center md:text-xl">
-          {isMobile ? mobileText : fullText}
+          {isMobile ? mobileText : footerContent}
         </p>
       </div>
       <div className="container mx-auto px-6 py-8">

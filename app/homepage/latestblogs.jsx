@@ -5,21 +5,50 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Image } from "antd";
-import {Autoplay, Navigation } from "swiper/modules";
+import { Autoplay, Navigation } from "swiper/modules";
 
 export default function LatestBlog() {
   const [blogs, setBlogs] = useState([]);
+  const [categories, setCategories] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState('All');
 
   useEffect(() => {
-    // Fetch data from the API
-    fetch("https://virtualseoweb.pythonanywhere.com/blogs/")
+    // Fetch blogs from the API
+    fetch("http://127.0.0.1:8000/blogs/")
       .then((response) => response.json())
-      .then((data) => setBlogs(data))
+      .then((data) => {
+        setBlogs(data);
+        // Extract categories from the blogs
+        const allCategories = ['All', ...new Set(data.map(blog => blog.category_name))];
+        setCategories(allCategories);
+      })
       .catch((error) => console.error("Error fetching data:", error));
   }, []);
 
+  // Filter blogs based on the selected category
+  const filteredBlogs = selectedCategory === 'All'
+    ? blogs
+    : blogs.filter(blog => blog.category_name === selectedCategory);
+
   return (
     <div className="bg-slate-100 md:p-10 p-5 md:ml-72">
+      {/* Render category tabs */}
+      <div className="tabs text-center my-4">
+        {categories.map((category, index) => (
+          <button
+            key={index}
+            onClick={() => setSelectedCategory(category)}
+            className={`px-4 py-2 mx-2 border rounded ${
+              selectedCategory === category
+                ? "bg-blue-500 text-white"
+                : "bg-gray-200 text-black"
+            }`}
+          >
+            {category}
+          </button>
+        ))}
+      </div>
+
       <div className="flex flex-col md:flex-row md:items-center md:justify-between">
         <div className="text-left">
           <div className="p-2 md:mt-10 text-xl font-bold text-black">
@@ -38,6 +67,7 @@ export default function LatestBlog() {
           </div>
         </div>
       </div>
+
       <div className="mt-2">
         <Swiper
           slidesPerView={1}
@@ -70,7 +100,7 @@ export default function LatestBlog() {
           modules={[Autoplay, Navigation]}
           className="h-auto mt-2 relative"
         >
-          {blogs.map((blog) => (
+          {filteredBlogs.map((blog) => (
             <SwiperSlide
               key={blog.id}
               className="border border-black hover:border-red-600 hover:bg-gray-100 transition duration-300 flex flex-col items-center p-4 rounded-xl"
@@ -95,10 +125,10 @@ export default function LatestBlog() {
                   {blog.Blog_Name}
                 </h3>
                 <p className="text-black hover:bg-gray-200 hover:text-red-500 hover:pl-2 transition duration-300 mb-2 text-xl">
-                  {blog.Sort_descrition}
+                  {blog.Sort_description}
                 </p>
                 <p className="text-blue-500 text-left mt-2 hover:text-blue-700 transition duration-300 text-2xl">
-                  <a href={blog.Blog_URL} target="_blank" rel="noopener noreferrer">
+                  <a href={`/blogs/blogdetails/${blog.id}`} target="_blank" rel="noopener noreferrer">
                     Learn More ....................
                   </a>
                 </p>
