@@ -18,7 +18,7 @@ const BlogDetails = () => {
     if (blogid) {
       // Fetch blog details from API based on blog id
       axios
-        .get(`http://127.0.0.1:8000/blogs/${blogid}/`) // Ensure endpoint ends with a slash
+        .get(`https://virtualseoweb.pythonanywhere.com/blogs/${blogid}/`) // Ensure endpoint ends with a slash
         .then((response) => {
           if (response.data) {
             setBlog(response.data);

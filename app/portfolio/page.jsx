@@ -12,7 +12,7 @@ function PortFolio() {
 
   useEffect(() => {
     // Fetch data from the API
-    fetch("http://127.0.0.1:8000/ourproject/")
+    fetch("https://virtualseoweb.pythonanywhere.com/ourproject/")
       .then((response) => response.json())
       .then((data) => {
         // Extract categories from the data

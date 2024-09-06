@@ -13,7 +13,7 @@ function AboutusPage() {
 
   useEffect(() => {
     axios
-      .get("http://127.0.0.1:8000/aboutus/")
+      .get("https://virtualseoweb.pythonanywhere.com/aboutus/")
       .then((response) => {
         console.log("API Response:", response.data); // Log the response data
         if (Array.isArray(response.data) && response.data.length > 0) {

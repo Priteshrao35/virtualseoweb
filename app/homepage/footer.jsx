@@ -1,5 +1,16 @@
 "use client";
 import React, { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
+import axios from "axios";
+import { Spin } from "antd";
+
+// Function to create a slug from a name
+const createSlug = (name) => {
+  return name
+    .toLowerCase()
+    .replace(/ /g, "-")
+    .replace(/[^\w-]+/g, "");
+};
 
 function FooterSection() {
   const [isMobile, setIsMobile] = useState(false);
@@ -10,10 +21,10 @@ function FooterSection() {
     const fetchFooterContent = async () => {
       try {
         const response = await fetch(
-          "http://127.0.0.1:8000/footermaincontent/"
+          "https://virtualseoweb.pythonanywhere.com/footermaincontent/"
         );
         const data = await response.json();
-        setFooterContent(data[0].Content); // Assuming the response is an array and you're interested in the first item's content
+        setFooterContent(data[0].Content);
       } catch (error) {
         console.error("Error fetching footer content:", error);
       }
@@ -37,6 +48,56 @@ function FooterSection() {
   // For mobile devices, truncate content to first 30 words
   const mobileText = footerContent.split(" ").slice(0, 30).join(" ") + "...";
 
+  const [menuData, setMenuData] = useState({});
+  const [loading, setLoading] = useState(true);
+  const router = useRouter();
+
+  useEffect(() => {
+    axios
+      .get("https://virtualseoweb.pythonanywhere.com/menu-items/")
+      .then((response) => {
+        const data = response.data;
+        const transformedData = data.reduce((acc, item) => {
+          if (!acc[item.category]) {
+            acc[item.category] = [];
+          }
+          const slug = createSlug(item.name);
+          acc[item.category].push({
+            key: item.id,
+            label: (
+              <a
+                href="#"
+                onClick={(e) => {
+                  e.preventDefault();
+                  router.push(`/homepage/servicesdetails/${slug}`);
+                }}
+              >
+                {item.name}
+              </a>
+            )
+          });
+          return acc;
+        }, {});
+        setMenuData(transformedData);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error("Error fetching menu data:", error);
+        setLoading(false);
+      });
+  }, [router]);
+
+  if (loading) {
+    return <Spin />;
+  }
+
+  const categoryLabels = {
+    digital_marketing: "Digital Marketing",
+    web_services: "Web Services",
+    mobile_app: "Mobile Apps ",
+    hiring_solutions: "Hiring Solutions"
+  };
+
   return (
     <footer className="bg-gray-800 text-gray-300">
       <div>
@@ -47,120 +108,79 @@ function FooterSection() {
           {isMobile ? mobileText : footerContent}
         </p>
       </div>
-      <div className="container mx-auto px-6 py-8">
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-12">
-          {/* Company Section */}
+      <div className="py-8 md:px-40">
+        <div className="grid grid-cols-2 md:grid-cols-7 gap-12">
+          {Object.keys(menuData).map((category) => (
+            <div key={category} className="text-black font-bold">
+              <h3 className="text-2xl font-semibold mb-2 text-white ">
+                {categoryLabels[category] || category}
+              </h3>
+              <hr
+                className="mt-3 border-dotted border-white border-2"
+                style={{ width: "50%" }}
+              />
+
+              <ul className="list-none text-white mt-5 hover:text-blue-900">
+                {menuData[category].map((item) => (
+                  <li key={item.key} className="mb-2">
+                    <a
+                      href="#"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        router.push(
+                          `/homepage/servicesdetails/${createSlug(
+                            item.label.props.children
+                          )}`
+                        );
+                      }}
+                      className="hover:text-blue-500"
+                    >
+                      {item.label.props.children}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+
           <div>
             <h2 className="text-lg font-semibold text-white mb-6 uppercase">
-              Company
+              All Important
             </h2>
-            <ul className="space-y-2">
-              <li>
-                <a href="#" className="hover:text-gray-400">
-                  About
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-gray-400">
-                  Careers
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-gray-400">
-                  Brand Center
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-gray-400">
-                  Blog
-                </a>
-              </li>
-            </ul>
+            <div className="flex flex-col space-y-4">
+              <div
+                onClick={() => router.push("/portfolio")}
+                className="text-white font-bold hover:text-blue-500 cursor-pointer"
+              >
+                Portfolio
+              </div>
+              <div
+                onClick={() => router.push("/blogs")}
+                className="text-white font-bold hover:text-blue-500 cursor-pointer"
+              >
+                Blogs
+              </div>
+              <div
+                onClick={() => router.push("/aboutus")}
+                className="text-white font-bold hover:text-blue-500 cursor-pointer"
+              >
+                About Us
+              </div>
+              <div
+                onClick={() => router.push("/careers")}
+                className="text-white font-bold hover:text-blue-500 cursor-pointer"
+              >
+                Careers
+              </div>
+              <div
+                onClick={() => router.push("/contactus")}
+                className="text-white font-bold hover:text-blue-500 cursor-pointer"
+              >
+                Contacts
+              </div>
+            </div>
           </div>
 
-          {/* Help Center Section */}
-          <div>
-            <h2 className="text-lg font-semibold text-white mb-6 uppercase">
-              Help Center
-            </h2>
-            <ul className="space-y-2">
-              <li>
-                <a href="#" className="hover:text-gray-400">
-                  Discord Server
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-gray-400">
-                  Twitter
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-gray-400">
-                  Facebook
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-gray-400">
-                  Contact Us
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          {/* Legal Section */}
-          <div>
-            <h2 className="text-lg font-semibold text-white mb-6 uppercase">
-              Legal
-            </h2>
-            <ul className="space-y-2">
-              <li>
-                <a href="#" className="hover:text-gray-400">
-                  Privacy Policy
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-gray-400">
-                  Licensing
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-gray-400">
-                  Terms & Conditions
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          {/* Download Section */}
-          <div>
-            <h2 className="text-lg font-semibold text-white mb-6 uppercase">
-              Download
-            </h2>
-            <ul className="space-y-2">
-              <li>
-                <a href="#" className="hover:text-gray-400">
-                  iOS
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-gray-400">
-                  Android
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-gray-400">
-                  Windows
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-gray-400">
-                  MacOS
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          {/* Social Media Section */}
           <div>
             <h2 className="text-lg font-semibold text-white mb-6 uppercase">
               Follow Us

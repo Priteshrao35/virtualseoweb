@@ -14,7 +14,7 @@ export default function LatestBlog() {
 
   useEffect(() => {
     // Fetch blogs from the API
-    fetch("http://127.0.0.1:8000/blogs/")
+    fetch("https://virtualseoweb.pythonanywhere.com/blogs/")
       .then((response) => response.json())
       .then((data) => {
         setBlogs(data);

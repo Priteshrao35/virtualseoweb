@@ -16,7 +16,7 @@ function OurBlogs() {
   useEffect(() => {
     // Fetch blogs data from API
     axios
-      .get("http://127.0.0.1:8000/blogs/")
+      .get("https://virtualseoweb.pythonanywhere.com/blogs/")
       .then((response) => {
         setBlogs(response.data);
         // Extract unique category names from the blogs

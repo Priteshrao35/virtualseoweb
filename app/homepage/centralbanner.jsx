@@ -1,7 +1,6 @@
 'use client'
 import React, { useState, useEffect } from 'react';
 import { Image } from 'antd';
-import axios from 'axios';
 
 function CentralBanner() {
   const [banners, setBanners] = useState([]);

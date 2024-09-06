@@ -14,7 +14,7 @@ export default function Careers() {
     // Fetch career data from API
     const fetchCareers = async () => {
       try {
-        const response = await fetch('http://127.0.0.1:8000/careers/');
+        const response = await fetch('https://virtualseoweb.pythonanywhere.com/careers/');
         const data = await response.json();
         setCareers(data);
       } catch (error) {
