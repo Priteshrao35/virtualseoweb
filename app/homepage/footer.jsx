@@ -104,15 +104,15 @@ function FooterSection() {
         <p className="text-white text-4xl text-center md:p-10 p-2 mt-10">
           VIRTUALSEOWEB
         </p>
-        <p className="text-white md:px-[5em] md:py-5 px-5 py-3 md:text-center md:text-xl">
+        <p className="text-white md:px-[5em] md:py-5 px-5 py-3 text-center md:text-xl">
           {isMobile ? mobileText : footerContent}
         </p>
       </div>
-      <div className="py-8 md:px-40">
+      <div className="py-8 px-5 md:px-40">
         <div className="grid grid-cols-2 md:grid-cols-7 gap-12">
           {Object.keys(menuData).map((category) => (
             <div key={category} className="text-black font-bold">
-              <h3 className="text-2xl font-semibold mb-2 text-white ">
+              <h3 className="text-xl font-semibold mb-2 text-white ">
                 {categoryLabels[category] || category}
               </h3>
               <hr
@@ -144,7 +144,7 @@ function FooterSection() {
           ))}
 
           <div>
-            <h2 className="text-lg font-semibold text-white mb-6 uppercase">
+            <h2 className="text-xl font-semibold text-white mb-6 uppercase">
               All Important
             </h2>
             <div className="flex flex-col space-y-4">
@@ -182,7 +182,7 @@ function FooterSection() {
           </div>
 
           <div>
-            <h2 className="text-lg font-semibold text-white mb-6 uppercase">
+            <h2 className="text-xl font-semibold text-white mb-6 uppercase">
               Follow Us
             </h2>
             <div className="flex space-x-6">
@@ -230,7 +230,7 @@ function FooterSection() {
           </div>
         </div>
       </div>
-      <div className="bg-gray-700 text-center py-4">
+      <div className="bg-gray-700 text-center py-4 px-2 md:px-0">
         <p className="text-gray-300 text-xl">
           © 2024 virtualseoweb. All rights reserved.
         </p>

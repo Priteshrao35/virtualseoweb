@@ -1,5 +1,3 @@
-// components/ContactForm.js
-
 "use client";
 
 import { useState } from "react";
@@ -79,23 +77,21 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="bg-gray-100">
+    <div className="bg-gray-100 text-black">
       <Header />
       <hr />
       <Navbar />
       <CentralBanner />
 
       {/* Top 3 Cards Section */}
-      <div className="container mx-auto p-4">
+      <div className="container mx-auto p-4 mt-20">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
           {cardData.map((card, index) => (
             <div
               key={index}
-              className="bg-white p-4 rounded shadow-md border border-gray-200"
+              className="bg-white p-4 rounded-lg shadow-md border border-gray-200"
             >
-              <h2 className="text-xl font-semibold mb-4 text-black">
-                {card.title}
-              </h2>
+              <h2 className="text-xl font-semibold mb-4">{card.title}</h2>
               <ul className="list-disc list-inside space-y-2">
                 {card.items.map((item, idx) => (
                   <li key={idx} className="text-gray-700">
@@ -110,9 +106,9 @@ const ContactForm = () => {
         {/* Contact Form and Company Information Section */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {/* Contact Form Section */}
-          <div className="bg-white p-4 rounded shadow-md">
-            <h1 className="text-2xl font-bold mb-4 text-black">Contact Us</h1>
-            <p className="mb-4 text-black">
+          <div className="bg-white p-6 rounded-lg shadow-lg">
+            <h2 className="text-2xl font-semibold mb-4">Contact Us</h2>
+            <p className="mb-4">
               We use an agile approach to test assumptions and connect with the
               needs of your audience early and often.
             </p>
@@ -124,9 +120,9 @@ const ContactForm = () => {
                   value={formData.name}
                   onChange={handleChange}
                   placeholder="Name"
-                  className={`p-2 border border-gray-300 rounded text-black ${
-                    errors.name ? "border-red-500" : ""
-                  }`}
+                  className={`p-2 border ${
+                    errors.name ? "border-red-500" : "border-gray-300"
+                  } rounded-md text-black`}
                 />
                 <input
                   type="email"
@@ -134,9 +130,9 @@ const ContactForm = () => {
                   value={formData.email}
                   onChange={handleChange}
                   placeholder="Email"
-                  className={`p-2 border border-gray-300 rounded text-black ${
-                    errors.email ? "border-red-500" : ""
-                  }`}
+                  className={`p-2 border ${
+                    errors.email ? "border-red-500" : "border-gray-300"
+                  } rounded-md text-black`}
                 />
                 <input
                   type="text"
@@ -144,9 +140,9 @@ const ContactForm = () => {
                   value={formData.subject}
                   onChange={handleChange}
                   placeholder="Subject"
-                  className={`p-2 border border-gray-300 rounded text-black ${
-                    errors.subject ? "border-red-500" : ""
-                  }`}
+                  className={`p-2 border ${
+                    errors.subject ? "border-red-500" : "border-gray-300"
+                  } rounded-md text-black`}
                 />
                 <input
                   type="tel"
@@ -154,9 +150,9 @@ const ContactForm = () => {
                   value={formData.mobile}
                   onChange={handleChange}
                   placeholder="Mobile"
-                  className={`p-2 border border-gray-300 rounded text-black ${
-                    errors.mobile ? "border-red-500" : ""
-                  }`}
+                  className={`p-2 border ${
+                    errors.mobile ? "border-red-500" : "border-gray-300"
+                  } rounded-md text-black`}
                 />
               </div>
               <textarea
@@ -164,14 +160,14 @@ const ContactForm = () => {
                 value={formData.message}
                 onChange={handleChange}
                 placeholder="Message"
-                className={`p-2 border border-gray-300 rounded text-black w-full ${
-                  errors.message ? "border-red-500" : ""
-                }`}
+                className={`p-2 border ${
+                  errors.message ? "border-red-500" : "border-gray-300"
+                } rounded-md text-black w-full`}
                 rows="4"
               />
               {formStatus && (
                 <p
-                  className={`text-center ${
+                  className={`text-center mt-4 ${
                     formStatus.includes("successfully")
                       ? "text-green-600"
                       : "text-red-600"
@@ -182,30 +178,24 @@ const ContactForm = () => {
               )}
               <button
                 type="submit"
-                className="bg-blue-500 text-white p-2 rounded hover:bg-blue-700"
+                className="bg-blue-500 text-white p-2 rounded-md hover:bg-blue-700"
               >
                 Submit
               </button>
             </form>
           </div>
+
           {/* Company Information Section */}
-          <div className="bg-white p-4 rounded shadow-md">
-            <h2 className="text-xl font-bold mb-4 text-black">
-              Company Information:
-            </h2>
-            <p className="text-black">Themesberg LLC</p>
-            <p className="text-black">Tax id: USXXXXXX</p>
-            <h3 className="text-lg font-bold mt-4 text-black">Address:</h3>
-            <p className="text-black">
-              SILVER LAKE, United States 1941 Late Avenue
-            </p>
-            <p className="text-black">Zip Code/Postal code: 03875</p>
-            <h3 className="text-lg font-bold mt-4 text-black">Call us:</h3>
-            <p className="text-black">
-              Call us to speak to a member of our team. We are always happy to
-              help.
-            </p>
-            <p className="text-black">+1 (646) 786-5060</p>
+          <div className="bg-white p-6 rounded-lg shadow-lg">
+            <h2 className="text-xl font-semibold mb-4">Company Information</h2>
+            <p>Themesberg LLC</p>
+            <p>Tax id: USXXXXXX</p>
+            <h3 className="text-lg font-semibold mt-4">Address:</h3>
+            <p>SILVER LAKE, United States 1941 Late Avenue</p>
+            <p>Zip Code/Postal code: 03875</p>
+            <h3 className="text-lg font-semibold mt-4">Call us:</h3>
+            <p>Call us to speak to a member of our team. We are always happy to help.</p>
+            <p>+1 (646) 786-5060</p>
           </div>
         </div>
       </div>

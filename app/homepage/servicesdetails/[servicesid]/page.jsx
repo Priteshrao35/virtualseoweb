@@ -23,7 +23,7 @@ const ServiceDetailsPage = ({ params }) => {
   useEffect(() => {
     const handleScroll = () => {
       const stepElements = stepsRef.current;
-      const scrollPosition = window.scrollY + window.innerHeight / 2; // Center of the viewport
+      const scrollPosition = window.scrollY + window.innerHeight / 2;
 
       let newActiveStep = activeStep; // Default to current active step
       for (let i = 0; i < stepElements.length; i++) {

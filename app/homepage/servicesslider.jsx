@@ -100,7 +100,7 @@ export default function ServicesSliderSection() {
               >
                 {service.name}
               </p>
-              <p onClick={() => router.push(`/homepage/servicesdetails/${createSlug(service.name)}`)} className="text-black mt-7 pl-5 hover:text-blue-600 text-xl">
+              <p onClick={() => router.push(`/homepage/servicesdetails/${createSlug(service.name)}`)} className="text-black mt-7 pl-5 hover:text-blue-600 text-sm md:text-xl">
                 {service.Service_Sort_Description}
               </p>
               <hr className="w-4/5 mx-auto border-red-600 mt-7" />

@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import React, { useState } from "react";
-import { Drawer, Image } from "antd";
+import { Image } from "antd";
 import {
   FaFacebook,
   FaInstagram,
@@ -10,39 +10,30 @@ import {
   FaEnvelope,
   FaSkype
 } from "react-icons/fa";
-import { FaXTwitter, FaBars } from "react-icons/fa6";
+import { FaXTwitter } from "react-icons/fa6";
+import MobileNavMenu from "./mobilenavbar";
+import { useRouter } from "next/navigation";
 
 const Header = () => {
-  {
-    /* mobile drover */
-  }
+  // State and functions for drawer
   const [open, setOpen] = useState(false);
+  const router = useRouter();
+
   const showDrawer = () => {
-    
     setOpen(true);
   };
+
   const onClose = () => {
     setOpen(false);
   };
-  {
-    /* mobile drover */
-  }
 
   return (
     <header className="bg-white p-2">
       <div className="container mx-auto flex justify-between items-center">
-        {/* mobile drover */}
-        <div className="md:hidden">
-          <FaBars className="text-2xl cursor-pointer text-blue-900" onClick={showDrawer} />
-          <Drawer title="Basic Drawer" onClose={onClose} open={open}>
-            <p>Some contents...</p>
-            <p>Some contents...</p>
-            <p>Some contents...</p>
-          </Drawer>
-        </div>
-        {/* mobile drover */}
+        {/* Mobile drawer */}
+        <MobileNavMenu open={open} showDrawer={showDrawer} onClose={onClose} />
 
-        {/* Left Side: Logo */}
+        {/* Left Side: Logo for desktop and mobile */}
         <div className="items-center hidden md:block">
           <Link href="/">
             <div className="text-black text-lg font-bold cursor-pointer">
@@ -133,11 +124,13 @@ const Header = () => {
             />
           </Link>
         </div>
-        <Link href="#">
-          <p className="text-white bg-blue-600 hover:bg-white hover:text-blue-600 rounded-xl font-bold p-2 px-5">
-            Get Quete
-          </p>
-        </Link>
+
+        <p
+          className="text-white bg-blue-600 hover:bg-white hover:text-blue-600 rounded-xl font-bold p-2 px-5"
+          onClick={() => router.push("/contactus")}
+        >
+          Get Quote
+        </p>
       </div>
     </header>
   );
