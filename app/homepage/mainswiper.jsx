@@ -27,7 +27,7 @@ export default function App() {
   }, []);
 
   return (
-    <div className="mt-[12em]">
+    <div className="md:mt-[12em]">
       <Swiper
         direction="vertical"
         spaceBetween={30}
