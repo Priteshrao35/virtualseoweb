@@ -30,7 +30,7 @@ function Brands() {
   return (
     <div className="w-full bg-white flex items-center justify-center px-10 md:px-[10em] py-10">
       <Swiper
-        slidesPerView={1} // Show 1 item on mobile
+        slidesPerView={2} // Show 1 item on mobile
         spaceBetween={10} // Space between slides on mobile
         breakpoints={{
           768: {
@@ -54,9 +54,9 @@ function Brands() {
               <img
                 src={brand.Brand_Logo}
                 alt={brand.Brand_Name}
-                className="w-8 h-8 md:w-10 md:h-10"
+                className="w-7 h-7 md:w-12 md:h-12 rounded-full"
               />
-              {brand.Brand_Name}
+              <p className="text-sm md:text-3xl font-bold">{brand.Brand_Name}</p>
             </div>
           </SwiperSlide>
         ))}

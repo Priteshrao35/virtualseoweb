@@ -39,7 +39,7 @@ export default function OurProjects() {
         <p className="text-center text-black text-3xl font-bold mt-10"> Our Latest Projects</p>
       </div>
       {/* Tabs and Navigation Buttons */}
-      <div className="flex flex-col md:flex-row md:items-center md:justify-between">
+      <div className="flex flex-col md:flex-row md:items-center md:justify-between mt-5">
         {/* Category Tabs */}
         <div className="flex flex-wrap justify-center md:justify-center gap-4 mb-5">
           {categories.map((category, index) => (
