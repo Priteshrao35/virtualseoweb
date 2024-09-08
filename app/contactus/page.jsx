@@ -1,11 +1,11 @@
 "use client";
-
+import Image from "next/image";
 import { useState } from "react";
 import axios from "axios";
 import Header from "../homepage/header";
 import Navbar from "../homepage/navbar";
-import CentralBanner from "../homepage/centralbanner";
 import FooterSection from "../homepage/footer";
+import ServicesSliderSection from "../homepage/servicesslider";
 
 const cardData = [
   // Your cardData remains unchanged
@@ -81,10 +81,27 @@ const ContactForm = () => {
       <Header />
       <hr />
       <Navbar />
-      <CentralBanner />
 
-      {/* Top 3 Cards Section */}
-      <div className="container mx-auto p-4 mt-20">
+      <div className="relative w-full">
+        <Image
+          src="/contactbanner.png"
+          layout="responsive"
+          width={1920}
+          height={1080}
+          alt="Picture of the author"
+        />
+        <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white bg-black bg-opacity-50">
+          <h1 className="text-[5em] font-bold mb-4">Contact Us</h1>
+          <p className="text-2xl font-bold">
+            We are here to help you with any questions or concerns you may have.
+          </p>
+        </div>
+      </div>
+
+      <ServicesSliderSection />
+
+      {/* Top Cards Section */}
+      <div className="p-5 bg-blue-50 rounded-xl px-[15em]">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
           {cardData.map((card, index) => (
             <div
@@ -103,58 +120,90 @@ const ContactForm = () => {
           ))}
         </div>
 
+        <div className="p-5">
+          <p className="text-black text-3xl font-bold ">
+            We're Here to Help You 24/7!
+          </p>
+          <p className="text-black text-xl m-5 ">
+            Get in touch with our expert team for swift support and personalized
+            solutions tailored to your needs.
+          </p>
+        </div>
+
         {/* Contact Form and Company Information Section */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {/* Company Information Section */}
+          <div className=" p-6 col-span-1 mt-[3em]">
+            <h2 className="text-4xl font-semibold mb-4">Points of contact</h2>
+            <h2 className="text-xl font-semibold mb-4">
+              Uttar Pradesh, India VIRTUALSEOWEB
+            </h2>
+
+            <p>
+              Building 17 A 2rd Floor 7C Shri Ram Apartment, Sector 118, Noida,
+              Uttar Pradesh 201306
+            </p>
+
+            <h3 className="text-lg font-semibold mt-4">Information & Sales</h3>
+            <p>info@virtualseoweb.com</p>
+            <h3 className="text-lg font-semibold mt-4">Support</h3>
+            <p>info@virtualseoweb.com</p>
+
+            <h3 className="text-lg font-semibold mt-4">
+              Our Other Office
+            </h3>
+            <h3 className="text-lg font-semibold mt-4">Mirzapur, Uttar Pradesh, India</h3>
+            <p>Mirzapur, Uttar Pradesh, India</p>
+          </div>
+
           {/* Contact Form Section */}
-          <div className="bg-white p-6 rounded-lg shadow-lg">
+          <div className="p-6 col-span-2">
             <h2 className="text-2xl font-semibold mb-4">Contact Us</h2>
             <p className="mb-4">
               We use an agile approach to test assumptions and connect with the
               needs of your audience early and often.
             </p>
             <form onSubmit={handleSubmit} className="space-y-4">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <input
-                  type="text"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  placeholder="Name"
-                  className={`p-2 border ${
-                    errors.name ? "border-red-500" : "border-gray-300"
-                  } rounded-md text-black`}
-                />
-                <input
-                  type="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  placeholder="Email"
-                  className={`p-2 border ${
-                    errors.email ? "border-red-500" : "border-gray-300"
-                  } rounded-md text-black`}
-                />
-                <input
-                  type="text"
-                  name="subject"
-                  value={formData.subject}
-                  onChange={handleChange}
-                  placeholder="Subject"
-                  className={`p-2 border ${
-                    errors.subject ? "border-red-500" : "border-gray-300"
-                  } rounded-md text-black`}
-                />
-                <input
-                  type="tel"
-                  name="mobile"
-                  value={formData.mobile}
-                  onChange={handleChange}
-                  placeholder="Mobile"
-                  className={`p-2 border ${
-                    errors.mobile ? "border-red-500" : "border-gray-300"
-                  } rounded-md text-black`}
-                />
-              </div>
+              <input
+                type="text"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                placeholder="Name"
+                className={`p-2 border ${
+                  errors.name ? "border-red-500" : "border-gray-300"
+                } rounded-md text-black w-full`}
+              />
+              <input
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                placeholder="Email"
+                className={`p-2 border ${
+                  errors.email ? "border-red-500" : "border-gray-300"
+                } rounded-md text-black w-full`}
+              />
+              <input
+                type="text"
+                name="subject"
+                value={formData.subject}
+                onChange={handleChange}
+                placeholder="Subject"
+                className={`p-2 border ${
+                  errors.subject ? "border-red-500" : "border-gray-300"
+                } rounded-md text-black w-full`}
+              />
+              <input
+                type="tel"
+                name="mobile"
+                value={formData.mobile}
+                onChange={handleChange}
+                placeholder="Mobile"
+                className={`p-2 border ${
+                  errors.mobile ? "border-red-500" : "border-gray-300"
+                } rounded-md text-black w-full`}
+              />
               <textarea
                 name="message"
                 value={formData.message}
@@ -178,24 +227,113 @@ const ContactForm = () => {
               )}
               <button
                 type="submit"
-                className="bg-blue-500 text-white p-2 rounded-md hover:bg-blue-700"
+                className="bg-blue-500 text-white p-2 rounded-md hover:bg-blue-700 w-60"
               >
                 Submit
               </button>
             </form>
           </div>
+        </div>
+        <hr className="mt-5 font-bold" />
 
-          {/* Company Information Section */}
-          <div className="bg-white p-6 rounded-lg shadow-lg">
-            <h2 className="text-xl font-semibold mb-4">Company Information</h2>
-            <p>Themesberg LLC</p>
-            <p>Tax id: USXXXXXX</p>
-            <h3 className="text-lg font-semibold mt-4">Address:</h3>
-            <p>SILVER LAKE, United States 1941 Late Avenue</p>
-            <p>Zip Code/Postal code: 03875</p>
-            <h3 className="text-lg font-semibold mt-4">Call us:</h3>
-            <p>Call us to speak to a member of our team. We are always happy to help.</p>
-            <p>+1 (646) 786-5060</p>
+        <div className="mt-20">
+          <div className="flex flex-col items-center">
+            <h2 className="text-3xl font-bold mb-4 text-center">
+              GOT A QUESTION? TALK WITH US DIRECT
+            </h2>
+            <a
+              href="tel:+919450977593"
+              className="text-black font-bold text-3xl text-center mb-2"
+            >
+              <span className="text-yellow-600">Call:</span> +91 9450977593
+            </a>
+            <a
+              href="mailto:info@virtualseoweb.com"
+              className="text-white py-1 px-3 rounded-lg text-xl text-center font-bold bg-blue-500"
+            >
+              info@virtualseoweb.com
+            </a>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
+            {/* Sales Inquiry */}
+            <div className="p-4 bg-gray-100 rounded-lg flex flex-col items-center">
+              <img
+                src="/sales-inquiry-icon.png"
+                alt="Sales Inquiry"
+                className="w-40 h-40 object-contain rounded-md mb-4"
+              />
+              <h3 className="text-lg font-semibold mb-2 text-center">
+                Sales Inquiry
+              </h3>
+              <p className="mb-2 text-center">
+                Email:{" "}
+                <a
+                  href="mailto:sales@mediasearchgroup.com"
+                  className="text-blue-500"
+                >
+                  info@virtualseoweb.com
+                </a>
+              </p>
+              <p className="text-center">
+                Phone No:{" "}
+                <a href="tel:+91 9450977593" className="text-blue-500">
+                +91 9450977593
+                </a>
+              </p>
+            </div>
+
+            {/* Customer Support */}
+            <div className="p-4 bg-gray-100 rounded-lg flex flex-col items-center">
+              <img
+                src="/customer-support-icon.png"
+                alt="Customer Support"
+                className="w-40 h-40 object-contain rounded-md mb-4"
+              />
+              <h3 className="text-lg font-semibold mb-2 text-center">
+                Customer Support
+              </h3>
+              <p className="mb-2 text-center">
+                Email:{" "}
+                <a
+                  href="mailto:supports@mediasearchgroup.com"
+                  className="text-blue-500"
+                >
+                  info@virtualseoweb.com
+                </a>
+              </p>
+              <p className="text-center">
+                Phone No:{" "}
+                <a href="tel:+91 9450977593" className="text-blue-500">
+                +91 9450977593
+                </a>
+              </p>
+            </div>
+
+            {/* Career */}
+            <div className="p-4 bg-gray-100 rounded-lg flex flex-col items-center">
+              <img
+                src="/career-icon.png"
+                alt="Career"
+                className="w-40 h-40 object-contain rounded-md mb-4"
+              />
+              <h3 className="text-lg font-semibold mb-2 text-center">Career</h3>
+              <p className="mb-2 text-center">
+                Email:{" "}
+                <a
+                  href="mailto:career@mediasearchgroup.com"
+                  className="text-blue-500"
+                >
+                  info@virtualseoweb.com
+                </a>
+              </p>
+              <p className="text-center">
+                Phone No:{" "}
+                <a href="tel:+91 9450977593" className="text-blue-500">
+                +91 9450977593
+                </a>
+              </p>
+            </div>
           </div>
         </div>
       </div>
