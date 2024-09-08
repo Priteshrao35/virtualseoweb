@@ -27,39 +27,40 @@ export default function App() {
   }, []);
 
   return (
-    <Swiper
-      direction="vertical"
-      spaceBetween={30}
-      pagination={{
-        clickable: true
-      }}
-      autoplay={{
-        delay: 6000,
-        disableOnInteraction: false
-      }}
-      modules={[Pagination, Autoplay]}
-      className="w-full md:h-[60vh] h-[50vh] flex items-center justify-center"
-    >
-      {banners.map((banner) => (
-        <SwiperSlide key={banner.id}>
-          <div className="transform transition-transform duration-300 hover:scale-110">
+    <div className="mt-[12em]">
+      <Swiper
+        direction="vertical"
+        spaceBetween={30}
+        pagination={{
+          clickable: true
+        }}
+        autoplay={{
+          delay: 6000,
+          disableOnInteraction: false
+        }}
+        modules={[Pagination, Autoplay]}
+        className="w-full md:h-[60vh] h-[50vh] flex items-center justify-center mt-"
+      >
+        {banners.map((banner) => (
+          <SwiperSlide key={banner.id}>
+            <div className="transform transition-transform duration-300 hover:scale-110">
+              {/* Image for default screen */}
+              <img
+                src={banner.Main_Banner}
+                alt={`Slide ${banner.id}`}
+                className="max-w-full max-h-full object-contain hidden md:block"
+              />
 
-            {/* Image for default screen */}
-            <img
-              src={banner.Main_Banner}
-              alt={`Slide ${banner.id}`}
-              className="max-w-full max-h-full object-contain hidden md:block"
-            />
-
-            {/* Image for mobile */}
-            <img
-              src={banner.Main_Banner_For_Mobile}
-              alt={`Slide ${banner.id}`}
-              className="max-w-full object-cover md:hidden"
-            />
-          </div>
-        </SwiperSlide>
-      ))}
-    </Swiper>
+              {/* Image for mobile */}
+              <img
+                src={banner.Main_Banner_For_Mobile}
+                alt={`Slide ${banner.id}`}
+                className="max-w-full object-cover md:hidden"
+              />
+            </div>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </div>
   );
 }
