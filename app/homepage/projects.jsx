@@ -34,7 +34,7 @@ export default function OurProjects() {
   };
 
   return (
-    <div className="bg-slate-100 md:p-10 p-5 md:ml-72 mt-10">
+    <div className="bg-slate-100 md:p-10 p-5 md:ml-72 md:mt-10">
       <div className="text-left">
         <p className="text-center text-black text-3xl font-bold mt-10"> Our Latest Projects</p>
       </div>
