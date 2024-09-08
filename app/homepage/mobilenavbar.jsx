@@ -73,9 +73,9 @@ const MobileNavMenu = ({ open, showDrawer, onClose }) => {
   };
 
   return (
-    <div className="md:hidden">
+    <div className="md:hidden fixed">
       <FaBars
-        className="text-3xl cursor-pointer text-blue-900"
+        className="text-3xl cursor-pointer text-orange-300"
         onClick={showDrawer}
       />
       <Drawer
@@ -85,8 +85,9 @@ const MobileNavMenu = ({ open, showDrawer, onClose }) => {
         open={open}
         width="80vw" // Drawer covers 80% of the screen width
         bodyStyle={{ padding: 0 }}
+        className="bg-gradient-to-t from-slate-200 to-orange-500"
       >
-        <div className="flex flex-col h-full">
+        <div className="flex flex-col h-full bg-gradient-to-t from-slate-200 to-orange-50">
           {/* Main content with scrollable area */}
           <div className="flex-1 overflow-auto p-4">
             <div className="mb-6">

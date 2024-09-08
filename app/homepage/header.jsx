@@ -8,7 +8,7 @@ import {
   FaLinkedin,
   FaPhone,
   FaEnvelope,
-  FaSkype
+  FaSkype,
 } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import MobileNavMenu from "./mobilenavbar";
@@ -28,7 +28,7 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-white p-2">
+    <header className="bg-white p-2 fixed w-full z-30">
       <div className="container mx-auto flex justify-between items-center">
         {/* Mobile drawer */}
         <MobileNavMenu open={open} showDrawer={showDrawer} onClose={onClose} />
@@ -50,7 +50,7 @@ const Header = () => {
           </Link>
         </div>
 
-        <div className="flex items-center md:hidden">
+        <div className="flex items-center md:hidden ml-10">
           <Link href="/">
             <div className="text-black text-lg font-bold cursor-pointer">
               <Image
@@ -70,10 +70,7 @@ const Header = () => {
         <div className="flex space-x-4 items-center">
           <div className="flex items-center space-x-1">
             <FaPhone className="text-green-500 md:text-2xl text-sm md:ml-0 ml-2" />
-            <a
-              href="tel:+919450977593"
-              className="text-black md:text-2xl text-sm"
-            >
+            <a href="tel:+919450977593" className="text-black md:text-2xl text-sm">
               +919450977593
             </a>
           </div>
@@ -126,7 +123,7 @@ const Header = () => {
         </div>
 
         <p
-          className="text-white bg-blue-600 hover:bg-white hover:text-blue-600 rounded-xl font-bold p-2 px-5"
+          className="text-white bg-blue-600 hover:bg-white hover:text-blue-600 rounded-xl font-bold p-2 px-5 cursor-pointer"
           onClick={() => router.push("/contactus")}
         >
           Get Quote

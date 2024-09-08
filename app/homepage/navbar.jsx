@@ -58,7 +58,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="hidden md:flex z-50 justify-center items-center space-x-4 w-full text-xl p-5 cursor-pointer">
+    <div className="hidden md:flex z-50 justify-center items-center space-x-4 w-full text-xl p-5 cursor-pointer mt-24 fixed">
   {Object.keys(menuData).map((category) => (
     <Dropdown key={category} menu={{ items: menuData[category] }} trigger={['hover']}>
       <a onClick={(e) => e.preventDefault()} className="text-black font-bold hover:text-blue-500">
