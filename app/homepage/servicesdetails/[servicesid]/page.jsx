@@ -16,6 +16,13 @@ const createSlug = (name) => {
     .replace(/[^\w-]+/g, "");
 };
 
+
+// utils/stripHtmlTags.js
+export function stripHtmlTags(html) {
+  const doc = new DOMParser().parseFromString(html, "text/html");
+  return doc.body.textContent || "";
+}
+
 const ServiceDetailsPage = ({ params }) => {
   const [activeStep, setActiveStep] = useState(0);
   const stepsRef = useRef([]);
@@ -160,7 +167,7 @@ const ServiceDetailsPage = ({ params }) => {
           {/* Content Section */}
           <div className="p-6 rounded-lg max-w-full col-span-2">
             <h2 className="text-2xl font-semibold mb-4">{service.name}</h2>
-            <p>{service.content}</p>
+            <p>{stripHtmlTags(service.content)}</p>
           </div>
 
           {/* Form Section */}

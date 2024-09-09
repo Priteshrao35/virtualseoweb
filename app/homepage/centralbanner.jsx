@@ -20,7 +20,7 @@ function CentralBanner() {
   }, []);
 
   return (
-    <div className="w-full bg-white">
+    <div className="w-full bg-white md:mt-20 mt-5 md:px-0 px-2">
       {banners.map((banner) => (
         <Image
           key={banner.id} // Assuming each banner has a unique `id`

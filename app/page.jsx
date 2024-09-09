@@ -10,6 +10,7 @@ import AboutSection from "./homepage/footerabout";
 import LatestBlog from "./homepage/latestblogs";
 import CentralBanner from "./homepage/centralbanner";
 import { Layout } from "antd";
+import Service_price from "./homepage/services_price";
 
 export default function Home() {
   return (
@@ -22,6 +23,8 @@ export default function Home() {
       <Mainswiper />
 
       <ServicesSliderSection />
+
+      <Service_price />
 
       <CentralBanner />
 

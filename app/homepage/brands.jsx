@@ -34,7 +34,7 @@ function Brands() {
         spaceBetween={10} // Space between slides on mobile
         breakpoints={{
           768: {
-            slidesPerView: 4, // Show 4 items on desktop and larger screens
+            slidesPerView: 5, // Show 4 items on desktop and larger screens
             spaceBetween: 10, // Space between slides on desktop
           },
         }}
@@ -49,7 +49,7 @@ function Brands() {
         className="w-full"
       >
         {brands.map((brand) => (
-          <SwiperSlide key={brand.id} className="flex items-center justify-center">
+          <SwiperSlide key={brand.id} className="flex items-center justify-center md:pl-10">
             <div className="flex items-center gap-2 text-black text-xl md:text-2xl font-bold">
               <img
                 src={brand.Brand_Logo}

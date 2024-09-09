@@ -99,9 +99,9 @@ function FooterSection() {
   };
 
   return (
-    <footer className="bg-gray-800 text-gray-300">
+    <footer className="bg-gray-800 text-gray-300 md:mt-1 mt-5">
       <div>
-        <p className="text-white text-4xl text-center md:p-10 p-2">
+        <p className="text-white text-4xl text-center md:p-10 p-2 mt-10">
           VIRTUALSEOWEB
         </p>
         <p className="text-white md:px-[5em] md:py-5 px-5 py-3 text-center md:text-xl">

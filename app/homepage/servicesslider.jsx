@@ -10,12 +10,22 @@ import "swiper/css/navigation";
 import "swiper/css/scrollbar";
 
 import { Autoplay, Navigation } from "swiper/modules";
-import { useRouter } from 'next/navigation';
+import { useRouter } from "next/navigation";
 
 // Function to create a slug from a name
 const createSlug = (name) => {
-  return name.toLowerCase().replace(/ /g, '-').replace(/[^\w-]+/g, '');
+  return name
+    .toLowerCase()
+    .replace(/ /g, "-")
+    .replace(/[^\w-]+/g, "");
 };
+
+function stripHtmlTags(html) {
+  const doc = new DOMParser().parseFromString(html, "text/html");
+  const text = doc.body.textContent || "";
+  // Limit the content to 1000 characters and add "..." if it's longer
+  return text.length > 700 ? text.slice(0, 700) + "  ..........................." : text;
+}
 
 export default function ServicesSliderSection() {
   const [services, setServices] = useState([]);
@@ -25,7 +35,9 @@ export default function ServicesSliderSection() {
     // Fetch data from the API
     const fetchServices = async () => {
       try {
-        const response = await axios.get("https://virtualseoweb.pythonanywhere.com/menu-items/");
+        const response = await axios.get(
+          "https://virtualseoweb.pythonanywhere.com/menu-items/"
+        );
         setServices(response.data);
       } catch (error) {
         console.error("Error fetching the services data:", error);
@@ -63,28 +75,28 @@ export default function ServicesSliderSection() {
           spaceBetween={10}
           autoplay={{
             delay: 5000,
-            disableOnInteraction: false,
+            disableOnInteraction: false
           }}
           breakpoints={{
             640: {
               slidesPerView: 2,
-              spaceBetween: 20,
+              spaceBetween: 20
             },
             767: {
               slidesPerView: 3,
-              spaceBetween: 30,
+              spaceBetween: 30
             },
             1024: {
               slidesPerView: 4,
-              spaceBetween: 30,
-            },
+              spaceBetween: 30
+            }
           }}
           pagination={{
-            clickable: true,
+            clickable: true
           }}
           navigation={{
             nextEl: ".swiper-button-nexts",
-            prevEl: ".swiper-button-prevs",
+            prevEl: ".swiper-button-prevs"
           }}
           modules={[Autoplay, Navigation]}
           className="h-auto mt-2 relative"
@@ -92,22 +104,41 @@ export default function ServicesSliderSection() {
           {services.map((service) => (
             <SwiperSlide
               key={service.id}
-              className="border border-black hover:border-green-600 hover:bg-gray-100 transition duration-300 rounded-xl p-5 cursor-pointer"
+              className="border border-black hover:border-green-600 hover:bg-gray-100 transition duration-300 rounded-xl p-5 cursor-pointer flex flex-col h-[400px]" // Fixed height
             >
-              <p
-                onClick={() => router.push(`/homepage/servicesdetails/${createSlug(service.name)}`)}
-                className="text-black mt-10 text-2xl font-bold hover:text-red-600 cursor-pointer"
-              >
-                {service.name}
-              </p>
-              <p onClick={() => router.push(`/homepage/servicesdetails/${createSlug(service.name)}`)} className="text-black mt-7 pl-5 hover:text-blue-600 text-sm md:text-xl">
-                {service.Service_Sort_Description}
-              </p>
+              <div className="flex flex-col flex-grow">
+                <p
+                  onClick={() =>
+                    router.push(
+                      `/homepage/servicesdetails/${createSlug(service.name)}`
+                    )
+                  }
+                  className="text-black mt-10 text-2xl font-bold hover:text-red-600 cursor-pointer"
+                >
+                  {service.name}
+                </p>
+                <p
+                  onClick={() =>
+                    router.push(
+                      `/homepage/servicesdetails/${createSlug(service.name)}`
+                    )
+                  }
+                  className="text-black mt-7 pl-5 hover:text-blue-600 flex-grow text-[15px]"
+                >
+                  {stripHtmlTags(service.content)}
+                </p>
+                <div className="flex-grow"></div>
+              </div>
+
               <hr className="w-4/5 mx-auto border-red-600 mt-7" />
-              
+
               <p
-                onClick={() => router.push(`/homepage/servicesdetails/${createSlug(service.name)}`)}
-                className="text-blue-500 pl-16 mt-5 hover:text-blue-700 transition duration-300 text-2xl cursor-pointer"
+                onClick={() =>
+                  router.push(
+                    `/homepage/servicesdetails/${createSlug(service.name)}`
+                  )
+                }
+                className="text-blue-500  pl-20 md:pl-16 mt-5 hover:text-blue-700 transition duration-300 text-2xl cursor-pointer"
               >
                 Learn More ...
               </p>

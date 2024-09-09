@@ -20,7 +20,17 @@ function InfoSection() {
 
   return (
     <div className="px-4 md:px-40 bg-white">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center p-6 md:p-40 bg-white md:mt-20">
+      <div className="flex-grow md:ml-40 text-left">
+          <div className="p-2 md:mt-10 text-xl font-bold text-black">
+            <ul className="list-disc">
+              <li>Our Clint Solutions</li>
+            </ul>
+          </div>
+          <p className="md:p-10 p-2 md:text-4xl text-sm font-bold text-black">
+            This is the best client testomonials
+          </p>
+        </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center p-6 md:px-40 bg-white">
         <div className="relative flex justify-center">
           <Image
             src={data.Image}
@@ -41,7 +51,7 @@ function InfoSection() {
                 <li>{data.SubHeading}</li>
               </ul>
             </p>
-            <p className="text-2xl md:text-4xl font-bold text-black mt-4">
+            <p className="text-2xl md:text-4xl font-bold text-black mt-4 md:text-left text-center">
               {data.Heading}
             </p>
           </div>
@@ -55,7 +65,7 @@ function InfoSection() {
           </ul>
         </div>
       </div>
-      <hr />
+      <hr className="md:mt-20" />
       <OurTeam />
     </div>
   );

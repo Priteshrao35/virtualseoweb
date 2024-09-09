@@ -35,18 +35,25 @@ export default function OurProjects() {
 
   return (
     <div className="bg-slate-100 md:p-10 p-5 md:ml-72 md:mt-10">
-      <div className="text-left">
-        <p className="text-center text-black text-3xl font-bold mt-10"> Our Latest Projects</p>
+      <div className="flex-grow text-left">
+        <div className="p-2 text-xl font-bold text-black">
+          <ul className="list-disc">
+            <li>Our Latest Projects</li>
+          </ul>
+        </div>
+        <p className="p-2 md:text-3xl md:pl-10 text-2xl font-bold text-black">
+          Case Studies
+        </p>
       </div>
       {/* Tabs and Navigation Buttons */}
-      <div className="flex flex-col md:flex-row md:items-center md:justify-between mt-5">
+      <div className="flex flex-col md:flex-row md:items-center md:justify-between mt-5 md:pl-[40em]">
         {/* Category Tabs */}
         <div className="flex flex-wrap justify-center md:justify-center gap-4 mb-5">
           {categories.map((category, index) => (
             <button
               key={index}
               onClick={() => handleTabClick(category)}
-              className={`px-6 py-3 rounded-lg transition-colors ${
+              className={`md:px-6 px-2 py-3 rounded-lg transition-colors ${
                 activeCategory === category
                   ? "bg-blue-500 text-white"
                   : "bg-gray-300 text-black"
@@ -130,13 +137,13 @@ export default function OurProjects() {
                   <p className="text-black hover:bg-gray-200 hover:text-red-500 hover:pl-2 transition duration-300 mb-2 text-xl">
                     {project.Sort_descrition}
                   </p>
-                  <p className="text-blue-500 text-left mt-2 hover:text-blue-700 transition duration-300 text-2xl">
+                  <p className="text-blue-500 text-center md:text-left mt-2 hover:text-blue-700 transition duration-300 text-2xl">
                     <a
                       href={project.Project_url_Link}
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      Learn More
+                      Learn More ...
                     </a>
                   </p>
                 </div>
