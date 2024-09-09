@@ -51,7 +51,7 @@ export default function LatestBlog() {
 
       <div className="flex flex-col md:flex-row md:items-center md:justify-between">
         <div className="text-left">
-          <div className="p-2 md:mt-10 text-xl font-bold text-black">
+          <div className="p-2 text-xl font-bold text-black">
             <ul className="list-disc list-inside">
               <li>Our Latest Blogs</li>
             </ul>

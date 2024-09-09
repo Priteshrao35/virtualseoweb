@@ -46,7 +46,7 @@ export default function OurProjects() {
         </p>
       </div>
       {/* Tabs and Navigation Buttons */}
-      <div className="flex flex-col md:flex-row md:items-center md:justify-between mt-5 md:pl-[40em]">
+      <div className="flex flex-col md:flex-row md:items-center md:justify-between mt-5 md:pl-[20em]">
         {/* Category Tabs */}
         <div className="flex flex-wrap justify-center md:justify-center gap-4 mb-5">
           {categories.map((category, index) => (

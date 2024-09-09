@@ -56,7 +56,7 @@ function Brands() {
                 alt={brand.Brand_Name}
                 className="w-7 h-7 md:w-12 md:h-12 rounded-full"
               />
-              <p className="text-sm md:text-3xl font-bold">{brand.Brand_Name}</p>
+              <p className="text-sm md:text-2xl font-bold">{brand.Brand_Name}</p>
             </div>
           </SwiperSlide>
         ))}
