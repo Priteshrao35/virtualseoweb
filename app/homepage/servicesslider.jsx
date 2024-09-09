@@ -24,7 +24,7 @@ function stripHtmlTags(html) {
   const doc = new DOMParser().parseFromString(html, "text/html");
   const text = doc.body.textContent || "";
   // Limit the content to 1000 characters and add "..." if it's longer
-  return text.length > 500 ? text.slice(0, 500) + "  ..........................." : text;
+  return text.length > 600 ? text.slice(0, 600) + "  ..........................." : text;
 }
 
 export default function ServicesSliderSection() {
