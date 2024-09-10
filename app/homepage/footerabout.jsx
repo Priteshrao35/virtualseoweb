@@ -57,7 +57,7 @@ function AboutSection() {
             <h3 className="md:text-2xl font-bold text-white mb-4">
               {data.Card2_Title}
             </h3>
-            <p className="text-white md:text-xl">{data.Card2_Description}</p>
+            <p className="text-white text-sm md:text-xl">{data.Card2_Description}</p>
           </div>
           {/* Card 3 */}
           <div className="bg-gray-800 md:p-14 p-3 shadow-lg flex flex-col items-center text-center w-full">
@@ -71,7 +71,7 @@ function AboutSection() {
             <h3 className="md:text-2xl font-bold text-white mb-4">
               {data.Card3_Title}
             </h3>
-            <p className="text-white md:text-xl">{data.Card3_Description}</p>
+            <p className="text-white text-sm md:text-xl">{data.Card3_Description}</p>
           </div>
           {/* Card 4 */}
           <div className="bg-black md:p-14 p-3 shadow-lg flex flex-col items-center text-center w-full">
@@ -85,7 +85,7 @@ function AboutSection() {
             <h3 className="md:text-2xl font-bold text-white mb-4">
               {data.Card4_Title}
             </h3>
-            <p className="text-white md:text-2xl">{data.Card4_Description}</p>
+            <p className="text-white text-sm md:text-xl">{data.Card4_Description}</p>
           </div>
         </div>
       </div>
