@@ -11,6 +11,7 @@ import LatestBlog from "./homepage/latestblogs";
 import CentralBanner from "./homepage/centralbanner";
 import { Layout } from "antd";
 import Service_price from "./homepage/services_price";
+import GetQuite from "./homepage/getquite";
 
 export default function Home() {
   return (
@@ -35,6 +36,8 @@ export default function Home() {
       <InfoSection />
 
       <LatestBlog />
+
+      <GetQuite />
 
       <AboutSection />
 

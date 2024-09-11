@@ -31,7 +31,7 @@ export default function LatestBlog() {
     : blogs.filter(blog => blog.category_name === selectedCategory);
 
   return (
-    <div className="bg-slate-100 md:p-10 p-5 md:ml-72">
+    <div className="bg-slate-100 md:p-10 p-5 md:ml-20">
       {/* Render category tabs */}
       <div className="tabs text-center my-4">
         {categories.map((category, index) => (

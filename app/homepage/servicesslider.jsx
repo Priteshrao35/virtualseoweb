@@ -24,7 +24,7 @@ function stripHtmlTags(html) {
   const doc = new DOMParser().parseFromString(html, "text/html");
   const text = doc.body.textContent || "";
   // Limit the content to 1000 characters and add "..." if it's longer
-  return text.length > 600 ? text.slice(0, 600) + "  ..........................." : text;
+  return text.length > 700 ? text.slice(0, 700) + " " : text;
 }
 
 export default function ServicesSliderSection() {
@@ -50,7 +50,7 @@ export default function ServicesSliderSection() {
   return (
     <div className="bg-gray-200 p-5 md:p-10">
       <div className="flex flex-col md:flex-row md:items-center justify-between w-full mt-2">
-        <div className="flex-grow md:ml-72 text-left">
+        <div className="flex-grow text-left">
           <div className="p-2 md:mt-10 text-xl font-bold text-black">
             <ul className="list-disc">
               <li>Our Services and Solutions</li>
@@ -69,7 +69,7 @@ export default function ServicesSliderSection() {
           </div>
         </div>
       </div>
-      <div className="md:pl-72">
+      <div className="">
         <Swiper
           slidesPerView={1}
           spaceBetween={10}

@@ -34,7 +34,7 @@ export default function OurProjects() {
   };
 
   return (
-    <div className="bg-slate-100 md:p-10 p-5 md:ml-72 md:mt-10">
+    <div className="bg-slate-100 md:p-10 p-5 md:ml-20 md:mt-10">
       <div className="flex-grow text-left">
         <div className="p-2 text-xl font-bold text-black">
           <ul className="list-disc">
