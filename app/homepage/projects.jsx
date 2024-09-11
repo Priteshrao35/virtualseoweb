@@ -53,7 +53,7 @@ export default function OurProjects() {
             <button
               key={index}
               onClick={() => handleTabClick(category)}
-              className={`md:px-6 px-2 py-3 rounded-lg transition-colors ${
+              className={`md:px-6 p-1 py-1 md:py-3 rounded-lg transition-colors ${
                 activeCategory === category
                   ? "bg-blue-500 text-white"
                   : "bg-gray-300 text-black"

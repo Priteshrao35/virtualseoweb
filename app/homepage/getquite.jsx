@@ -72,29 +72,17 @@ const GetQuite = () => {
   };
 
   return (
-    <div className="bg-gradient-to-t from-pink-100 to-blue-100 text-black">
-      <p className="text-5xl font-bold text-center md:mt-32">
+    <div className="bg-gradient-to-t from-pink-100 to-blue-100 text-black overflow-hidden">
+      <p className=" text-3xl md:text-5xl font-bold text-center mt-10 md:mt-32">
         We are here to help you with any questions or concerns you may have.
       </p>
-      <p className="text-xl text-black px-36 text-center mt-10">
+      <p className="text-xl text-black px-2 md:px-36 text-center mt-5 md:mt-10">
         We are ready to turn your vision into reality! At virtualseoweb, we are
         passionate about delivering creative and effective solutions tailored to
         your needs. Whether you're looking to boost your online presence,
         enhance your website, or need expert advice to grow your business, we're
         here to help. Our team of dedicated professionals brings years of
-        expertise in web development, design, and digital marketing, ensuring
-        you get cutting-edge solutions that drive real results. We don't just
-        meet expectations we aim to exceed them with personalized services that
-        focus on your goals. Have a project in mind? Need guidance on your next
-        digital move? Do not hesitate to get in touch! Our friendly team is
-        available 24/7 to answer your questions, provide insights, and offer
-        recommendations tailored specifically for you. We're committed to
-        offering quick responses and delivering solutions that align with your
-        business goals. Lets start a conversation today! Contact us to see how
-        we can partner with you to create impactful solutions that drive
-        success. Your business growth is our priority, and we are excited to be
-        part of your journey! Feel free to call us at +91 9876543210 or drop us
-        a message we are ready to make great things happen!
+        expertise in web development, design, and digital marketing
       </p>
       {/* Top Cards Section */}
       <div className="p-5 md:pb-20 rounded-xl md:px-[25em]">
@@ -119,8 +107,10 @@ const GetQuite = () => {
         {/* Contact Form and Company Information Section */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {/* Company Information Section */}
-          <div className=" p-6 col-span-1 mt-[3em]">
-            <h2 className="text-4xl font-semibold mb-4">Points of contact</h2>
+          <div className=" md:p-6 col-span-1 md:mt-[3em]">
+            <h2 className="md:text-4xl text-2xl font-semibold mb-4">
+              Points of contact
+            </h2>
             <h2 className="text-xl font-semibold mb-4">
               Uttar Pradesh, India VIRTUALSEOWEB
             </h2>
@@ -143,7 +133,7 @@ const GetQuite = () => {
           </div>
 
           {/* Contact Form Section */}
-          <div className="p-6 col-span-2">
+          <div className="md:p-6 col-span-2">
             <p className="mb-4 text-xl">
               We use an agile approach to test assumptions and connect with the
               needs of your audience early and often.
@@ -210,12 +200,14 @@ const GetQuite = () => {
                   {formStatus}
                 </p>
               )}
-              <button
-                type="submit"
-                className="bg-blue-500 text-white p-2 rounded-md hover:bg-blue-700 w-60"
-              >
-                Submit
-              </button>
+              <div className="flex justify-center w-full">
+                <button
+                  type="submit"
+                  className="bg-blue-500 text-white p-2 rounded-md hover:bg-blue-700 w-60"
+                >
+                  Submit
+                </button>
+              </div>
             </form>
           </div>
         </div>

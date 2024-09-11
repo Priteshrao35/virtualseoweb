@@ -31,14 +31,14 @@ export default function LatestBlog() {
     : blogs.filter(blog => blog.category_name === selectedCategory);
 
   return (
-    <div className="bg-slate-100 md:p-10 p-5 md:ml-20">
+    <div className="bg-slate-100 md:p-10 md:ml-20">
       {/* Render category tabs */}
       <div className="tabs text-center my-4">
         {categories.map((category, index) => (
           <button
             key={index}
             onClick={() => setSelectedCategory(category)}
-            className={`px-4 py-2 mx-2 border rounded ${
+            className={`px-2 md:px-4 py-1 md:py-2 mx-2 border rounded ${
               selectedCategory === category
                 ? "bg-blue-500 text-white"
                 : "bg-gray-200 text-black"
