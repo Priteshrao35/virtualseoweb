@@ -17,7 +17,6 @@ const createSlug = (name) => {
     .replace(/[^\w-]+/g, "");
 };
 
-
 // utils/stripHtmlTags.js
 export function stripHtmlTags(html) {
   const doc = new DOMParser().parseFromString(html, "text/html");
@@ -466,6 +465,9 @@ const ServiceDetailsPage = ({ params }) => {
       </div>
       {/* Industries We’ve Delivered Results In */}
 
+
+      <ServicesSliderSection />
+
       {/* FAQ */}
       <div className="px-[25em] py-8 mt-10">
         <h1 className="text-6xl font-bold text-center mb-8 mt-10 px-20 text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-500 leading-normal">
@@ -616,8 +618,6 @@ const ServiceDetailsPage = ({ params }) => {
         </div>
       </div>
       {/* FAQ */}
-
-      <ServicesSliderSection />
 
       <FooterSection />
     </div>
