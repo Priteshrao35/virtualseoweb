@@ -45,7 +45,7 @@ function OurTeam() {
   }, []);
 
   return (
-    <div className="bg-white p-5 md:px-20 px-5">
+    <div className="bg-white md:p-5 md:px-20 pb-5">
       <p className="text-orange-500 text-2xl md:text-4xl text-center p-5">
         Meet Our Expert Digital Team of Virtualseoweb
       </p>
@@ -81,7 +81,7 @@ function OurTeam() {
         pagination={{
           clickable: true
         }}
-        navigation={true}
+        navigation={!isMobile} // Hide navigation on mobile views
         modules={[Pagination, Navigation, Autoplay]}
         breakpoints={{
           640: { slidesPerView: 2 },

@@ -73,10 +73,10 @@ const GetQuite = () => {
 
   return (
     <div className="bg-gradient-to-t from-pink-100 to-blue-100 text-black overflow-hidden">
-      <p className=" text-3xl md:text-5xl font-bold text-center mt-10 md:mt-32">
+      <p className=" text-2xl md:text-5xl font-bold text-center mt-10 md:mt-32 p-2">
         We are here to help you with any questions or concerns you may have.
       </p>
-      <p className="text-xl text-black px-2 md:px-36 text-center mt-5 md:mt-10">
+      <p className="text-sm text-black px-2 md:px-[25em] text-center mt-5 md:mt-10">
         We are ready to turn your vision into reality! At virtualseoweb, we are
         passionate about delivering creative and effective solutions tailored to
         your needs. Whether you're looking to boost your online presence,
