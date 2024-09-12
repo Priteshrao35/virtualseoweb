@@ -367,31 +367,7 @@ const ServiceDetailsPage = ({ params }) => {
       </div>
       {/* Why Do You Need A SEO Agency */}
 
-      {/* List of the SEO Services We Offer */}
-      <div className="px-[25em] py-8 mt-10">
-        <h1 className="text-6xl font-bold text-center mb-8 mt-10 px-40 text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-500 leading-normal">
-          {service.List_of_the_SEO_Services_We_Offer_Heading}
-        </h1>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-20">
-          {service.List_of_the_SEO_Services_We_Offer.map(
-            (serviceItem, index) => (
-              <div
-                key={index}
-                className="flex flex-col items-center bg-white p-6 rounded-lg shadow-lg"
-              >
-                <p className="text-center font-bold">
-                  {serviceItem.List_of_the_SEO_Services_We_Offer_title}
-                </p>
-                <p className="text-center px-14">
-                  {serviceItem.List_of_the_SEO_Services_We_Offer_description}
-                </p>
-              </div>
-            )
-          )}
-        </div>
-      </div>
-      {/* List of the SEO Services We Offer */}
+      <ServicesSliderSection />
 
       {/* How We Work With You Every Step of The Way! */}
       <div className="px-[25em] py-8 mt-10">
@@ -466,7 +442,7 @@ const ServiceDetailsPage = ({ params }) => {
       {/* Industries We’ve Delivered Results In */}
 
 
-      <ServicesSliderSection />
+      
 
       {/* FAQ */}
       <div className="px-[25em] py-8 mt-10">
