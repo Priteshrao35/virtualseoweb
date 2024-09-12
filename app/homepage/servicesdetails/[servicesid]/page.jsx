@@ -7,6 +7,9 @@ import FooterSection from "../../footer";
 import { Image, Collapse } from "antd";
 import { CaretDownOutlined } from "@ant-design/icons";
 import ServicesSliderSection from "../../servicesslider";
+import Brands from "../../brands";
+import OurProjects from "../../projects";
+import InfoSection from "../../testomonialsbackviews";
 
 const { Panel } = Collapse;
 
@@ -281,6 +284,8 @@ const ServiceDetailsPage = ({ params }) => {
         </div>
       </div>
 
+      <Brands />
+
       {/* Why Hire Seo Agency Section */}
       <div className="px-[20em] py-8 mt-10">
         <h1 className="text-6xl font-bold text-center mb-8 mt-10 px-40 text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-500 leading-normal">
@@ -349,6 +354,9 @@ const ServiceDetailsPage = ({ params }) => {
       </div>
       {/* Services_Better_Than_Others */}
 
+     
+      <ServicesSliderSection />
+      
       {/* Why Do You Need A SEO Agency */}
       <div className="px-[20em] py-8 mt-10">
         <h1 className="text-6xl font-bold text-center mb-8 mt-5 px-40 text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-500 leading-normal">
@@ -366,8 +374,6 @@ const ServiceDetailsPage = ({ params }) => {
         </div>
       </div>
       {/* Why Do You Need A SEO Agency */}
-
-      <ServicesSliderSection />
 
       {/* How We Work With You Every Step of The Way! */}
       <div className="px-[25em] py-8 mt-10">
@@ -420,6 +426,10 @@ const ServiceDetailsPage = ({ params }) => {
         </div>
       </div>
       {/* How We Work With You Every Step of The Way! */}
+
+     
+      <OurProjects />
+
       {/* Industries We’ve Delivered Results In */}
       <div className="px-[15em] py-8 mt-10">
         <h1 className="text-6xl font-bold text-center mb-8 mt-10 px-40 text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-500 leading-normal">
@@ -441,8 +451,7 @@ const ServiceDetailsPage = ({ params }) => {
       </div>
       {/* Industries We’ve Delivered Results In */}
 
-
-      
+      <InfoSection />
 
       {/* FAQ */}
       <div className="px-[25em] py-8 mt-10">
