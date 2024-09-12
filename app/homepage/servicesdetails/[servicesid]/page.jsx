@@ -6,6 +6,7 @@ import Header from "../../header";
 import FooterSection from "../../footer";
 import { Image, Collapse } from "antd";
 import { CaretDownOutlined } from "@ant-design/icons";
+import ServicesSliderSection from "../../servicesslider";
 
 const { Panel } = Collapse;
 
@@ -615,6 +616,8 @@ const ServiceDetailsPage = ({ params }) => {
         </div>
       </div>
       {/* FAQ */}
+
+      <ServicesSliderSection />
 
       <FooterSection />
     </div>
