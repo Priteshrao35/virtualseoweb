@@ -6,9 +6,15 @@ import Navbar from "../homepage/navbar";
 import CentralBanner from "../homepage/centralbanner";
 import FooterSection from "../homepage/footer";
 import Link from "next/link";
-import Brands from "../homepage/brands";
 import ServicesSliderSection from "../homepage/servicesslider";
-import InfoSection from "../homepage/testomonialsbackviews";
+
+// Utility function to create a URL-friendly slug from a title
+const createSlug = (title) => {
+  return title
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+};
 
 function OurBlogs() {
   const [blogs, setBlogs] = useState([]);
@@ -69,7 +75,7 @@ function OurBlogs() {
         {filteredBlogs.map((blog) => (
           <Link
             key={blog.id}
-            href={`/blogs/blogdetails/${blog.id}`} // Use the blog ID for URL
+            href={`/blogs/blogdetails/${createSlug(blog.Blog_Name)}`} // Use slug for URL
           >
             <div className="blog-card border p-4 rounded shadow cursor-pointer hover:bg-gray-100">
               <img
@@ -88,8 +94,6 @@ function OurBlogs() {
       <div className="md:px-28 bg-slate-200">
         <ServicesSliderSection />
       </div>
-
-      <InfoSection />
 
       <div className="flex flex-col md:flex-row items-center justify-center p-5 bg-gradient-to-t from-slate-100 to-red-50 mt-20">
         <p className="text-black font-bold text-center md:text-left text-lg md:text-3xl mb-4 md:mb-0 md:mr-4">

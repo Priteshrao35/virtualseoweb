@@ -102,9 +102,6 @@ const ContactForm = () => {
         </div>
       </div>
 
-      <div className="md:px-28 bg-slate-200">
-        <ServicesSliderSection />
-      </div>
 
       {/* Top Cards Section */}
       <div className="p-5 bg-blue-50 rounded-xl md:px-[15em] px-5">
@@ -354,7 +351,9 @@ const ContactForm = () => {
         </div>
       </div>
 
-      <InfoSection />
+      <div className="md:px-28 bg-slate-200">
+        <ServicesSliderSection />
+      </div>
 
       <FooterSection />
     </div>

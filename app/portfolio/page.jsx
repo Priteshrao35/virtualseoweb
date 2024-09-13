@@ -117,18 +117,15 @@ function PortFolio() {
       </div>
 
       <div className="md:px-28 bg-slate-200">
-        {" "}
         <ServicesSliderSection />
       </div>
-
-      <InfoSection />
 
       <div className="flex flex-col md:flex-row items-center justify-center p-5 bg-gradient-to-t from-slate-100 to-red-50 mt-20">
         <p className="text-black font-bold text-center md:text-left text-lg md:text-3xl mb-4 md:mb-0 md:mr-4">
           Have any questions and need to talk with us directly?
         </p>
         <a
-          href="mailto:contact@example.com"
+          href="/contactus"
           className="px-6 py-2 md:py-3 bg-blue-500 text-white text-sm font-semibold rounded-lg shadow-lg hover:bg-blue-600 transition-colors"
         >
           Contact Now

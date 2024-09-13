@@ -8,20 +8,28 @@ import CentralBanner from "@/app/homepage/centralbanner";
 import FooterSection from "@/app/homepage/footer";
 import Header from "@/app/homepage/header";
 
+// Utility function to create a URL-friendly slug from a title
+const createSlug = (title) => {
+  return title
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+};
+
 const BlogDetails = () => {
-  const { blogid } = useParams(); // Get the blog id from URL parameter
+  const { blogid } = useParams(); // Get the slug from URL parameter
   const [blog, setBlog] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
     if (blogid) {
-      // Fetch blog details from API based on blog id
+      // Fetch blog details from API based on slug
       axios
-        .get(`https://virtualseoweb.pythonanywhere.com/blogs/${blogid}/`) // Ensure endpoint ends with a slash
+        .get(`https://virtualseoweb.pythonanywhere.com/blogs/?slug=${blogid}`) // Adjust endpoint for slug-based query
         .then((response) => {
-          if (response.data) {
-            setBlog(response.data);
+          if (response.data && response.data.length > 0) {
+            setBlog(response.data[0]); // Assuming API returns an array
             setLoading(false);
           } else {
             setError("Blog not found");
@@ -34,7 +42,7 @@ const BlogDetails = () => {
           console.error("Error fetching blog details:", error); // Log the error
         });
     } else {
-      setError("Invalid blog ID.");
+      setError("Invalid blog slug.");
       setLoading(false);
     }
   }, [blogid]);

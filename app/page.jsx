@@ -15,7 +15,7 @@ import GetQuite from "./homepage/getquite";
 
 export default function Home() {
   return (
-    <Layout >
+    <Layout>
       {/* style={{ overflow: "hidden" }} */}
       <Header />
       <hr />
@@ -23,11 +23,15 @@ export default function Home() {
 
       <Mainswiper />
 
-      <ServicesSliderSection />
+      <div className="md:px-28 bg-slate-200">
+        <ServicesSliderSection />
+      </div>
 
       <Service_price />
 
-     <div className="md:mt-20 md:mb-20"> <CentralBanner /></div>
+      <div className="md:mt-20 md:mb-20">
+        <CentralBanner />
+      </div>  
 
       <Brands />
 
