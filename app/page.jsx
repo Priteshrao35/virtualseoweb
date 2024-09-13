@@ -27,7 +27,7 @@ export default function Home() {
 
       <Service_price />
 
-      <CentralBanner />
+     <div className="md:mt-20 md:mb-20"> <CentralBanner /></div>
 
       <Brands />
 

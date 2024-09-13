@@ -6,6 +6,7 @@ import Header from "../homepage/header";
 import Navbar from "../homepage/navbar";
 import FooterSection from "../homepage/footer";
 import ServicesSliderSection from "../homepage/servicesslider";
+import InfoSection from "../homepage/testomonialsbackviews";
 
 const cardData = [
   // Your cardData remains unchanged
@@ -82,26 +83,31 @@ const ContactForm = () => {
       <hr />
       <Navbar />
 
-      <div className="relative w-full">
+      <div className="relative w-full md:mt-0 mt-14">
         <Image
           src="/contactbanner.png"
           layout="responsive"
           width={1920}
           height={1080}
           alt="Picture of the author"
+          className="object-cover h-64 sm:h-96 md:h-auto"
         />
         <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white bg-black bg-opacity-50">
-          <h1 className="text-[5em] font-bold mb-4">Contact Us</h1>
-          <p className="text-2xl font-bold">
+          <h1 className="text-xl sm:text-5xl md:text-[5em] font-bold md:mb-4">
+            Contact Us
+          </h1>
+          <p className="text-sm sm:text-xl md:text-2xl font-bold">
             We are here to help you with any questions or concerns you may have.
           </p>
         </div>
       </div>
 
-      <ServicesSliderSection />
+      <div className="md:px-28 bg-slate-200">
+        <ServicesSliderSection />
+      </div>
 
       {/* Top Cards Section */}
-      <div className="p-5 bg-blue-50 rounded-xl px-[15em]">
+      <div className="p-5 bg-blue-50 rounded-xl md:px-[15em] px-5">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
           {cardData.map((card, index) => (
             <div
@@ -120,11 +126,11 @@ const ContactForm = () => {
           ))}
         </div>
 
-        <div className="p-5">
-          <p className="text-black text-3xl font-bold ">
+        <div className="md:p-5 text-center">
+          <p className="text-black text-2xl md:text-3xl font-bold ">
             We're Here to Help You 24/7!
           </p>
-          <p className="text-black text-xl m-5 ">
+          <p className="text-black text-lg md:text-xl md:m-5 ">
             Get in touch with our expert team for swift support and personalized
             solutions tailored to your needs.
           </p>
@@ -133,9 +139,11 @@ const ContactForm = () => {
         {/* Contact Form and Company Information Section */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {/* Company Information Section */}
-          <div className=" p-6 col-span-1 mt-[3em]">
-            <h2 className="text-4xl font-semibold mb-4">Points of contact</h2>
-            <h2 className="text-xl font-semibold mb-4">
+          <div className="md:p-6  mt-5 text-center md:text-left col-span-1  md:mt-[3em]">
+            <h2 className="text-2xl md:text-4xl font-semibold mb-4">
+              Points of Contact
+            </h2>
+            <h2 className="text-lg md:text-xl font-semibold mb-4">
               Uttar Pradesh, India VIRTUALSEOWEB
             </h2>
 
@@ -144,21 +152,27 @@ const ContactForm = () => {
               Uttar Pradesh 201306
             </p>
 
-            <h3 className="text-lg font-semibold mt-4">Information & Sales</h3>
+            <h3 className="text-md md:text-lg font-semibold mt-4">
+              Information & Sales
+            </h3>
             <p>info@virtualseoweb.com</p>
-            <h3 className="text-lg font-semibold mt-4">Support</h3>
+            <h3 className="text-md md:text-lg font-semibold mt-4">Support</h3>
             <p>info@virtualseoweb.com</p>
 
-            <h3 className="text-lg font-semibold mt-4">
+            <h3 className="text-md md:text-lg font-semibold mt-4">
               Our Other Office
             </h3>
-            <h3 className="text-lg font-semibold mt-4">Mirzapur, Uttar Pradesh, India</h3>
+            <h3 className="text-md md:text-lg font-semibold mt-4">
+              Mirzapur, Uttar Pradesh, India
+            </h3>
             <p>Mirzapur, Uttar Pradesh, India</p>
           </div>
 
           {/* Contact Form Section */}
-          <div className="p-6 col-span-2">
-            <h2 className="text-2xl font-semibold mb-4">Contact Us</h2>
+          <div className="md:p-6 p-2 mt-5 md:mt-0 col-span-2">
+            <h2 className="text-xl md:text-2xl font-semibold mb-4">
+              Contact Us
+            </h2>
             <p className="mb-4">
               We use an agile approach to test assumptions and connect with the
               needs of your audience early and often.
@@ -227,7 +241,7 @@ const ContactForm = () => {
               )}
               <button
                 type="submit"
-                className="bg-blue-500 text-white p-2 rounded-md hover:bg-blue-700 w-60"
+                className="bg-blue-500 text-white p-2 rounded-md hover:bg-blue-700 w-full md:w-60"
               >
                 Submit
               </button>
@@ -236,20 +250,20 @@ const ContactForm = () => {
         </div>
         <hr className="mt-5 font-bold" />
 
-        <div className="mt-20">
-          <div className="flex flex-col items-center">
-            <h2 className="text-3xl font-bold mb-4 text-center">
+        <div className="mt-5 md:mt-20">
+          <div className="flex flex-col items-center text-center">
+            <h2 className="text-2xl md:text-3xl font-bold mb-4">
               GOT A QUESTION? TALK WITH US DIRECT
             </h2>
             <a
               href="tel:+919450977593"
-              className="text-black font-bold text-3xl text-center mb-2"
+              className="text-black font-bold text-xl md:text-3xl mb-2"
             >
               <span className="text-yellow-600">Call:</span> +91 9450977593
             </a>
             <a
               href="mailto:info@virtualseoweb.com"
-              className="text-white py-1 px-3 rounded-lg text-xl text-center font-bold bg-blue-500"
+              className="text-white py-1 px-3 rounded-lg text-lg md:text-xl font-bold bg-blue-500"
             >
               info@virtualseoweb.com
             </a>
@@ -257,16 +271,16 @@ const ContactForm = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
             {/* Sales Inquiry */}
-            <div className="p-4 bg-gray-100 rounded-lg flex flex-col items-center">
+            <div className="md:p-4 bg-gray-100 rounded-lg flex flex-col items-center">
               <img
                 src="/sales-inquiry-icon.png"
                 alt="Sales Inquiry"
-                className="w-40 h-40 object-contain rounded-md mb-4"
+                className="w-24 h-24 md:w-40 md:h-40 object-contain rounded-md mb-4"
               />
-              <h3 className="text-lg font-semibold mb-2 text-center">
+              <h3 className="text-md md:text-lg font-semibold mb-2 text-center">
                 Sales Inquiry
               </h3>
-              <p className="mb-2 text-center">
+              <p className="mb-2 text-center text-sm md:text-base">
                 Email:{" "}
                 <a
                   href="mailto:sales@mediasearchgroup.com"
@@ -275,25 +289,25 @@ const ContactForm = () => {
                   info@virtualseoweb.com
                 </a>
               </p>
-              <p className="text-center">
+              <p className="text-center text-sm md:text-base">
                 Phone No:{" "}
                 <a href="tel:+91 9450977593" className="text-blue-500">
-                +91 9450977593
+                  +91 9450977593
                 </a>
               </p>
             </div>
 
             {/* Customer Support */}
-            <div className="p-4 bg-gray-100 rounded-lg flex flex-col items-center">
+            <div className="md:p-4 bg-gray-100 rounded-lg flex flex-col items-center">
               <img
                 src="/customer-support-icon.png"
                 alt="Customer Support"
-                className="w-40 h-40 object-contain rounded-md mb-4"
+                className="w-24 h-24 md:w-40 md:h-40 object-contain rounded-md mb-4"
               />
-              <h3 className="text-lg font-semibold mb-2 text-center">
+              <h3 className="text-md md:text-lg font-semibold mb-2 text-center">
                 Customer Support
               </h3>
-              <p className="mb-2 text-center">
+              <p className="mb-2 text-center text-sm md:text-base">
                 Email:{" "}
                 <a
                   href="mailto:supports@mediasearchgroup.com"
@@ -302,23 +316,25 @@ const ContactForm = () => {
                   info@virtualseoweb.com
                 </a>
               </p>
-              <p className="text-center">
+              <p className="text-center text-sm md:text-base">
                 Phone No:{" "}
                 <a href="tel:+91 9450977593" className="text-blue-500">
-                +91 9450977593
+                  +91 9450977593
                 </a>
               </p>
             </div>
 
             {/* Career */}
-            <div className="p-4 bg-gray-100 rounded-lg flex flex-col items-center">
+            <div className="md:p-4 bg-gray-100 rounded-lg flex flex-col items-center">
               <img
                 src="/career-icon.png"
                 alt="Career"
-                className="w-40 h-40 object-contain rounded-md mb-4"
+                className="w-24 h-24 md:w-40 md:h-40 object-contain rounded-md mb-4"
               />
-              <h3 className="text-lg font-semibold mb-2 text-center">Career</h3>
-              <p className="mb-2 text-center">
+              <h3 className="text-md md:text-lg font-semibold mb-2 text-center">
+                Career
+              </h3>
+              <p className="mb-2 text-center text-sm md:text-base">
                 Email:{" "}
                 <a
                   href="mailto:career@mediasearchgroup.com"
@@ -327,16 +343,18 @@ const ContactForm = () => {
                   info@virtualseoweb.com
                 </a>
               </p>
-              <p className="text-center">
+              <p className="text-center text-sm md:text-base">
                 Phone No:{" "}
                 <a href="tel:+91 9450977593" className="text-blue-500">
-                +91 9450977593
+                  +91 9450977593
                 </a>
               </p>
             </div>
           </div>
         </div>
       </div>
+
+      <InfoSection />
 
       <FooterSection />
     </div>

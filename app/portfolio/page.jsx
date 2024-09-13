@@ -4,6 +4,9 @@ import CentralBanner from "../homepage/centralbanner";
 import Header from "../homepage/header";
 import Navbar from "../homepage/navbar";
 import FooterSection from "../homepage/footer";
+import Brands from "../homepage/brands";
+import ServicesSliderSection from "../homepage/servicesslider";
+import InfoSection from "../homepage/testomonialsbackviews";
 
 function PortFolio() {
   const [categories, setCategories] = useState([]);
@@ -35,63 +38,72 @@ function PortFolio() {
       <Header />
       <hr />
       <Navbar />
-      <CentralBanner />
+      <div className="mt-10 md:mt-0">
+        <CentralBanner />
+      </div>
+      <p className="text-black text-xl md:text-5xl font-bold p-2 md:p-5 text-center md:mt-10">
+        Our Best Portfolio – VirtualSEOweb
+      </p>
+      <p className="text-black text-sm md:text-lg font-bold px-5 md:px-48 md:text-center">
+        At VirtualSEOweb, we are dedicated to delivering innovative web
+        development and SEO solutions that enhance online visibility and drive
+        meaningful engagement. Our portfolio reflects a diverse range of
+        successful projects, including high-performance websites, mobile
+        applications, and comprehensive SEO strategies designed to elevate our
+        clients’ digital presence. From concept to execution, our team of
+        skilled developers and SEO experts works closely with clients to ensure
+        that each project is optimized for success. We create responsive,
+        user-friendly websites that not only look great but are also built to
+        rank well on search engines, ensuring greater visibility for your
+        business. Our expertise spans both frontend and backend development,
+        allowing us to build scalable, efficient digital solutions that support
+        business growth. Whether you're seeking a robust SEO strategy, a custom
+        website, or an engaging mobile app, VirtualSEOweb is here to transform
+        your vision into a reality that drives real results.
+      </p>
 
       {/* Render category tabs */}
-      <div className="text-center p-10 bg-gradient-to-t from-slate-100 to-red-200">
+      <div className="text-center md:p-10 p-2 bg-gradient-to-t from-slate-100 to-red-200 mt-10">
         {categories.map((category, index) => (
           <button
             key={index}
             onClick={() => handleTabClick(category)}
-            style={{
-              margin: "5px",
-              padding: "10px",
-              backgroundColor:
-                activeCategory === category ? "#007bff" : "#e0e0e0",
-              color: activeCategory === category ? "#fff" : "#000",
-              border: "none",
-              cursor: "pointer",
-              borderRadius: "5px"
-            }}
+            className={`m-1 p-2 md:m-2 md:p-3 ${
+              activeCategory === category
+                ? "bg-blue-500 text-white"
+                : "bg-gray-300 text-black"
+            } rounded-md border-none cursor-pointer`}
           >
             {category}
           </button>
         ))}
       </div>
-      <div className="md:px-40">
-        {/* Render projects for the active category in a 4x4 grid */}
-        <div
-          style={{
-            marginTop: "20px",
-            display: "grid",
-            gridTemplateColumns: "repeat(4, 1fr)",
-            gap: "20px"
-          }}
-        >
+
+      <div className="md:px-40 px-4">
+        <div className="mt-5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
           {projects
             .filter((project) => project.category === activeCategory)
             .map((project) => (
               <div
                 key={project.id}
-                style={{
-                  border: "1px solid #ccc",
-                  padding: "10px",
-                  borderRadius: "5px"
-                }}
+                className="border border-gray-300 p-4 rounded-md"
               >
                 <img
                   src={project.Project_Image}
                   alt={project.Project_Name}
-                  style={{ width: "100%", height: "auto" }}
+                  className="w-full h-auto"
                 />
                 <div className="text-center mt-5">
-                  <h3 className="text-black">{project.Project_Name}</h3>
+                  <h3 className="text-black font-semibold">
+                    {project.Project_Name}
+                  </h3>
                   <p className="text-black">{project.Sort_descrition}</p>
                 </div>
                 <a
                   href={project.Project_url_Link}
                   target="_blank"
                   rel="noopener noreferrer"
+                  className="block text-blue-500 mt-3 hover:underline"
                 >
                   Visit Project
                 </a>
@@ -100,13 +112,24 @@ function PortFolio() {
         </div>
       </div>
 
-      <div className="flex items-center justify-center p-5 bg-gradient-to-t from-slate-100 to-red-50 mt-20">
-        <p className="text-black font-bold text-3xl mr-4">
+      <div className="mt-5">
+        <Brands />
+      </div>
+
+      <div className="md:px-28 bg-slate-200">
+        {" "}
+        <ServicesSliderSection />
+      </div>
+
+      <InfoSection />
+
+      <div className="flex flex-col md:flex-row items-center justify-center p-5 bg-gradient-to-t from-slate-100 to-red-50 mt-20">
+        <p className="text-black font-bold text-center md:text-left text-lg md:text-3xl mb-4 md:mb-0 md:mr-4">
           Have any questions and need to talk with us directly?
         </p>
         <a
-          href="mailto:contact@example.com" // Replace with your contact email or link
-          className="px-6 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-lg hover:bg-blue-600 transition-colors"
+          href="mailto:contact@example.com"
+          className="px-6 py-2 md:py-3 bg-blue-500 text-white text-sm font-semibold rounded-lg shadow-lg hover:bg-blue-600 transition-colors"
         >
           Contact Now
         </a>
