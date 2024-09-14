@@ -30,6 +30,16 @@ export default function LatestBlog() {
     ? blogs
     : blogs.filter(blog => blog.category_name === selectedCategory);
 
+
+
+    // Helper function to truncate text to 50 words
+    const truncateText = (text, wordLimit) => {
+      const words = text.split(" ");
+      return words.length > wordLimit
+        ? words.slice(0, wordLimit).join(" ") + "..."
+        : text;
+    };
+
   return (
     <div className="bg-slate-100 md:p-10 md:ml-20">
       {/* Render category tabs */}
@@ -125,7 +135,7 @@ export default function LatestBlog() {
                   {blog.Blog_Name}
                 </h3>
                 <p className="text-black hover:bg-gray-200 hover:text-red-500 hover:pl-2 transition duration-300 mb-2 text-xl">
-                  {blog.Sort_description}
+                {truncateText(blog.Sort_description, 50)}
                 </p>
                 <p className="text-blue-500 text-left mt-2 hover:text-blue-700 transition duration-300 text-2xl">
                   <a href={`/blogs/blogdetails/${blog.id}`} target="_blank" rel="noopener noreferrer">

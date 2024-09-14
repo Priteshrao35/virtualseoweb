@@ -29,9 +29,9 @@ function Brands() {
 
   return (
     <div>
-      <p><p className="text-black text-xl md:text-4xl font-bold p-2 md:p-5 text-center">
+      <p className="text-black text-xl md:text-4xl font-bold p-2 md:p-5 text-center">
         Our Partner Brands
-      </p></p>
+      </p>
       <div className="w-full bg-white flex items-center justify-center px-10 md:px-[10em] py-10 md:mt-5">
         <Swiper
           slidesPerView={2} // Show 1 item on mobile
