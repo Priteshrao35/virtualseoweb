@@ -16,7 +16,7 @@ function AboutSection() {
   if (!data) return <p>Loading...</p>; // Show loading state while data is being fetched
 
   return (
-    <div className=" bg-white">
+    <div className="bg-gray-800">
       <div className="relative flex flex-col md:flex-row gap-0 items-stretch p-0 bg-white">
         {/* Image Section */}
         <div className="relative flex justify-center flex-1">

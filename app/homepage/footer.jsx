@@ -100,14 +100,11 @@ function FooterSection() {
 
   return (
     <footer className="bg-gray-800 text-gray-300 md:mt-1">
-      <div>
-        <p className="text-white text-4xl text-center md:p-10 p-2">
-          VIRTUALSEOWEB
-        </p>
-        <p className="text-white md:px-[5em] md:py-5 px-5 py-3 text-center md:text-xl">
-          {isMobile ? mobileText : footerContent}
-        </p>
-      </div>
+      <p className="text-white text-4xl text-center pt-10">VIRTUALSEOWEB</p>
+      <p className="text-white md:px-[5em] md:py-5 px-5 py-3 text-center md:text-xl">
+        {isMobile ? mobileText : footerContent}
+      </p>
+
       <div className="py-8 px-5 md:px-40">
         <div className="grid grid-cols-2 md:grid-cols-7 gap-12">
           {Object.keys(menuData).map((category) => (

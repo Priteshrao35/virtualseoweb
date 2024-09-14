@@ -21,6 +21,7 @@ const BlogDetails = () => {
   const [blog, setBlog] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [blogs, setBlogs] = useState([]); // State to store the list of blogs
 
   useEffect(() => {
     if (blogid) {
@@ -45,6 +46,16 @@ const BlogDetails = () => {
       setError("Invalid blog slug.");
       setLoading(false);
     }
+
+    // Fetch all blogs for the right-side list
+    axios
+      .get("https://virtualseoweb.pythonanywhere.com/blogs/") // Fetch the list of all blogs
+      .then((response) => {
+        setBlogs(response.data);
+      })
+      .catch((error) => {
+        console.error("Error fetching blogs list:", error);
+      });
   }, [blogid]);
 
   if (loading) {
@@ -55,29 +66,47 @@ const BlogDetails = () => {
     return <div className="text-black">{error}</div>;
   }
 
-  if (!blog) {
-    return <div className="text-black">Blog not found</div>;
-  }
-
   return (
     <div className="bg-gray-100 text-black">
       <Header />
       <hr />
       <Navbar />
       <CentralBanner />
-      <Image
-        src={blog.Blog_Image}
-        className="w-full h-auto object-cover"
-        preview={false}
-      />
 
-      <div className="px-4 py-8">
-        <div className="max-w-3xl mx-auto">
-          <h1 className="text-3xl font-bold mb-4">{blog.Blog_Name}</h1>
-          <p className="text-gray-700 mb-4">{blog.Sort_description}</p>
-          <span className="text-gray-500">{blog.Uploaded_Date}</span>
+      <div className="flex">
+        {/* Left side: Blog details */}
+        <div className="w-2/3 px-4 py-8">
+          <div className="max-w-3xl mx-auto">
+            <Image
+              src={blog.Blog_Image}
+              className="w-full h-auto object-cover mb-4"
+              preview={false}
+            />
+            <h1 className="text-3xl font-bold mb-4">{blog.Blog_Name}</h1>
+            <p className="text-gray-700 mb-4">{blog.Sort_description}</p>
+            <span className="text-gray-500">{blog.Uploaded_Date}</span>
+          </div>
+        </div>
+
+        {/* Right side: Blog list */}
+        <div className="w-1/3 px-4 py-8 border-l border-gray-300">
+          <h2 className="text-2xl font-bold mb-4">Other Blogs</h2>
+          <ul>
+            {blogs.map((b) => (
+              <li key={b.id} className="mb-4">
+                <a
+                  href={`/blogs/${createSlug(b.Blog_Name)}`}
+                  className="text-blue-500 hover:underline"
+                >
+                  {b.Blog_Name}
+                </a>
+                <p className="text-sm text-gray-600">{b.Uploaded_Date}</p>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
+
       <FooterSection />
     </div>
   );

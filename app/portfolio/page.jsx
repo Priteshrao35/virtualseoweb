@@ -34,7 +34,7 @@ function PortFolio() {
   };
 
   return (
-    <div className="bg-white">
+    <div className="bg-gray-100">
       <Header />
       <hr />
       <Navbar />
