@@ -1,7 +1,6 @@
 'use client'
 import { useState, useEffect } from 'react';
 import FooterSection from '../homepage/footer';
-import CentralBanner from '../homepage/centralbanner';
 import Navbar from '../homepage/navbar';
 import Header from '../homepage/header';
 
@@ -46,7 +45,6 @@ export default function Careers() {
       <Header />
       <hr />
       <Navbar />
-      <CentralBanner />
       <section className="bg-cover bg-center py-20" style={{ backgroundImage: `url('/img/webpall/carrire_banner.webp')` }}>
         <div className="container mx-auto text-center px-4">
           <h1 className="text-4xl font-extrabold text-black mb-4">Join Our Team and Make a Difference</h1>

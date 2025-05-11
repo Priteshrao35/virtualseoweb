@@ -1,12 +1,10 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import CentralBanner from "../homepage/centralbanner";
 import Header from "../homepage/header";
 import Navbar from "../homepage/navbar";
 import FooterSection from "../homepage/footer";
 import Brands from "../homepage/brands";
 import ServicesSliderSection from "../homepage/servicesslider";
-import InfoSection from "../homepage/testomonialsbackviews";
 
 function PortFolio() {
   const [categories, setCategories] = useState([]);
@@ -38,9 +36,6 @@ function PortFolio() {
       <Header />
       <hr />
       <Navbar />
-      <div className="mt-10 md:mt-0">
-        <CentralBanner />
-      </div>
       <p className="text-black text-xl md:text-5xl font-bold p-2 md:p-5 text-center md:mt-10">
         Our Best Portfolio – VirtualSEOweb
       </p>

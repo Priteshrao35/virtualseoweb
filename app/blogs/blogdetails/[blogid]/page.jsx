@@ -4,11 +4,9 @@ import axios from "axios";
 import { Image } from "antd";
 import { useParams } from "next/navigation";
 import Navbar from "@/app/homepage/navbar";
-import CentralBanner from "@/app/homepage/centralbanner";
 import FooterSection from "@/app/homepage/footer";
 import Header from "@/app/homepage/header";
 import { FaStar } from "react-icons/fa";
-import Link from "next/link";
 
 // Utility function to create a URL-friendly slug from a title
 const createSlug = (title) => {
@@ -101,7 +99,6 @@ const BlogDetails = () => {
       <Header />
       <hr />
       <Navbar />
-      <CentralBanner />
 
       <div className="flex flex-col lg:flex-row md:px-[15em]">
         {/* Left side: Blog details */}

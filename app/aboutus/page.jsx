@@ -4,7 +4,6 @@ import axios from "axios";
 import FooterSection from "../homepage/footer";
 import Header from "../homepage/header";
 import Navbar from "../homepage/navbar";
-import CentralBanner from "../homepage/centralbanner";
 import ServicesSliderSection from "../homepage/servicesslider";
 import Brands from "../homepage/brands";
 import InfoSection from "../homepage/testomonialsbackviews";
