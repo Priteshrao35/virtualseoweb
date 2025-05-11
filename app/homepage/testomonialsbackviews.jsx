@@ -2,7 +2,6 @@
 import Image from "next/image";
 import React, { useState, useEffect } from "react";
 import Testomonialsbackviews from "./testomonials";
-import OurTeam from "./ourteam";
 
 function InfoSection() {
   const [data, setData] = useState(null);
@@ -19,7 +18,7 @@ function InfoSection() {
   }
 
   return (
-    <div className="px-4 md:px-40 bg-white md:mt-20">
+    <div className="px-4 bg-white md:mt-20">
       <div className="flex-grow text-center">
         <p className="md:p-10 p-2 md:text-4xl text-sm font-bold text-black md:mt-10">
           This is the best client testomonials
@@ -60,8 +59,6 @@ function InfoSection() {
           </ul>
         </div>
       </div>
-      <hr className="md:mt-20" />
-      <OurTeam />
     </div>
   );
 }

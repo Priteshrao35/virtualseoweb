@@ -137,15 +137,7 @@ export default function OurProjects() {
                   <p className="text-black hover:bg-gray-200 hover:text-red-500 hover:pl-2 transition duration-300 mb-2 text-xl">
                     {project.Sort_descrition}
                   </p>
-                  <p className="text-blue-500 text-center md:text-left mt-2 hover:text-blue-700 transition duration-300 text-2xl">
-                    <a
-                      href={project.Project_url_Link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Learn More ...
-                    </a>
-                  </p>
+                 
                 </div>
               </SwiperSlide>
             ))}

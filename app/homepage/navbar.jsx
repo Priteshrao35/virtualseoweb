@@ -72,7 +72,6 @@ const Navbar = () => {
   <a onClick={() => router.push("/portfolio")} className="text-black font-bold hover:text-blue-500">Portfolio</a>
   <a onClick={() => router.push("/blogs")} className="text-black font-bold hover:text-blue-500">Blogs</a>
   <a onClick={() => router.push("/aboutus")} className="text-black font-bold hover:text-blue-500">About Us</a>
-  <a onClick={() => router.push("/careers")} className="text-black font-bold hover:text-blue-500">Careers</a>
   <a onClick={() => router.push("/contactus")} className="text-black font-bold hover:text-blue-500">Contacts</a>
 </div>
 

@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import axios from "axios";
+import { motion } from "framer-motion"; // Import Framer Motion
 
 // Import Swiper styles
 import "swiper/css";
@@ -23,9 +24,14 @@ const createSlug = (name) => {
 function stripHtmlTags(html) {
   const doc = new DOMParser().parseFromString(html, "text/html");
   const text = doc.body.textContent || "";
-  // Limit the content to 1000 characters and add "..." if it's longer
-  return text.length > 700 ? text.slice(0, 700) + " " : text;
+
+  if (window.innerWidth <= 768) {
+    return text.split(/\s+/).slice(0, 65).join(" ") + "...";
+  }
+
+  return text.length > 300 ? text.slice(0, 500) + "..." : text;
 }
+
 
 export default function ServicesSliderSection() {
   const [services, setServices] = useState([]);
@@ -48,15 +54,21 @@ export default function ServicesSliderSection() {
   }, []);
 
   return (
-    <div className="bg-gray-200 p-5 md:p-10">
-      <div className="flex flex-col md:flex-row md:items-center justify-between w-full mt-2">
-        <div className="flex-grow text-left">
-          <div className="p-2 md:mt-10 text-xl font-bold text-black">
+    <motion.div
+      className="p-1 md:p-10 md:px-10 bg-white"
+      initial={{ opacity: 0, y: 50 }} // Start animation: invisible and moved down
+      whileInView={{ opacity: 1, y: 0 }} // Animate to visible and original position
+      transition={{ duration: 0.8, ease: "easeOut" }} // Smooth transition
+      viewport={{ once: true, amount: 0.2 }} // Trigger animation when 20% is visible
+    >
+      <div className="flex flex-col md:flex-row md:items-center justify-between w-full">
+        <div className="flex-grow md:text-left">
+          <div className="p-1 mt-5 md:mt-10 text-xl md:pl-0 pl-8 font-bold text-black">
             <ul className="list-disc">
               <li>Our Services and Solutions</li>
             </ul>
           </div>
-          <p className="md:p-10 p-2 md:text-4xl text-2xl font-bold text-black">
+          <p className="md:p-10 p-2 md:text-4xl text-xl font-bold text-black md:text-left text-center">
             Technological Applications
           </p>
         </div>
@@ -69,34 +81,34 @@ export default function ServicesSliderSection() {
           </div>
         </div>
       </div>
-      <div className="">
+      <div>
         <Swiper
           slidesPerView={1}
           spaceBetween={10}
           autoplay={{
             delay: 5000,
-            disableOnInteraction: false
+            disableOnInteraction: false,
           }}
           breakpoints={{
             640: {
               slidesPerView: 2,
-              spaceBetween: 20
+              spaceBetween: 20,
             },
             767: {
-              slidesPerView: 3,
-              spaceBetween: 30
+              slidesPerView: 34,
+              spaceBetween: 30,
             },
             1024: {
               slidesPerView: 4,
-              spaceBetween: 30
-            }
+              spaceBetween: 30,
+            },
           }}
           pagination={{
-            clickable: true
+            clickable: true,
           }}
           navigation={{
             nextEl: ".swiper-button-nexts",
-            prevEl: ".swiper-button-prevs"
+            prevEl: ".swiper-button-prevs",
           }}
           modules={[Autoplay, Navigation]}
           className="h-auto mt-2 relative"
@@ -104,16 +116,23 @@ export default function ServicesSliderSection() {
           {services.map((service) => (
             <SwiperSlide
               key={service.id}
-              className="border border-black hover:border-green-600 hover:bg-gray-100 transition duration-300 rounded-xl p-5 cursor-pointer flex flex-col h-[400px]" // Fixed height
+              className="border border-black hover:border-green-600 hover:bg-gray-100 transition duration-300 rounded-xl md:p-5 p-2 cursor-pointer flex flex-col justify-between"
+              style={{ minHeight: "470px", maxHeight: "470px" }} // Fixed height
             >
-              <div className="flex flex-col flex-grow">
+              <motion.div
+                className="flex flex-col flex-grow"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+                viewport={{ once: true, amount: 0.1 }}
+              >
                 <p
                   onClick={() =>
                     router.push(
                       `/homepage/servicesdetails/${createSlug(service.name)}`
                     )
                   }
-                  className="text-black mt-10 text-2xl font-bold hover:text-red-600 cursor-pointer"
+                  className="text-black mt-5 text-2xl font-bold hover:text-red-600 cursor-pointer"
                 >
                   {service.name}
                 </p>
@@ -127,25 +146,11 @@ export default function ServicesSliderSection() {
                 >
                   {stripHtmlTags(service.content)}
                 </p>
-                <div className="flex-grow"></div>
-              </div>
-
-              <hr className="w-4/5 mx-auto border-red-600 mt-7" />
-
-              <p
-                onClick={() =>
-                  router.push(
-                    `/homepage/servicesdetails/${createSlug(service.name)}`
-                  )
-                }
-                className="text-blue-500  pl-20 md:pl-16 mt-5 hover:text-blue-700 transition duration-300 text-2xl cursor-pointer"
-              >
-                Learn More ...
-              </p>
+              </motion.div>
             </SwiperSlide>
           ))}
         </Swiper>
       </div>
-    </div>
+    </motion.div>
   );
 }

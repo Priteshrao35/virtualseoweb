@@ -6,6 +6,7 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Image } from "antd";
 import { Autoplay, Navigation } from "swiper/modules";
+import Link from "next/link";
 
 export default function LatestBlog() {
   const [blogs, setBlogs] = useState([]);
@@ -30,36 +31,33 @@ export default function LatestBlog() {
     ? blogs
     : blogs.filter(blog => blog.category_name === selectedCategory);
 
-
-
-    // Helper function to truncate text to 50 words
-    const truncateText = (text, wordLimit) => {
-      const words = text.split(" ");
-      return words.length > wordLimit
-        ? words.slice(0, wordLimit).join(" ") + "..."
-        : text;
-    };
+  // Helper function to truncate text to a word limit
+  const truncateText = (text, wordLimit) => {
+    const words = text.split(" ");
+    return words.length > wordLimit
+      ? words.slice(0, wordLimit).join(" ") + "..."
+      : text;
+  };
 
   return (
-    <div className="bg-slate-100 md:p-10 md:ml-20">
+    <div className="md:p-10 mt-2 px-2">
       {/* Render category tabs */}
-      <div className="tabs text-center my-4">
+      <div className="tabs text-center md:my-4 flex flex-wrap justify-center gap-2 md:gap-4">
         {categories.map((category, index) => (
           <button
             key={index}
             onClick={() => setSelectedCategory(category)}
-            className={`px-2 md:px-4 py-1 md:py-2 mx-2 border rounded ${
-              selectedCategory === category
-                ? "bg-blue-500 text-white"
-                : "bg-gray-200 text-black"
-            }`}
+            className={`px-5 py-2 border rounded transition duration-300 ease-in-out ${selectedCategory === category
+              ? "bg-blue-500 text-white"
+              : "bg-gray-200 text-black"
+              }`}
           >
             {category}
           </button>
         ))}
       </div>
 
-      <div className="flex flex-col md:flex-row md:items-center md:justify-between">
+      <div className="flex flex-col md:flex-row md:items-center md:justify-between md:mt-0 mt-3">
         <div className="text-left">
           <div className="p-2 text-xl font-bold text-black">
             <ul className="list-disc list-inside">
@@ -81,14 +79,14 @@ export default function LatestBlog() {
       <div className="mt-2">
         <Swiper
           slidesPerView={1}
-          spaceBetween={10} 
+          spaceBetween={10}
           autoplay={{
             delay: 5000,
             disableOnInteraction: false,
           }}
           breakpoints={{
             640: {
-              slidesPerView: 1, 
+              slidesPerView: 1,
               spaceBetween: 20,
             },
             767: {
@@ -113,9 +111,9 @@ export default function LatestBlog() {
           {filteredBlogs.map((blog) => (
             <SwiperSlide
               key={blog.id}
-              className="border border-black hover:border-red-600 hover:bg-gray-100 transition duration-300 flex flex-col items-center p-4 rounded-xl"
+              className="border border-black hover:border-red-600 hover:bg-gray-100 transition duration-300 flex flex-col items-center p-4 rounded-xl min-h-[500px] max-h-[500px]" // Set minimum height and width
             >
-              <div className="relative w-full h-auto">
+              <div className="relative w-full h-[200px]"> {/* Set a fixed height for images */}
                 <Image
                   src={blog.Blog_Image}
                   alt={blog.Blog_Name}
@@ -131,17 +129,27 @@ export default function LatestBlog() {
                 }}
               />
               <div className="text-left pl-5">
+                {/* Truncate blog title to 5 words */}
                 <h3 className="text-2xl font-bold text-black hover:bg-gray-200 hover:text-red-500 hover:pl-2 transition duration-300 mb-2">
-                  {blog.Blog_Name}
+                  {truncateText(blog.Blog_Name, 5)}
                 </h3>
+                {/* Truncate blog description to 20 words */}
                 <p className="text-black hover:bg-gray-200 hover:text-red-500 hover:pl-2 transition duration-300 mb-2 text-xl">
-                {truncateText(blog.Sort_description, 50)}
+                  {truncateText(blog.Sort_description, 15)}
                 </p>
                 <p className="text-blue-500 text-left mt-2 hover:text-blue-700 transition duration-300 text-2xl">
-                  <a href={`/blogs/blogdetails/${blog.id}`} target="_blank" rel="noopener noreferrer">
-                    Learn More ....................
-                  </a>
+                  <Link
+                    href={{
+                      pathname: `/blogs/blogdetails/${blog.id}`,
+                      query: {
+                        Blog_Name: blog.Blog_Name.toLowerCase().replace(/[^a-z0-9\s-]/g, '').replace(/\s+/g, '-').replace(/-+/g, '-'),
+                      }
+                    }}
+                  >
+                    Learn More ...
+                  </Link>
                 </p>
+
               </div>
             </SwiperSlide>
           ))}

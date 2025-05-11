@@ -29,7 +29,7 @@ function Brands() {
 
   return (
     <div>
-      <p className="text-black text-xl md:text-4xl font-bold p-2 md:p-5 text-center">
+      <p className="text-black text-xl md:text-4xl font-bold p-2 md:p-5 text-left md:pl-20">
         Our Partner Brands
       </p>
       <div className="w-full bg-white flex items-center justify-center px-10 md:px-[10em] py-10 md:mt-5">
@@ -63,7 +63,7 @@ function Brands() {
                   alt={brand.Brand_Name}
                   className="w-7 h-7 md:w-12 md:h-12 rounded-full"
                 />
-                <p className="text-sm md:text-2xl font-bold">
+                <p className="text-sm md:text-xl font-bold">
                   {brand.Brand_Name}
                 </p>
               </div>

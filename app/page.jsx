@@ -6,44 +6,48 @@ import FooterSection from "./homepage/footer";
 import Brands from "./homepage/brands";
 import Our_Projects from "./homepage/projects";
 import InfoSection from "./homepage/testomonialsbackviews";
-import AboutSection from "./homepage/footerabout";
 import LatestBlog from "./homepage/latestblogs";
-import CentralBanner from "./homepage/centralbanner";
 import { Layout } from "antd";
 import Service_price from "./homepage/services_price";
 import GetQuite from "./homepage/getquite";
+import OurTeam from "./homepage/ourteam";
+import GetSalesSection from "./homepage/getselessection";
+import FreeSEOAuditPage from "./homepage/auditreport";
+import Creativity from "./homepage/creativity";
+import Whychose from "./homepage/whychose";
 
 export default function Home() {
   return (
     <Layout>
-      {/* style={{ overflow: "hidden" }} */}
       <Header />
       <hr />
       <Navbar />
 
       <Mainswiper />
 
-      <div className="md:px-28 bg-slate-200">
-        <ServicesSliderSection />
-      </div>
+      <Whychose />
+
+      <ServicesSliderSection />
+
+      <GetSalesSection />
 
       <Service_price />
 
-      <div className="md:mt-20 md:mb-20">
-        <CentralBanner />
-      </div>  
+      <FreeSEOAuditPage />
 
-      <Brands />
+      <Creativity />
 
       <Our_Projects />
 
       <InfoSection />
 
+      <OurTeam />
+
       <LatestBlog />
 
       <GetQuite />
 
-      <AboutSection />
+      <Brands />
 
       <FooterSection />
     </Layout>
