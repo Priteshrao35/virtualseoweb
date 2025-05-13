@@ -24,7 +24,7 @@ function InfoSection() {
           This is the best client testomonials
         </p>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center p-6 md:px-40 bg-white">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center p-6 md:px-10 bg-white">
         <div className="relative flex justify-center">
           <Image
             src={data.Image}

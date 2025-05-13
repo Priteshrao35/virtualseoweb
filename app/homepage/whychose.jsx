@@ -81,7 +81,7 @@ function Whychose() {
         <p className="md:mt-3 text-xl md:text-3xl font-bold text-black mb-2 text-center">
           Virtualseoweb Increases the Online Presence of Your Businesses
         </p>
-        <p className="md:text-xl text-sm font-bold text-black mb-5 mx-0 md:px-[3em] text-center">
+        <p className="md:text-xl text-sm text-black mb-5 mx-0 md:px-[3em] text-center">
           Virtualseoweb is one of the best and rapidly growing digital marketing companies in the area. We have vast experience of navigating the rapidly evolving digital marketing landscape and delivering quality digital marketing services.
         </p>
 

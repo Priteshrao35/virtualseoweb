@@ -142,7 +142,7 @@ export default function ServicesSliderSection() {
                       `/homepage/servicesdetails/${createSlug(service.name)}`
                     )
                   }
-                  className="text-black mt-7 pl-5 hover:text-blue-600 flex-grow text-[15px]"
+                  className="text-black mt-7 hover:text-blue-600 flex-grow text-[16px]"
                 >
                   {stripHtmlTags(service.content)}
                 </p>

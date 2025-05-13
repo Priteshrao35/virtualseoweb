@@ -34,7 +34,7 @@ export default function OurProjects() {
   };
 
   return (
-    <div className="bg-slate-100 md:p-10 p-5 md:ml-20 md:mt-10">
+    <div className="bg-slate-100 p-5 md:ml-10 md:mt-10">
       <div className="flex-grow text-left">
         <div className="p-2 text-xl font-bold text-black">
           <ul className="list-disc">
@@ -48,12 +48,12 @@ export default function OurProjects() {
       {/* Tabs and Navigation Buttons */}
       <div className="flex flex-col md:flex-row md:items-center md:justify-between mt-5 md:pl-[30em]">
         {/* Category Tabs */}
-        <div className="flex flex-wrap justify-center md:justify-center gap-2 md:gap-4 mb-5">
+        <div className="flex flex-wrap justify-center md:justify-center gap-2 mb-5">
           {categories.map((category, index) => (
             <button
               key={index}
               onClick={() => handleTabClick(category)}
-              className={`md:px-6 p-1 py-1 md:py-3 rounded-lg transition-colors ${
+              className={`px-1 p-1 py-1  rounded-lg transition-colors ${
                 activeCategory === category
                   ? "bg-blue-500 text-white"
                   : "bg-gray-300 text-black"
@@ -66,10 +66,10 @@ export default function OurProjects() {
 
         {/* Navigation Buttons */}
         <div className="flex items-center gap-4">
-          <div className="swiper-button-prevs text-blue-800 cursor-pointer text-2xl">
+          <div className="swiper-button-prevs text-blue-800 cursor-pointer text-xl">
             Prev
           </div>
-          <div className="swiper-button-nexts text-blue-800 cursor-pointer text-2xl">
+          <div className="swiper-button-nexts text-blue-800 cursor-pointer text-xl">
             Next
           </div>
         </div>
@@ -115,7 +115,7 @@ export default function OurProjects() {
                 key={project.id}
                 className="border border-black hover:border-red-600 hover:bg-gray-100 transition duration-300 flex flex-col items-center p-4 rounded-xl"
               >
-                <div className="relative w-full md:h-[250px] h-auto">
+                <div className="relative w-full h-auto">
                   <Image
                     src={project.Project_Image}
                     alt={project.Project_Name}
@@ -130,11 +130,11 @@ export default function OurProjects() {
                     borderColor: "red"
                   }}
                 />
-                <div className="text-left pl-5">
-                  <h3 className="text-2xl font-bold text-black hover:bg-gray-200 hover:text-red-500 hover:pl-2 transition duration-300 mb-2">
+                <div className="text-left">
+                  <h3 className="text-2xl font-bold text-black hover:text-blue-500 hover:pl-2 transition duration-300 mb-2">
                     {project.Project_Name}
                   </h3>
-                  <p className="text-black hover:bg-gray-200 hover:text-red-500 hover:pl-2 transition duration-300 mb-2 text-xl">
+                  <p className="text-black hover:text-blue-500 hover:pl-2 transition duration-300 mb-2 text-xl">
                     {project.Sort_descrition}
                   </p>
                  

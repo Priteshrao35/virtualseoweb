@@ -69,7 +69,7 @@ const Header = () => {
         {/* Center: Contact Info */}
         <div className="flex space-x-4 items-center">
           <div className="flex items-center space-x-1">
-            <FaPhone className="text-green-500 md:text-xl lg:sm text-sm md:ml-0 ml-2" />
+            <FaPhone className="text-green-500 md:text-lg lg:sm text-sm md:ml-0 ml-2" />
             <a href="tel:+919450977593" className="text-black md:text-xl lg:sm text-sm">
               +919450977593
             </a>
@@ -78,7 +78,7 @@ const Header = () => {
             <FaEnvelope className="text-orange-600 md:text-xl lg:sm text-sm" />
             <a
               href="mailto:info@virtualseoweb.com"
-              className="text-black md:text-xl lg:sm text-sm"
+              className="text-black md:text-lg lg:sm text-sm"
             >
               info@virtualseoweb.com
             </a>
@@ -87,7 +87,7 @@ const Header = () => {
             <FaSkype className="text-blue-400 md:text-xl lg:sm text-sm" />
             <a
               href="skype:live:virtualseoweb?call"
-              className="text-black md:text-xl lg:sm text-sm"
+              className="text-black md:text-lg lg:sm text-sm"
             >
               Skype: live:virtualseoweb
             </a>
@@ -95,35 +95,35 @@ const Header = () => {
         </div>
 
         {/* Right Side: Social Media Icons */}
-        <div className="md:flex space-x-4 hidden">
+        <div className="md:flex space-x-2 hidden">
           <Link href="https://www.facebook.com/Virtualseowebsoftware/about">
             <FaFacebook
               className="text-blue-500 hover:text-blue-600 cursor-pointer"
-              size={25}
+              size={22}
             />
           </Link>
           <Link href="#">
             <FaXTwitter
               className="text-black hover:text-blue-400 cursor-pointer"
-              size={25}
+              size={22}
             />
           </Link>
           <Link href="#">
             <FaInstagram
               className="text-orange-900 hover:text-pink-600 cursor-pointer"
-              size={25}
+              size={22}
             />
           </Link>
           <Link href="https://www.facebook.com/Virtualseowebsoftware/about">
             <FaLinkedin
               className="text-blue-700 hover:text-blue-700 cursor-pointer"
-              size={25}
+              size={22}
             />
           </Link>
         </div>
 
         <p
-          className="text-white bg-blue-600 hover:bg-white hover:text-blue-600 rounded-xl font-bold p-1 px-5 cursor-pointer"
+          className="text-white bg-blue-600 hover:bg-white hover:text-blue-600 rounded-xl font-bold p-1 px-2 cursor-pointer"
           onClick={() => router.push("/contactus")}
         >
           Get Quote
