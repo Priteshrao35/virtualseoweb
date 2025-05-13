@@ -34,7 +34,7 @@ function Service_price() {
   if (error) return <p>Error: {error}</p>;
 
   return (
-    <div className="md:px-[10em] p-2">
+    <div className="md:px-[10em] p-2 bg-white">
       <p className="text-xl md:text-4xl text-black text-center mb-5 font-bold md:mt-20">
         The Best Solutions for Our Clients
       </p>

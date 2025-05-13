@@ -68,11 +68,11 @@ export default function ServicesSliderSection() {
               <li>Our Services and Solutions</li>
             </ul>
           </div>
-          <p className="md:p-10 p-2 md:text-4xl text-xl font-bold text-black md:text-left text-center">
+          <p className="md:p-5 p-2 md:text-2xl text-xl font-bold text-black md:text-left text-center">
             Technological Applications
           </p>
         </div>
-        <div className="flex items-center justify-end mt-5 md:mt-0 md:gap-[10em] gap-5">
+        <div className="flex items-center justify-end mt-5 md:mt-0 md:gap-[5em] gap-5">
           <div className="swiper-button-prevs text-blue-800 cursor-pointer text-2xl">
             Prev
           </div>
@@ -117,7 +117,7 @@ export default function ServicesSliderSection() {
             <SwiperSlide
               key={service.id}
               className="border border-black hover:border-green-600 hover:bg-gray-100 transition duration-300 rounded-xl md:p-5 p-2 cursor-pointer flex flex-col justify-between"
-              style={{ minHeight: "470px", maxHeight: "470px" }} // Fixed height
+              style={{ minHeight: "380px", maxHeight: "380px" }}
             >
               <motion.div
                 className="flex flex-col flex-grow"
@@ -132,7 +132,7 @@ export default function ServicesSliderSection() {
                       `/homepage/servicesdetails/${createSlug(service.name)}`
                     )
                   }
-                  className="text-black mt-5 text-2xl font-bold hover:text-red-600 cursor-pointer"
+                  className="text-black xl:text-xl font-bold hover:text-red-600 cursor-pointer"
                 >
                   {service.name}
                 </p>
@@ -142,7 +142,7 @@ export default function ServicesSliderSection() {
                       `/homepage/servicesdetails/${createSlug(service.name)}`
                     )
                   }
-                  className="text-black mt-7 hover:text-blue-600 flex-grow text-[16px]"
+                  className="text-black  xl:text-[15px] mt-3 hover:text-blue-600 flex-grow text-[13px]"
                 >
                   {stripHtmlTags(service.content)}
                 </p>

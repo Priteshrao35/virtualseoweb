@@ -77,11 +77,11 @@ function Whychose() {
 
   return (
     <div className="overflow-hidden">
-      <div className="col-span-1 md:px-[10em] p-2 md:p-10">
-        <p className="md:mt-3 text-xl md:text-3xl font-bold text-black mb-2 text-center">
+      <div className="col-span-1 md:px-[4em] xl:px-[12em] p-2 md:p-10">
+        <p className="md:mt-3 text-sm md:text-3xl xl:text-3xl font-bold text-black mb-2 text-center">
           Virtualseoweb Increases the Online Presence of Your Businesses
         </p>
-        <p className="md:text-xl text-sm text-black mb-5 mx-0 md:px-[3em] text-center">
+        <p className="text-sm md:text-sm xl:text-xl text-black mb-5 mx-0 md:mx-20 xl:mx-38 text-center">
           Virtualseoweb is one of the best and rapidly growing digital marketing companies in the area. We have vast experience of navigating the rapidly evolving digital marketing landscape and delivering quality digital marketing services.
         </p>
 

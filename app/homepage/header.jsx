@@ -28,7 +28,7 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-white p-2 fixed w-full z-30">
+    <header className="bg-white p-1 fixed w-full z-30">
       <div className="container mx-auto flex justify-between items-center">
         {/* Mobile drawer */}
         <MobileNavMenu open={open} showDrawer={showDrawer} onClose={onClose} />
@@ -44,7 +44,7 @@ const Header = () => {
                 layout="responsive"
                 preview={false}
                 width={150}
-                height={45}
+                height={40}
               />
             </div>
           </Link>
@@ -69,33 +69,33 @@ const Header = () => {
         {/* Center: Contact Info */}
         <div className="flex space-x-4 items-center">
           <div className="flex items-center space-x-1">
-            <FaPhone className="text-green-500 md:text-lg lg:sm text-sm md:ml-0 ml-2" />
-            <a href="tel:+919450977593" className="text-black md:text-xl lg:sm text-sm">
+            <FaPhone className="text-green-500 md:text-2xl text-sm md:ml-0 ml-2" />
+            <a href="tel:+919450977593" className="text-black text-sm md:text-sm xl:text-[23px]">
               +919450977593
             </a>
           </div>
           <div className="md:flex items-center space-x-1 hidden">
-            <FaEnvelope className="text-orange-600 md:text-xl lg:sm text-sm" />
+            <FaEnvelope className="text-orange-600 md:text-2xl text-sm" />
             <a
               href="mailto:info@virtualseoweb.com"
-              className="text-black md:text-lg lg:sm text-sm"
+              className="text-black text-sm md:text-lg xl:text-[23px]"
             >
               info@virtualseoweb.com
             </a>
           </div>
           <div className="md:flex items-center space-x-1 hidden">
-            <FaSkype className="text-blue-400 md:text-xl lg:sm text-sm" />
+            <FaSkype className="text-blue-400 md:text-lg xl:text-2xl text-sm" />
             <a
               href="skype:live:virtualseoweb?call"
-              className="text-black md:text-lg lg:sm text-sm"
+              className="text-black text-sm md:text-lg xl:text-[23px]"
             >
-              Skype: live:virtualseoweb
+              info@virtualseoweb.com
             </a>
           </div>
         </div>
 
         {/* Right Side: Social Media Icons */}
-        <div className="md:flex space-x-2 hidden">
+        <div className="md:flex space-x-2 md:space-x-1 xl:space-x-2 hidden">
           <Link href="https://www.facebook.com/Virtualseowebsoftware/about">
             <FaFacebook
               className="text-blue-500 hover:text-blue-600 cursor-pointer"
@@ -123,7 +123,7 @@ const Header = () => {
         </div>
 
         <p
-          className="text-white bg-blue-600 hover:bg-white hover:text-blue-600 rounded-xl font-bold p-1 px-2 cursor-pointer"
+          className="text-white bg-blue-600 hover:bg-white hover:text-blue-600 rounded-xl font-bold p-1 xl:p-1 px-5 xl:px-7 cursor-pointer"
           onClick={() => router.push("/contactus")}
         >
           Get Quote

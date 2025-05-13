@@ -13,18 +13,18 @@ function GetSalesSection() {
       </div>
       
       <div className="text-content md:pr-2 order-2 md:order-1">
-        <h2 className="text-xl md:text-2xl font-bold mb-3 md:mt-0 mt-7">DOMINATE SEARCH RESULTS, GET SALES</h2>
-        <h3 className="text-lg md:text-xl font-semibold mb-3">Virtualseoweb Updates: Your Global SEO Experts</h3>
-        <p className="text-sm md:text-base mb-3">
+        <h2 className="text-xl font-bold mb-3 md:mt-0 mt-7">DOMINATE SEARCH RESULTS, GET SALES</h2>
+        <h3 className="text-lg font-semibold mb-3">Virtualseoweb Updates: Your Global SEO Experts</h3>
+        <p className="text-sm mb-3">
           At Virtualseoweb Updates, we specialize in helping businesses thrive through effective SEO strategies. With over 7 years of experience, we provide tailored solutions to boost your website's ranking and visibility.
         </p>
-        <p className="text-sm md:text-base mb-3">
+        <p className="text-sm mb-3">
           Did you know that 70% of users click on organic search results? Our team optimizes your website to be SEO-friendly, creating high-quality content that attracts and engages users.
         </p>
-        <p className="text-sm md:text-base mb-3">
+        <p className="text-sm mb-3">
           SEO is not just about keywords; it’s about building a strong online presence. We develop strategies that include on-page SEO, off-page SEO, and technical SEO, ensuring your site is optimized for both users and search engines.
         </p>
-        <p className="text-sm md:text-base mb-3">
+        <p className="text-sm mb-3">
           Let us help your business grow with customizable SEO packages. From keyword research to performance tracking, we’ve got you covered.
         </p>
       </div>
