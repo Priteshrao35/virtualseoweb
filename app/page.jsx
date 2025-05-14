@@ -5,7 +5,6 @@ import ServicesSliderSection from "./homepage/servicesslider";
 import FooterSection from "./homepage/footer";
 import Brands from "./homepage/brands";
 import Our_Projects from "./homepage/projects";
-import InfoSection from "./homepage/testomonialsbackviews";
 import LatestBlog from "./homepage/latestblogs";
 import { Layout } from "antd";
 import Service_price from "./homepage/services_price";
@@ -15,6 +14,7 @@ import GetSalesSection from "./homepage/getselessection";
 import FreeSEOAuditPage from "./homepage/auditreport";
 import Creativity from "./homepage/creativity";
 import Whychose from "./homepage/whychose";
+import Testimonials from "./homepage/testomonials";
 
 export default function Home() {
   return (
@@ -39,7 +39,7 @@ export default function Home() {
 
       <Our_Projects />
 
-      <InfoSection />
+      <Testimonials />
 
       <OurTeam />
 

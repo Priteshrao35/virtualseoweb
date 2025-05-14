@@ -116,7 +116,7 @@ export default function ServicesSliderSection() {
           {services.map((service) => (
             <SwiperSlide
               key={service.id}
-              className="border border-black hover:border-green-600 hover:bg-gray-100 transition duration-300 rounded-xl md:p-3 xl:-p-2 p-2 cursor-pointer flex flex-col justify-between md:min-h-[300px] md:max-h-[300px] xl:min-h-[420px] xl:max-h-[420px]"
+              className="border border-black hover:border-green-600 hover:bg-gray-100 transition duration-300 rounded-xl md:p-3 xl:-p-2 p-2 cursor-pointer flex flex-col justify-between md:min-h-[310px] md:max-h-[310px] xl:min-h-[400px] xl:max-h-[400px]"
 
             >
               <motion.div

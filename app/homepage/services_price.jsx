@@ -35,7 +35,7 @@ function Service_price() {
 
   return (
     <div className="md:px-[10em] p-2 bg-white">
-      <p className="text-xl md:text-4xl text-black text-center mb-5 font-bold md:mt-20">
+      <p className="text-xl md:text-2xl xl:text-3xl text-black text-center mb-5 font-bold md:mt-10">
         The Best Solutions for Our Clients
       </p>
 
@@ -45,7 +45,7 @@ function Service_price() {
           {planTypes.map((type) => (
             <button
               key={type}
-              className={`relative flex-1 text-xl font-bold h-8 rounded-full transition-colors duration-150 ease-in-out ${
+              className={`relative flex-1 text-xl md:text-[13px] xl:text-[15px] font-bold h-8 md:h-6 xl:h-7 rounded-full transition-colors duration-150 ease-in-out ${
                 activeTab === type
                   ? "bg-blue-500 text-white"
                   : "text-slate-500 dark:text-slate-400"
@@ -60,16 +60,16 @@ function Service_price() {
       </div>
 
       {/* Pricing tabs */}
-      <div className="max-w-sm mx-auto grid gap-6 lg:grid-cols-3 items-start lg:max-w-none">
+      <div className="max-w-sm mx-auto grid gap-6 lg:grid-cols-3 xl:grid-cols-3 items-start lg:max-w-none">
         {filteredPlans.map((plan) => (
           <div key={plan.id} className="h-full">
             <div className="relative flex flex-col h-full p-6 rounded-2xl bg-white border border-slate-200 shadow shadow-slate-950/5">
               <div className="mb-5">
-                <div className="text-black font-semibold mb-1 text-3xl">
+                <div className="text-black font-semibold mb-1 text-3xl md:text-xl xl:text-2xl">
                   {plan.plan_name}
                 </div>
                 <div className="inline-flex items-baseline mb-2">
-                  <span className="text-black font-bold text-3xl">
+                  <span className="text-black font-bold text-3xl md:text-xl xl:text-2xl">
                     ${plan.plan_price}
                   </span>
                   <span className="text-black font-medium">
@@ -78,7 +78,7 @@ function Service_price() {
                 </div>
               </div>
               <div className="text-black font-medium mb-3">Includes:</div>
-              <ul className="text-black text-sm space-y-3 grow">
+              <ul className="text-black text-sm md:text-[12px] xl:text-[14px] space-y-3 grow">
                 {plan.include_items.length === 0 ? (
                   <li>No items included</li>
                 ) : (
@@ -97,7 +97,7 @@ function Service_price() {
                 )}
               </ul>
               <a
-                className="w-full mt-5 inline-flex justify-center whitespace-nowrap rounded-lg bg-indigo-500 px-3.5 py-2.5 text-sm font-medium text-white shadow-sm shadow-indigo-950/10 hover:bg-indigo-600 focus-visible:outline-none focus-visible:ring focus-visible:ring-indigo-300 transition-colors duration-150"
+                className="w-full mt-5 inline-flex justify-center whitespace-nowrap rounded-lg bg-indigo-500 px-3.5 py-2.5 md:py-1 xl:py-1 text-sm md:text-sm xl:text-xl font-medium text-white shadow-sm shadow-indigo-950/10 hover:bg-indigo-600 focus-visible:outline-none focus-visible:ring focus-visible:ring-indigo-300 transition-colors duration-150"
                 href="#0"
               >
                 Purchase Plan

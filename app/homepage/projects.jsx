@@ -34,26 +34,26 @@ export default function OurProjects() {
   };
 
   return (
-    <div className="bg-slate-100 p-5 md:ml-10 md:mt-10">
+    <div className="p-5 md:ml-10">
       <div className="flex-grow text-left">
         <div className="p-2 text-xl font-bold text-black">
           <ul className="list-disc">
             <li>Our Latest Projects</li>
           </ul>
         </div>
-        <p className="p-2 md:text-3xl md:pl-10 text-2xl font-bold text-black">
+        <p className="p-2 md:text-xl xl:text-3xl md:pl-10 text-2xl font-bold text-black">
           Case Studies
         </p>
       </div>
       {/* Tabs and Navigation Buttons */}
-      <div className="flex flex-col md:flex-row md:items-center md:justify-between mt-5 md:pl-[30em]">
+      <div className="flex flex-col md:flex-row md:items-center md:justify-between mt-5 md:pl-[18em] xl:md:pl-[28em]">
         {/* Category Tabs */}
         <div className="flex flex-wrap justify-center md:justify-center gap-2 mb-5">
           {categories.map((category, index) => (
             <button
               key={index}
               onClick={() => handleTabClick(category)}
-              className={`px-1 p-1 py-1  rounded-lg transition-colors ${
+              className={`px-1 md:px-2 xl:px-3 py-1 md:py-1 xl:py-2  rounded-lg transition-colors text-sm md:text-[14px] xl:text-[15px] ${
                 activeCategory === category
                   ? "bg-blue-500 text-white"
                   : "bg-gray-300 text-black"
@@ -66,10 +66,10 @@ export default function OurProjects() {
 
         {/* Navigation Buttons */}
         <div className="flex items-center gap-4">
-          <div className="swiper-button-prevs text-blue-800 cursor-pointer text-xl">
+          <div className="swiper-button-prevs text-blue-800 cursor-pointer text-xl md:text-[16px] xl:text-2xl">
             Prev
           </div>
-          <div className="swiper-button-nexts text-blue-800 cursor-pointer text-xl">
+          <div className="swiper-button-nexts text-blue-800 cursor-pointer text-xl md:text-[16px] xl:text-2xl">
             Next
           </div>
         </div>
@@ -131,10 +131,10 @@ export default function OurProjects() {
                   }}
                 />
                 <div className="text-left">
-                  <h3 className="text-2xl font-bold text-black hover:text-blue-500 hover:pl-2 transition duration-300 mb-2">
+                  <h3 className="text-2xl md:text-sm xl:text-xl font-bold text-black hover:text-blue-500 hover:pl-2 transition duration-300 mb-2">
                     {project.Project_Name}
                   </h3>
-                  <p className="text-black hover:text-blue-500 hover:pl-2 transition duration-300 mb-2 text-xl">
+                  <p className="text-black hover:text-blue-500 hover:pl-2 transition duration-300 mb-2 md:text-sm xl:text-[16px] text-xl">
                     {project.Sort_descrition}
                   </p>
                  

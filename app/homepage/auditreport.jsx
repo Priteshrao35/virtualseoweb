@@ -46,9 +46,9 @@ function FreeSEOAuditPage() {
   };
 
   return (
-    <div className="flex flex-col items-center p-4 sm:p-8 text-black overflow-hidden bg-white">
-      <h1 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6">Avail Free SEO Audit Report</h1>
-      <p className="text-base sm:text-lg mb-4">Get a free SEO report of your website in just a few minutes!</p>
+    <div className="flex flex-col items-center p-4 sm:p-8 text-black overflow-hidden bg-slate-100">
+      <h1 className="text-2xl md:text-2xl xl:text-3xl font-bold mb-4 sm:mb-6">Avail Free SEO Audit Report</h1>
+      <p className="text-base sm:text-lg md:text-sm xl:text-xl mb-4">Get a free SEO report of your website in just a few minutes!</p>
 
       <form onSubmit={handleSubmit} className="w-full max-w-3xl flex flex-col sm:flex-row flex-wrap justify-between">
         <div className="mb-4 w-full sm:w-1/3 sm:pr-2">
@@ -63,7 +63,7 @@ function FreeSEOAuditPage() {
             onChange={(e) => setUrl(e.target.value)}
             required
             style={{ fontSize: '16px' }}
-            className="border border-gray-300 rounded-lg w-full p-2 focus:outline-none focus:ring focus:ring-blue-400"
+            className="border border-gray-300 rounded-lg w-full md:py-1 xl:py-1 p-2 focus:outline-none focus:ring focus:ring-blue-400"
           />
         </div>
 
@@ -79,7 +79,7 @@ function FreeSEOAuditPage() {
             onChange={(e) => setEmail(e.target.value)}
             required
             style={{ fontSize: '16px' }}
-            className="border border-gray-300 rounded-lg w-full p-2 focus:outline-none focus:ring focus:ring-blue-400"
+            className="border border-gray-300 rounded-lg w-full md:py-1 xl:py-1 p-2 focus:outline-none focus:ring focus:ring-blue-400"
           />
         </div>
 
@@ -95,13 +95,13 @@ function FreeSEOAuditPage() {
             onChange={(e) => setPhone(e.target.value)}
             required
             style={{ fontSize: '16px' }}
-            className="border border-gray-300 rounded-lg w-full p-2 focus:outline-none focus:ring focus:ring-blue-400"
+            className="border border-gray-300 rounded-lg w-full md:py-1 xl:py-1 p-2 focus:outline-none focus:ring focus:ring-blue-400"
           />
         </div>
 
         <button
           type="submit"
-          className="w-full bg-blue-500 text-white font-semibold py-2 rounded-lg hover:bg-blue-600 transition duration-200 mt-4"
+          className="w-full bg-blue-500 text-white font-semibold py-2 md:py-1 xl:py-2 rounded-lg hover:bg-blue-600 transition duration-200 mt-4"
         >
           Get My Free SEO Report
         </button>

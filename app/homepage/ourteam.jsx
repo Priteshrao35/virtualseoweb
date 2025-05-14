@@ -1,88 +1,121 @@
-"use client";
+'use client';
 import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import { Image } from "antd";
-
-const truncateText = (text, maxLength) => {
-  if (text.length <= maxLength) return text;
-  return text.slice(0, maxLength) + "...";
-};
-
-const getShortDescription = (text, isMobile) => {
-  if (isMobile) {
-    return text.split(" ").slice(0, 50).join(" ") + "...";
-  }
-  return text;
-};
+import Image from "next/image";
+import { motion } from "framer-motion";
 
 function OurTeam() {
   const [teamData, setTeamData] = useState([]);
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    setIsMobile(window.innerWidth <= 768);
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    checkMobile();
+
     fetch("https://virtualseoweb.pythonanywhere.com/ourteams/")
       .then((response) => response.json())
       .then((data) => setTeamData(data))
       .catch((error) => console.error("Error fetching data:", error));
 
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768);
-    };
-
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
   return (
-    <div className=" text-white py-10 md:p-10 px-4">
-      <p className="text-3xl md:text-5xl font-bold text-center mb-5 animate-pulse text-black">
-        Meet Our Expert Digital Team
-      </p>
-      <p className="text-center text-sm md:text-lg max-w-4xl mx-auto p-5 text-black">
-        {getShortDescription(
-          `At Virtualseoweb, we are specialists in SEO, SMO, website development, and mobile app development, committed to enhancing your brand’s online presence. Our experts improve website visibility, grow social media impact, create high-performance websites, and develop custom mobile apps. Let us help your business thrive in the digital space!`,
-          isMobile
-        )}
-      </p>
-      <Swiper
-        className="mt-10"
-        spaceBetween={20}
-        slidesPerView={1}
-        loop={true}
-        autoplay={{ delay: 3000, disableOnInteraction: false }}
-        pagination={{ clickable: true }}
-        navigation={!isMobile}
-        modules={[Pagination, Navigation, Autoplay]}
-        breakpoints={{
-          640: { slidesPerView: 2 },
-          767: { slidesPerView: 2 },
-          1024: { slidesPerView: 3 },
-        }}
-      >
-        {teamData.map((teamMember) => (
-          <SwiperSlide key={teamMember.id}>
-            <div className="bg-white shadow-lg rounded-lg p-6 flex flex-col items-center text-center transform transition duration-300 hover:scale-105 hover:shadow-2xl">
-              <Image
-                src={teamMember.Image}
-                alt={teamMember.Name}
-                className="w-24 h-24 md:w-32 md:h-32 rounded-full object-cover border-4 border-indigo-500"
-                width={100}
-                height={100}
-              />
-              <p className="mt-4 text-xl md:text-2xl font-bold text-gray-900">{teamMember.Name}</p>
-              <p className="mt-2 text-sm md:text-lg text-indigo-700 font-semibold">{teamMember.Desination}</p>
-              <p className="mt-2 text-xs md:text-sm text-gray-600">{truncateText(teamMember.Sort_descrition, 150)}</p>
-            </div>
-          </SwiperSlide>
-        ))}
-      </Swiper>
+    <div className="bg-gray-100 py-12 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto">
+        {/* Header Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+          className="text-center mb-12"
+        >
+          <h2 className="text-3xl sm:text-4xl md:text-2xl xl:text-3xl font-bold text-gray-900 mb-4">
+            Meet Our Expert Digital Team
+          </h2>
+          <p className="text-base sm:text-lg md:text-[12px] xl:text-[17px] text-gray-600 max-w-4xl mx-auto">
+            At Virtualseoweb, we are specialists in SEO, SMO, website development, and mobile app development, committed to enhancing your brand's online presence. Our experts improve website visibility, grow social media impact, create high-performance websites, and develop custom mobile apps.
+          </p>
+        </motion.div>
+
+        {/* Team Members Swiper */}
+        <div className="relative">
+          <Swiper
+            spaceBetween={24}
+            slidesPerView={1}
+            loop={true}
+            autoplay={{
+              delay: 3000,
+              disableOnInteraction: false,
+              pauseOnMouseEnter: true
+            }}
+            pagination={{
+              clickable: true,
+              dynamicBullets: true
+            }}
+            navigation={!isMobile}
+            modules={[Pagination, Navigation, Autoplay]}
+            breakpoints={{
+              640: {
+                slidesPerView: 2,
+                spaceBetween: 20
+              },
+              768: {
+                slidesPerView: 2,
+                spaceBetween: 24
+              },
+              1024: {
+                slidesPerView: 4,
+                spaceBetween: 24
+              },
+              1280: {
+                slidesPerView: 4,
+                spaceBetween: 24
+              }
+            }}
+            className="!pb-12"
+          >
+            {teamData.map((teamMember) => (
+              <SwiperSlide key={teamMember.id}>
+                <motion.div
+                  whileHover={{ y: -8 }}
+                  className="bg-white rounded-xl shadow-md overflow-hidden h-full flex flex-col border border-gray-100 hover:shadow-lg transition-all duration-300"
+                >
+                  <div className="p-6 flex flex-col items-center">
+                    <div className="relative w-28 h-28 md:w-40 md:h-40 mb-4 rounded-full overflow-hidden border-4 border-blue-500">
+                      <Image
+                        src={teamMember.Image}
+                        alt={teamMember.Name}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 80vw, (max-width: 1000px) 40vw, 30vw"
+                      />
+                    </div>
+                    <h3 className="text-xl md:text-xl xl:text-2xl font-bold text-gray-900 text-center">
+                      {teamMember.Name}
+                    </h3>
+                    <p className="text-blue-600 font-medium mt-1 text-center">
+                      {teamMember.Desination}
+                    </p>
+                    <p className="text-gray-600 mt-3 text-sm md:text-[10px] xl:text-sm text-center line-clamp-3">
+                      {teamMember.Sort_descrition}
+                    </p>
+                  </div>
+                </motion.div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
+      </div>
     </div>
   );
 }
