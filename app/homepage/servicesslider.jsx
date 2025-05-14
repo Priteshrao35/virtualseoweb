@@ -63,20 +63,20 @@ export default function ServicesSliderSection() {
     >
       <div className="flex flex-col md:flex-row md:items-center justify-between w-full">
         <div className="flex-grow md:text-left">
-          <div className="p-1 mt-5 md:mt-10 text-xl md:pl-0 pl-8 font-bold text-black">
+          <div className="p-1 mt-5 md:mt-10 text-xl xl:text-xl md:text-xl md:pl-0 pl-8 font-bold text-black">
             <ul className="list-disc">
               <li>Our Services and Solutions</li>
             </ul>
           </div>
-          <p className="md:p-5 p-2 md:text-2xl text-xl font-bold text-black md:text-left text-center">
+          <p className="md:p-5 p-2 md:text-xl xl:text-xl text-xl font-bold text-black md:text-left text-center">
             Technological Applications
           </p>
         </div>
         <div className="flex items-center justify-end mt-5 md:mt-0 md:gap-[5em] gap-5">
-          <div className="swiper-button-prevs text-blue-800 cursor-pointer text-2xl">
+          <div className="swiper-button-prevs text-blue-800 cursor-pointer text-2xl xl:text-xl md:text-xl">
             Prev
           </div>
-          <div className="swiper-button-nexts text-blue-800 cursor-pointer text-2xl">
+          <div className="swiper-button-nexts text-blue-800 cursor-pointer text-2xl xl:text-xl md:text-xl">
             Next
           </div>
         </div>
@@ -116,8 +116,8 @@ export default function ServicesSliderSection() {
           {services.map((service) => (
             <SwiperSlide
               key={service.id}
-              className="border border-black hover:border-green-600 hover:bg-gray-100 transition duration-300 rounded-xl md:p-5 p-2 cursor-pointer flex flex-col justify-between"
-              style={{ minHeight: "380px", maxHeight: "380px" }}
+              className="border border-black hover:border-green-600 hover:bg-gray-100 transition duration-300 rounded-xl md:p-3 xl:-p-2 p-2 cursor-pointer flex flex-col justify-between md:min-h-[300px] md:max-h-[300px] xl:min-h-[420px] xl:max-h-[420px]"
+
             >
               <motion.div
                 className="flex flex-col flex-grow"
@@ -132,7 +132,7 @@ export default function ServicesSliderSection() {
                       `/homepage/servicesdetails/${createSlug(service.name)}`
                     )
                   }
-                  className="text-black xl:text-xl font-bold hover:text-red-600 cursor-pointer"
+                  className="text-black xl:text-[20px] md:text-[15px] font-bold hover:text-red-600 cursor-pointer"
                 >
                   {service.name}
                 </p>
@@ -142,7 +142,7 @@ export default function ServicesSliderSection() {
                       `/homepage/servicesdetails/${createSlug(service.name)}`
                     )
                   }
-                  className="text-black  xl:text-[15px] mt-3 hover:text-blue-600 flex-grow text-[13px]"
+                  className="text-black  xl:text-[16px] md:text-[12px] mt-3 hover:text-blue-600 flex-grow"
                 >
                   {stripHtmlTags(service.content)}
                 </p>
