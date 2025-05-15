@@ -6,7 +6,6 @@ import Header from "../homepage/header";
 import Navbar from "../homepage/navbar";
 import FooterSection from "../homepage/footer";
 import ServicesSliderSection from "../homepage/servicesslider";
-import InfoSection from "../homepage/testomonialsbackviews";
 
 const cardData = [
   // Your cardData remains unchanged

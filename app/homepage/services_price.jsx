@@ -68,7 +68,7 @@ function Service_price() {
                 <div className="text-black font-semibold mb-1 text-3xl md:text-xl xl:text-2xl">
                   {plan.plan_name}
                 </div>
-                <div className="inline-flex items-baseline mb-2">
+                <div className="inline-flex items-baseline">
                   <span className="text-black font-bold text-3xl md:text-xl xl:text-2xl">
                     ${plan.plan_price}
                   </span>
@@ -78,7 +78,7 @@ function Service_price() {
                 </div>
               </div>
               <div className="text-black font-medium mb-3">Includes:</div>
-              <ul className="text-black text-sm md:text-[12px] xl:text-[14px] space-y-3 grow">
+              <ul className="text-black text-sm md:text-[12px] xl:text-[14px] space-y-1 xl:space-y-3 md:space-y-1 grow">
                 {plan.include_items.length === 0 ? (
                   <li>No items included</li>
                 ) : (
@@ -98,9 +98,9 @@ function Service_price() {
               </ul>
               <a
                 className="w-full mt-5 inline-flex justify-center whitespace-nowrap rounded-lg bg-indigo-500 px-3.5 py-2.5 md:py-1 xl:py-1 text-sm md:text-sm xl:text-xl font-medium text-white shadow-sm shadow-indigo-950/10 hover:bg-indigo-600 focus-visible:outline-none focus-visible:ring focus-visible:ring-indigo-300 transition-colors duration-150"
-                href="#0"
+                href="/contactus"
               >
-                Purchase Plan
+                Get This Plan
               </a>
             </div>
           </div>

@@ -100,26 +100,22 @@ function FooterSection() {
 
   return (
     <footer className="bg-gray-800 text-gray-300 md:mt-1">
-      <p className="text-white text-4xl text-center pt-10">VIRTUALSEOWEB</p>
-      <p className="text-white md:px-[5em] md:py-5 px-5 py-3 text-center">
-        {isMobile ? mobileText : footerContent}
-      </p>
 
-      <div className="py-8 px-5 md:px-10">
-        <div className="grid grid-cols-2 md:grid-cols-7 gap-12">
+      <div className="py-8 px-5">
+        <div className="grid grid-cols-2 md:grid-cols-7 gap-10">
           {Object.keys(menuData).map((category) => (
             <div key={category} className="text-black font-bold">
-              <h3 className="text-xl font-semibold mb-2 text-white ">
+              <h3 className="text-xl md:text-[14px] xl:text-[18px] font-semibold text-white capitalize">
                 {categoryLabels[category] || category}
               </h3>
               <hr
-                className="mt-3 border-dotted border-white border-2"
+                className="mt-2 border-dotted border-white border-1"
                 style={{ width: "50%" }}
               />
 
-              <ul className="list-none text-white mt-5 hover:text-blue-900">
+              <ul className="list-none text-white mt-3 hover:text-blue-900">
                 {menuData[category].map((item) => (
-                  <li key={item.key} className="mb-2">
+                  <li key={item.key} className="mb-2 md:text-[11px] xl:text-[15px]">
                     <a
                       href="#"
                       onClick={(e) => {
@@ -141,48 +137,51 @@ function FooterSection() {
           ))}
 
           <div>
-            <h2 className="text-xl font-semibold text-white mb-6 uppercase">
+            <h2 className="text-xl md:text-[13px] xl:text-[16px] font-semibold text-white uppercase">
               All Important
             </h2>
-            <div className="flex flex-col space-y-4">
+            <hr
+              className="mt-2 border-dotted border-white border-1"
+              style={{ width: "50%" }}
+            />
+            <div className="flex flex-col space-y-4 mt-3">
               <div
                 onClick={() => router.push("/portfolio")}
-                className="text-white font-bold hover:text-blue-500 cursor-pointer"
+                className="text-white font-bold hover:text-blue-500 cursor-pointer md:text-[11px] xl:text-[15px]"
               >
                 Portfolio
               </div>
               <div
                 onClick={() => router.push("/blogs")}
-                className="text-white font-bold hover:text-blue-500 cursor-pointer"
+                className="text-white font-bold hover:text-blue-500 cursor-pointer md:text-[11px] xl:text-[15px]"
               >
                 Blogs
               </div>
               <div
                 onClick={() => router.push("/aboutus")}
-                className="text-white font-bold hover:text-blue-500 cursor-pointer"
+                className="text-white font-bold hover:text-blue-500 cursor-pointer md:text-[11px] xl:text-[15px]"
               >
                 About Us
               </div>
               <div
                 onClick={() => router.push("/careers")}
-                className="text-white font-bold hover:text-blue-500 cursor-pointer"
+                className="text-white font-bold hover:text-blue-500 cursor-pointer md:text-[11px] xl:text-[15px]"
               >
                 Careers
               </div>
-              <div
-                onClick={() => router.push("/contactus")}
-                className="text-white font-bold hover:text-blue-500 cursor-pointer"
-              >
-                Contacts
-              </div>
+
             </div>
           </div>
 
           <div>
-            <h2 className="text-xl font-semibold text-white mb-6 uppercase">
+            <h2 className="text-xl md:text-[13px] xl:text-[16px] font-semibold text-white uppercase">
               Follow Us
             </h2>
-            <div className="flex space-x-6">
+            <hr
+              className="mt-2 border-dotted border-white border-1"
+              style={{ width: "50%" }}
+            />
+            <div className="flex space-x-6 mt-3">
               <a href="#" className="text-gray-400 hover:text-gray-200">
                 <svg
                   className="w-6 h-6"
@@ -213,22 +212,12 @@ function FooterSection() {
                 </svg>
                 <span className="sr-only">Instagram</span>
               </a>
-              <a href="#" className="text-gray-400 hover:text-gray-200">
-                <svg
-                  className="w-6 h-6"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm1-13h-2v6h2V7zm0 8h-2v-2h2v2z" />
-                </svg>
-                <span className="sr-only">YouTube</span>
-              </a>
             </div>
           </div>
         </div>
       </div>
-      <div className="bg-gray-700 text-center py-4 px-2 md:px-0">
-        <p className="text-gray-300 md:text-xl text-sm">
+      <div className="bg-gray-700 text-center py-2 px-2 md:px-0">
+        <p className="text-gray-300 md:text-[14px] xl:text-xl text-sm">
           © 2024 virtualseoweb. All rights reserved.
         </p>
       </div>

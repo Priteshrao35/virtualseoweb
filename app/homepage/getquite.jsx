@@ -105,8 +105,8 @@ const GetQuite = () => {
   };
 
   return (
-    <div className="text-black overflow-hidden">
-      <p className="text-black text-center md:text-4xl text-xl md:px-0 px-2 font-bold mt-5">
+    <div className="text-black md:mt-5 overflow-hidden">
+      <p className="text-black text-center md:text-2xl xl:text-3xl text-xl md:px-0 px-2 font-bold mt-5">
         Your Digital Success Starts Here. Let's Make It Happen!
       </p>
       <hr className="w-1/2 mx-auto my-4 border-t-2 border-gray-400 rounded-full" />
@@ -135,10 +135,10 @@ const GetQuite = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {/* Company Information Section */}
           <div className="col-span-1 hidden md:block">
-            <h2 className="md:text-3xl text-2xl font-semibold mb-4 md:text-left text-center">
+            <h2 className="md:text-2xl text-2xl xl:text-xl font-semibold mb-4 md:text-left text-center">
               Points of contact
             </h2>
-            <h2 className="text-xl font-semibold mb-4 md:text-left text-center">
+            <h2 className="text-xl xl:text-xl md:text-[17px] font-semibold mb-4 md:text-left text-center">
               Ghaziabad, Uttar Pradesh, India VirtualSeoWeb
             </h2>
 

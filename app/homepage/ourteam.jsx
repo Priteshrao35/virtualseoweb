@@ -29,7 +29,7 @@ function OurTeam() {
   }, []);
 
   return (
-    <div className="bg-gray-100 py-12 px-4 sm:px-6 lg:px-8">
+    <div className="bg-gray-100 pt-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         {/* Header Section */}
         <motion.div
@@ -91,13 +91,12 @@ function OurTeam() {
                   className="bg-white rounded-xl shadow-md overflow-hidden h-full flex flex-col border border-gray-100 hover:shadow-lg transition-all duration-300"
                 >
                   <div className="p-6 flex flex-col items-center">
-                    <div className="relative w-28 h-28 md:w-40 md:h-40 mb-4 rounded-full overflow-hidden border-4 border-blue-500">
+                    <div className="relative w-24 h-24 md:w-28 md:h-28 mb-4 rounded-full overflow-hidden border-4 border-blue-500">
                       <Image
                         src={teamMember.Image}
                         alt={teamMember.Name}
                         fill
                         className="object-cover"
-                        sizes="(max-width: 768px) 80vw, (max-width: 1000px) 40vw, 30vw"
                       />
                     </div>
                     <h3 className="text-xl md:text-xl xl:text-2xl font-bold text-gray-900 text-center">

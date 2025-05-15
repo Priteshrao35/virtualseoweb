@@ -9,7 +9,6 @@ import { CaretDownOutlined } from "@ant-design/icons";
 import ServicesSliderSection from "../../servicesslider";
 import Brands from "../../brands";
 import OurProjects from "../../projects";
-import InfoSection from "../../testomonialsbackviews";
 
 const { Panel } = Collapse;
 
@@ -503,7 +502,6 @@ const ServiceDetailsPage = ({ params }) => {
       </div>
       {/* End of Industries We’ve Delivered Results In */}
 
-      <InfoSection />
 
       {/* FAQ */}
       <div className="md:px-10 md:lg:px-[20em] md:py-8 md:mt-10">

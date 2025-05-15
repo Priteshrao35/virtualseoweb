@@ -40,14 +40,14 @@ export default function LatestBlog() {
   };
 
   return (
-    <div className="md:p-10 mt-2 px-2">
+    <div className="md:px-10 px-2 md:py-5 bg-white">
       {/* Render category tabs */}
-      <div className="tabs text-center md:my-4 flex flex-wrap justify-center gap-2 md:gap-4">
+      <div className="tabs text-center md:my-4 flex flex-wrap justify-center gap-2 md:gap-2">
         {categories.map((category, index) => (
           <button
             key={index}
             onClick={() => setSelectedCategory(category)}
-            className={`px-5 py-2 border rounded transition duration-300 ease-in-out ${selectedCategory === category
+            className={`px-5 py-2 md:py-[1px] xl:py-[4px] border rounded transition duration-300 ease-in-out ${selectedCategory === category
               ? "bg-blue-500 text-white"
               : "bg-gray-200 text-black"
               }`}
@@ -64,13 +64,13 @@ export default function LatestBlog() {
               <li>Our Latest Blogs</li>
             </ul>
           </div>
-          <p className="md:p-5 md:text-4xl text-2xl font-bold text-black md:ml-10 ml-12">Latest Thinking</p>
+          <p className="md:p-5 md:text-2xl xl:text-2xl text-2xl font-bold text-black md:ml-10 ml-12">Latest Thinking</p>
         </div>
         <div className="flex items-center justify-end mt-5 md:mt-0 md:gap-[10em] gap-5">
-          <div className="swiper-button-prevs text-blue-800 cursor-pointer text-2xl">
+          <div className="swiper-button-prevs text-blue-800 cursor-pointer text-2xl md:text-xl xl:text-xl">
             Prev
           </div>
-          <div className="swiper-button-nexts text-blue-800 cursor-pointer text-2xl">
+          <div className="swiper-button-nexts text-blue-800 cursor-pointer text-2xl md:text-xl xl:text-xl">
             Next
           </div>
         </div>
@@ -111,48 +111,44 @@ export default function LatestBlog() {
           {filteredBlogs.map((blog) => (
             <SwiperSlide
               key={blog.id}
-              className="border border-black hover:border-red-600 hover:bg-gray-100 transition duration-300 flex flex-col items-center p-4 rounded-xl min-h-[500px] max-h-[500px]" // Set minimum height and width
+              className="border border-black hover:border-red-600 hover:bg-gray-100 transition duration-300 p-0 rounded-xl md:min-h-[315px] md:max-h-[315px] xl:min-h-[400px] xl:max-h-[400px] cursor-pointer"
             >
-              <div className="relative w-full h-[200px]"> {/* Set a fixed height for images */}
-                <Image
-                  src={blog.Blog_Image}
-                  alt={blog.Blog_Name}
-                  className="object-cover w-full h-full rounded-lg"
-                  preview={false}
-                />
-              </div>
-              <hr
-                style={{
-                  width: "100%",
-                  margin: "10px auto",
-                  borderColor: "red",
+              <Link
+                href={{
+                  pathname: `/blogs/blogdetails/${blog.id}`,
+                  query: {
+                    Blog_Name: blog.Blog_Name.toLowerCase().replace(/[^a-z0-9\s-]/g, '').replace(/\s+/g, '-').replace(/-+/g, '-'),
+                  },
                 }}
-              />
-              <div className="text-left pl-5">
-                {/* Truncate blog title to 5 words */}
-                <h3 className="text-2xl font-bold text-black hover:bg-gray-200 hover:text-red-500 hover:pl-2 transition duration-300 mb-2">
-                  {truncateText(blog.Blog_Name, 5)}
-                </h3>
-                {/* Truncate blog description to 20 words */}
-                <p className="text-black hover:bg-gray-200 hover:text-red-500 hover:pl-2 transition duration-300 mb-2 text-xl">
-                  {truncateText(blog.Sort_description, 15)}
-                </p>
-                <p className="text-blue-500 text-left mt-2 hover:text-blue-700 transition duration-300 text-2xl">
-                  <Link
-                    href={{
-                      pathname: `/blogs/blogdetails/${blog.id}`,
-                      query: {
-                        Blog_Name: blog.Blog_Name.toLowerCase().replace(/[^a-z0-9\s-]/g, '').replace(/\s+/g, '-').replace(/-+/g, '-'),
-                      }
-                    }}
-                  >
-                    Learn More ...
-                  </Link>
-                </p>
-
-              </div>
+                className="flex flex-col items-center w-full h-full p-4 no-underline text-black"
+              >
+                <div className="relative w-full h-auto">
+                  <Image
+                    src={blog.Blog_Image}
+                    alt={blog.Blog_Name}
+                    className="object-cover w-full h-full rounded-lg"
+                    preview={false}
+                  />
+                </div>
+                <hr
+                  style={{
+                    width: "100%",
+                    margin: "10px auto",
+                    borderColor: "red",
+                  }}
+                />
+                <div className="text-left pl-5 w-full">
+                  <h3 className="text-2xl md:text-[14px] xl:text-[16px] font-bold text-black hover:bg-gray-200 hover:text-red-500 hover:pl-2 transition duration-300 mb-1">
+                    {truncateText(blog.Blog_Name, 5)}
+                  </h3>
+                  <p className="text-black hover:bg-gray-200 hover:text-red-500 hover:pl-2 transition duration-300 text-xl md:text-[12px] xl:text-[14px]">
+                    {truncateText(blog.Sort_description, 15)}
+                  </p>
+                </div>
+              </Link>
             </SwiperSlide>
           ))}
+
         </Swiper>
       </div>
     </div>

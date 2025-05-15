@@ -6,7 +6,6 @@ import Header from "../homepage/header";
 import Navbar from "../homepage/navbar";
 import ServicesSliderSection from "../homepage/servicesslider";
 import Brands from "../homepage/brands";
-import InfoSection from "../homepage/testomonialsbackviews";
 import LatestBlog from "../homepage/latestblogs";
 import GetQuite from "../homepage/getquite";
 import OurProjects from "../homepage/projects";
@@ -116,8 +115,6 @@ function AboutusPage() {
         <ServicesSliderSection />
       </div>
       <OurProjects />
-
-      <InfoSection />
 
       <LatestBlog />
 

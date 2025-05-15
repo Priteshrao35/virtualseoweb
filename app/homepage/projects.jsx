@@ -33,6 +33,15 @@ export default function OurProjects() {
     setActiveCategory(category);
   };
 
+
+  const normalizeUrl = (url) => {
+    if (!url.startsWith("http://") && !url.startsWith("https://")) {
+      return `https://${url}`;
+    }
+    return url;
+  };
+
+
   return (
     <div className="p-5 md:ml-10">
       <div className="flex-grow text-left">
@@ -53,11 +62,10 @@ export default function OurProjects() {
             <button
               key={index}
               onClick={() => handleTabClick(category)}
-              className={`px-1 md:px-2 xl:px-3 py-1 md:py-1 xl:py-2  rounded-lg transition-colors text-sm md:text-[14px] xl:text-[15px] ${
-                activeCategory === category
-                  ? "bg-blue-500 text-white"
-                  : "bg-gray-300 text-black"
-              }`}
+              className={`px-1 md:px-2 xl:px-3 py-1 md:py-1 xl:py-2  rounded-lg transition-colors text-sm md:text-[14px] xl:text-[15px] ${activeCategory === category
+                ? "bg-blue-500 text-white"
+                : "bg-gray-300 text-black"
+                }`}
             >
               {category}
             </button>
@@ -115,30 +123,38 @@ export default function OurProjects() {
                 key={project.id}
                 className="border border-black hover:border-red-600 hover:bg-gray-100 transition duration-300 flex flex-col items-center p-4 rounded-xl"
               >
-                <div className="relative w-full h-auto">
-                  <Image
-                    src={project.Project_Image}
-                    alt={project.Project_Name}
-                    className="object-cover w-full h-full rounded-lg"
-                    preview={false}
+
+                <a
+                  href={normalizeUrl(project.Project_url_Link)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full h-full"
+                >
+                  <div className="relative w-full h-auto">
+                    <Image
+                      src={project.Project_Image}
+                      alt={project.Project_Name}
+                      className="object-cover w-full h-full rounded-lg"
+                      preview={false}
+                    />
+                  </div>
+                  <hr
+                    style={{
+                      width: "100%",
+                      margin: "10px auto",
+                      borderColor: "red"
+                    }}
                   />
-                </div>
-                <hr
-                  style={{
-                    width: "100%",
-                    margin: "10px auto",
-                    borderColor: "red"
-                  }}
-                />
-                <div className="text-left">
-                  <h3 className="text-2xl md:text-sm xl:text-xl font-bold text-black hover:text-blue-500 hover:pl-2 transition duration-300 mb-2">
-                    {project.Project_Name}
-                  </h3>
-                  <p className="text-black hover:text-blue-500 hover:pl-2 transition duration-300 mb-2 md:text-sm xl:text-[16px] text-xl">
-                    {project.Sort_descrition}
-                  </p>
-                 
-                </div>
+                  <div className="text-left">
+                    <h3 className="text-2xl md:text-sm xl:text-xl font-bold text-black hover:text-blue-500 hover:pl-2 transition duration-300 mb-2">
+                      {project.Project_Name}
+                    </h3>
+                    <p className="text-black hover:text-blue-500 hover:pl-2 transition duration-300 mb-2 md:text-sm xl:text-[16px] text-xl">
+                      {project.Sort_descrition}
+                    </p>
+
+                  </div>
+                </a>
               </SwiperSlide>
             ))}
         </Swiper>
