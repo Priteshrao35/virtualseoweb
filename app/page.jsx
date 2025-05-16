@@ -19,9 +19,6 @@ import Testimonials from "./homepage/testomonials";
 export default function Home() {
   return (
     <Layout>
-      <Header />
-      <hr />
-      <Navbar />
 
       <Mainswiper />
 
@@ -49,7 +46,6 @@ export default function Home() {
 
       <Brands />
 
-      <FooterSection />
     </Layout>
   );
 }

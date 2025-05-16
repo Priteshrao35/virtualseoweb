@@ -1,14 +1,12 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import FooterSection from "../homepage/footer";
-import Header from "../homepage/header";
-import Navbar from "../homepage/navbar";
 import ServicesSliderSection from "../homepage/servicesslider";
 import Brands from "../homepage/brands";
 import LatestBlog from "../homepage/latestblogs";
 import GetQuite from "../homepage/getquite";
 import OurProjects from "../homepage/projects";
+
 
 function AboutusPage() {
   const [aboutData, setAboutData] = useState(null);
@@ -50,9 +48,6 @@ function AboutusPage() {
 
   return (
     <div className="bg-white">
-      <Header />
-      <hr />
-      <Navbar />
 
       {aboutData ? (
         <div>
@@ -120,7 +115,6 @@ function AboutusPage() {
 
       <GetQuite />
 
-      <FooterSection />
     </div>
   );
 }

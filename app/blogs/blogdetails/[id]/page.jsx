@@ -12,29 +12,29 @@ export async function generateMetadata({ params }) {
 
     if (blog) {
       return {
-        title: blog.Blog_Name || "Blog - PRWebTechno",
+        title: blog.Blog_Name || "Blog - Virtualseoweb",
         description: blog.Sort_description || blog.full_description.slice(0, 160) || "Read the latest insights on our blog.",
-        keywords: blog.keywords || "web development, SEO, digital marketing, PRWebTechno, blogs",
+        keywords: blog.keywords || "web development, SEO, digital marketing, Virtualseoweb, blogs",
         openGraph: {
-          title: blog.Blog_Name || "Blog - PRWebTechno",
+          title: blog.Blog_Name || "Blog - Virtualseoweb",
           description: blog.Sort_description || blog.full_description.slice(0, 160) || "Read the latest insights on our blog.",
           images: blog.Blog_Image ? [{ url: blog.Blog_Image, alt: blog.Blog_Name }] : [],
           type: 'article',
-          url: `https://prwebtechno.com/blog/${blogId}`,
+          url: `https://virtualseoweb.com/blog/${blogId}`,
           article: {
             published_time: blog.published_at || null,
-            author: blog.author || "PRWebTechno",
+            author: blog.author || "Virtualseoweb",
             tags: blog.tags || [],
           },
         },
         twitter: {
           card: 'summary_large_image',
-          title: blog.Blog_Name || "Blog - PRWebTechno",
+          title: blog.Blog_Name || "Blog - Virtualseoweb",
           description: blog.Sort_description || blog.full_description.slice(0, 160) || "Read the latest insights on our blog.",
           images: blog.Blog_Image ? [blog.Blog_Image] : [],
         },
         robots: 'index, follow',
-        canonical: `https://prwebtechno.com/blog/${blogId}`,
+        canonical: `https://virtualseoweb.com/blog/${blogId}`,
       };
     } else {
       return {
@@ -45,7 +45,7 @@ export async function generateMetadata({ params }) {
           description: "The blog post you are looking for is unavailable.",
           images: [],
           type: 'article',
-          url: `https://prwebtechno.com/blog/${blogId}`,
+          url: `https://virtualseoweb.com/blog/${blogId}`,
         },
         twitter: {
           card: 'summary',
@@ -53,7 +53,7 @@ export async function generateMetadata({ params }) {
           description: "The blog post you are looking for is unavailable.",
         },
         robots: 'noindex, nofollow',
-        canonical: `https://prwebtechno.com/blog/${blogId}`,
+        canonical: `https://virtualseoweb.com/blog/${blogId}`,
       };
     }
   } catch (error) {
@@ -67,7 +67,7 @@ export async function generateMetadata({ params }) {
         description: "Unable to load the blog due to an error.",
         images: [],
         type: 'article',
-        url: `https://prwebtechno.com/blog/${blogId}`,
+        url: `https://virtualseoweb.com/blog/${blogId}`,
       },
       twitter: {
         card: 'summary',
@@ -75,7 +75,7 @@ export async function generateMetadata({ params }) {
         description: "Unable to load the blog due to an error.",
       },
       robots: 'noindex, nofollow',
-      canonical: `https://prwebtechno.com/blog/${blogId}`,
+      canonical: `https://virtualseoweb.com/blog/${blogId}`,
     };
   }
 }
