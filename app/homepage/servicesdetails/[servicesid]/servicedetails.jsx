@@ -5,10 +5,8 @@ import { Collapse } from "antd";
 import { CaretDownOutlined } from "@ant-design/icons";
 import ServicesSliderSection from "../../servicesslider";
 import sanitizeHtml from 'sanitize-html';
-import GetQuite from "../../getquite";
 import { motion } from "framer-motion"
 import Image from 'next/image';
-import OurProjects from "../../projects";
 
 const { Panel } = Collapse;
 
@@ -174,7 +172,7 @@ const ServiceDetailsPage = ({ params }) => {
   const limitedContent = limitWords(fullContent, 70);
 
   return (
-    <div className="bg-gray-100 text-black md:pt-20 overflow-hidden">
+    <div className="bg-gray-100 text-black overflow-hidden">
 
       <Image
         src={service.service_Banner} // Source of the image
@@ -187,7 +185,7 @@ const ServiceDetailsPage = ({ params }) => {
       />
 
 
-      <div className="md:px-20 px-6 bg-white py-5">
+      <div className="md:px-10 px-6 bg-white py-5">
         <div className="flex flex-col md:flex-row justify-between gap-6 md:gap-16">
 
           {/* Content Section */}
@@ -208,7 +206,7 @@ const ServiceDetailsPage = ({ params }) => {
             viewport={{ once: false, amount: 0.3 }} // Trigger animation when 30% of the section is visible
           >
             <motion.h2
-              className="md:text-3xl text-xl mt-5 font-semibold md:text-left text-center text-gray-800"
+              className="md:text-lg xl:text-2xl text-xl mt-5 font-semibold md:text-left text-center text-gray-800"
               initial={{ scale: 0.95 }}
               animate={{ scale: 1 }}
               transition={{ duration: 0.4 }}
@@ -217,7 +215,7 @@ const ServiceDetailsPage = ({ params }) => {
             </motion.h2>
 
             <motion.p
-              className="text-black hidden md:block"
+              className="text-black hidden md:block md:text-sm xl:text-base xl:mt-2"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2 }}
@@ -263,7 +261,7 @@ const ServiceDetailsPage = ({ params }) => {
 
           {/* Form Section */}
           <div className="bg-white p-4 rounded-lg shadow-lg transform transition-transform hover:scale-105 w-full md:w-1/3">
-            <h2 className="text-xl font-semibold mb-3">GET A QUOTE</h2>
+            <h2 className="text-xl md:text-sm xl:text-xl font-semibold mb-3">GET A QUOTE</h2>
             <form onSubmit={handleSubmit}>
               <div className="mb-5">
                 <input
@@ -274,7 +272,7 @@ const ServiceDetailsPage = ({ params }) => {
                   onChange={handleInputChange}
                   required
                   placeholder="Name"
-                  className={`mt-1 block w-full px-2 py-2 border ${errors.name ? "border-red-500" : "border-gray-300"
+                  className={`mt-1 block w-full px-2 py-2 md:py-[1px] xl:py-1 border ${errors.name ? "border-red-500" : "border-gray-300"
                     } rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm`}
                 />
                 {errors.name && <p className="text-red-600 text-sm">{errors.name}</p>}
@@ -288,7 +286,7 @@ const ServiceDetailsPage = ({ params }) => {
                   onChange={handleInputChange}
                   required
                   placeholder="Email"
-                  className={`mt-1 block w-full px-2 py-2 border ${errors.email ? "border-red-500" : "border-gray-300"
+                  className={`mt-1 block w-full px-2 py-2 md:py-[1px] xl:py-1 border ${errors.email ? "border-red-500" : "border-gray-300"
                     } rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm`}
                 />
                 {errors.email && (
@@ -304,7 +302,7 @@ const ServiceDetailsPage = ({ params }) => {
                   onChange={handleInputChange}
                   required
                   placeholder="Subject"
-                  className={`mt-1 block w-full px-2 py-1 border ${errors.subject ? "border-red-500" : "border-gray-300"
+                  className={`mt-1 block w-full px-2 py-1 md:py-[1px] xl:py-1 border ${errors.subject ? "border-red-500" : "border-gray-300"
                     } rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm`}
                 />
                 {errors.subject && (
@@ -320,7 +318,7 @@ const ServiceDetailsPage = ({ params }) => {
                   onChange={handleInputChange}
                   required
                   placeholder="Mobile"
-                  className={`mt-1 block w-full px-2 py-2 border ${errors.mobile ? "border-red-500" : "border-gray-300"
+                  className={`mt-1 block w-full px-2 py-2 md:py-[1px] xl:py-1 border ${errors.mobile ? "border-red-500" : "border-gray-300"
                     } rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm`}
                 />
                 {errors.mobile && (
@@ -335,7 +333,7 @@ const ServiceDetailsPage = ({ params }) => {
                   onChange={handleInputChange}
                   required
                   placeholder="Message"
-                  className={`mt-1 block w-full px-2 py-2 border ${errors.message ? "border-red-500" : "border-gray-300"
+                  className={`mt-1 block w-full px-2 py-2 md:py-[1px] xl:py-1 border ${errors.message ? "border-red-500" : "border-gray-300"
                     } rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm`}
                   style={{ minHeight: "80px" }}
                 />
@@ -345,7 +343,7 @@ const ServiceDetailsPage = ({ params }) => {
               </div>
               <button
                 type="submit"
-                className="w-full bg-indigo-600 text-white py-2 px-4 border border-transparent rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                className="w-full bg-indigo-600 text-white py-2 md:py-[1px] xl:py-1 px-4 border border-transparent rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
               >
                 Send
               </button>
@@ -365,10 +363,10 @@ const ServiceDetailsPage = ({ params }) => {
       </div>
 
       {/* Why Hire SEO Agency Section */}
-      <div className="md:px-5 px-3 lg:px-[5em] py-5 bg-white">
+      <div className="md:px-5 px-3 lg:px-[5em] pt-5 bg-white">
         {/* Heading */}
         <motion.h1
-          className="text-xl lg:text-3xl font-bold text-center mb-8 mt-5 text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-500 leading-normal"
+          className="text-xl md:text-2xl xl:text-2xl font-bold text-center mb-8 text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-500 leading-normal"
           initial={{ opacity: 0, y: -50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
@@ -378,7 +376,7 @@ const ServiceDetailsPage = ({ params }) => {
 
         {/* Cards Section */}
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-10 md:mt-20"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-10"
           initial={{ opacity: 0, x: -50 }} // Start position (left to right)
           whileInView={{ opacity: 1, x: 0 }} // End position (center)
           transition={{ duration: 0.8 }}
@@ -396,7 +394,7 @@ const ServiceDetailsPage = ({ params }) => {
               transition={{ duration: 0.6, delay: 0.2 * index }} // Stagger animation
             >
               {/* Title */}
-              <p className="text-xl font-bold mb-2 text-gray-800">
+              <p className="text-xl md:text-sm xl:text-lg font-bold mb-2 text-gray-800">
                 {agency.Why_Hire_Agency_title}
               </p>
 
@@ -420,7 +418,7 @@ const ServiceDetailsPage = ({ params }) => {
               </motion.div>
 
               {/* Content */}
-              <p className="text-sm text-gray-600">{agency.Why_Hire_Agency_description}</p>
+              <p className="text-sm md:text-[12px] xl:text-sm text-gray-600">{agency.Why_Hire_Agency_description}</p>
             </motion.div>
           ))}
         </motion.div>
@@ -430,10 +428,10 @@ const ServiceDetailsPage = ({ params }) => {
 
 
       {/* Why Do You Need A SEO Agency */}
-      <div className="md:px-5 px-3 lg:px-[5em] py-8 bg-white">
+      <div className="md:px-5 px-3 lg:px-[5em] py-4 bg-white">
         {/* Animated Heading */}
         <motion.h1
-          className="text-xl md:text-3xl lg:text-3xl font-bold text-center mb-8 mt-5 md:p-10 text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-500 leading-normal"
+          className="text-xl md:text-2xl xl:text-2xl font-bold text-center md:p-10 text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-500 leading-normal"
           initial={{ opacity: 0, y: -30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
@@ -451,7 +449,7 @@ const ServiceDetailsPage = ({ params }) => {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <p
-              className="text-gray-700 text-lg md:text-[13px]"
+              className="text-gray-700 text-lg md:text-[12px] xl:text-lg"
               dangerouslySetInnerHTML={{ __html: sanitizeHtml(service.why_need_agency_description) }}
             />
           </motion.div>
@@ -467,8 +465,8 @@ const ServiceDetailsPage = ({ params }) => {
               src={service.why_need_agency_image}
               alt="Why You Need an Agency"
               className="rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
-              width={800} // Increased width
-              height={200} // Decreased height
+              width={700} // Increased width
+              height={100} // Decreased height
               objectFit="cover" // Ensures the image scales proportionally without distortion
             />
           </motion.div>
@@ -482,7 +480,7 @@ const ServiceDetailsPage = ({ params }) => {
       {/* Services_Better_Than_Others */}
       <div className="px-3 md:px-5 lg:px-[5em] py-8 bg-white">
         <motion.h1
-          className="text-xl md:text-3xl lg:text-3xl font-bold text-center mb-8 mt-5 text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-500 leading-normal"
+          className="text-xl md:text-2xl lg:text-2xl font-bold text-center mb-8 mt-5 text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-500 leading-normal"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }} // Animation when the heading is in view
           transition={{ duration: 0.6, ease: "easeInOut" }}
@@ -507,14 +505,14 @@ const ServiceDetailsPage = ({ params }) => {
             <Image
               src={service.Services_Better_Than_Others_image}
               alt={service.Services_Better_Than_Others_heading}
-              width={500} // Adjust as necessary for your layout
-              height={300} // Adjust as necessary for your layout
+              width={300} // Adjust as necessary for your layout
+              height={100} // Adjust as necessary for your layout
               className="w-full h-auto max-w-xs md:max-w-full rounded-lg"
             />
           </motion.div>
 
           <motion.div
-            className="flex flex-col px-2 md:px-4"
+            className="flex flex-col px-2 md:px-4 md:text-sm xl:text-xl"
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }} // Animation for text when in view
             transition={{ duration: 0.5, delay: 0.4, ease: "easeInOut" }}
@@ -528,9 +526,9 @@ const ServiceDetailsPage = ({ params }) => {
 
 
       {/* Why Choose Us Section */}
-      <div className="px-3 md:px-5 lg:px-[5em] py-8 bg-white">
+      <div className="px-3 md:px-5 lg:px-[5em] bg-white">
         <motion.h1
-          className="text-xl md:text-2xl lg:text-4xl font-bold text-center mb-8 mt-5 text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-500 leading-normal"
+          className="text-xl md:text-2xl lg:text-2xl font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-500 leading-normal"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }} // Animation when the heading is in view
           transition={{ duration: 0.6, ease: "easeInOut" }}
@@ -542,7 +540,7 @@ const ServiceDetailsPage = ({ params }) => {
         <div className="flex flex-col md:flex-row gap-4">
           {/* Mobile view: Content last, then Image */}
           <motion.div
-            className="flex-1 flex flex-col px-2 md:px-4 order-3 md:order-2 md:mt-10"
+            className="flex-1 flex flex-col px-2 md:px-4 order-3 md:order-2 md:mt-5 text-xl md:text-sm lg:text-sm"
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }} // Animation for text when in view
             transition={{ duration: 0.5, delay: 0.2, ease: "easeInOut" }}
@@ -578,7 +576,7 @@ const ServiceDetailsPage = ({ params }) => {
       {/* How We Work With You Every Step of The Way! */}
       <div className="px-3 md:px-10 lg:px-[6em] py-10 bg-gradient-to-b from-white to-gray-100">
         <motion.h1
-          className="text-2xl md:text-2xl lg:text-3xl font-extrabold text-center mb-10 mt-5 text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-500 leading-snug drop-shadow-lg"
+          className="text-2xl md:text-2xl xl:text-3xl font-extrabold text-center mb-10 mt-5 text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-500 leading-snug drop-shadow-lg"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeInOut" }}
@@ -586,10 +584,10 @@ const ServiceDetailsPage = ({ params }) => {
           {service.How_We_Work_Step_Heading}
         </motion.h1>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10 items-start">
           {/* Left Column - Steps */}
           <motion.ul
-            className="space-y-8 mx-auto w-full"
+            className="space-y-6 mx-auto w-full"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2, duration: 0.5 }}
@@ -599,7 +597,7 @@ const ServiceDetailsPage = ({ params }) => {
                 key={index}
                 ref={(el) => (stepsRef.current[index] = el)}
                 onClick={() => setActiveStep(index)}
-                className={`flex items-center cursor-pointer font-semibold text-base md:text-lg lg:text-xl px-5 py-3 rounded-xl transition-transform duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg 
+                className={`flex items-center cursor-pointer font-semibold text-base md:text-[18px] xl:text-xl px-5 py-3 rounded-xl transition-transform duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg 
           ${activeStep === index
                     ? "text-orange-600 bg-gray-100 shadow-md"
                     : "text-gray-700 hover:bg-gray-50"
@@ -644,10 +642,10 @@ const ServiceDetailsPage = ({ params }) => {
                     className="rounded-full object-cover"
                   />
                 </motion.div>
-                <h3 className="text-center font-bold text-2xl mb-3">
+                <h3 className="text-center font-bold text-2xl md:text-xl xl:text-xl mb-3">
                   {service.How_We_Work_Step[activeStep].How_We_Work_Step_Title}
                 </h3>
-                <p className="text-center text-gray-600 text-sm md:text-base leading-relaxed px-4 md:px-12">
+                <p className="text-center text-gray-600 text-sm md:text-[12px] xl:text-xl leading-relaxed px-4">
                   {service.How_We_Work_Step[activeStep].How_We_Work_Step_short_description}
                 </p>
               </div>
@@ -658,20 +656,12 @@ const ServiceDetailsPage = ({ params }) => {
 
       {/* End of How We Work With You Every Step of The Way! */}
 
-      <div className="md:px-14 px-3 bg-white">
-        <ServicesSliderSection />
-      </div>
-
-      <div className="bg-white">
-        <GetQuite />
-      </div>
-
-      <OurProjects />
+      <ServicesSliderSection />
 
       {/* Industries We’ve Delivered Results In */}
       <div className="px-4 md:px-8 lg:px-[5em] py-8 bg-white">
         <motion.h1
-          className="text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-8 text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-500 leading-normal"
+          className="text-2xl md:text-2xl lg:text-2xl font-bold text-center mb-8 text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-500 leading-normal"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeInOut" }}
@@ -682,7 +672,7 @@ const ServiceDetailsPage = ({ params }) => {
         </motion.h1>
 
         <motion.div
-          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-6 mt-10 md:mt-20"
+          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-6 mt-10 md:mt-10"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2, duration: 0.6, ease: "easeInOut" }}
@@ -692,7 +682,7 @@ const ServiceDetailsPage = ({ params }) => {
           {service.Industries_We_Delivered_Results.map((serviceItem, index) => (
             <motion.div
               key={index}
-              className="flex flex-col items-center p-4 md:p-6 rounded-lg bg-gradient-to-r from-red-500 via-orange-500 to-yellow-500 hover:from-yellow-500 hover:via-red-500 hover:to-orange-500 transition-all duration-300 shadow-lg"
+              className="flex flex-col items-center p-4 md:p-2 rounded-lg bg-gradient-to-r from-red-500 via-orange-500 to-yellow-500 hover:from-yellow-500 hover:via-red-500 hover:to-orange-500 transition-all duration-300 shadow-lg"
               initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{
@@ -715,7 +705,7 @@ const ServiceDetailsPage = ({ params }) => {
 
       {/* FAQ */}
       <div className="md:px-5 md:lg:px-[5em] bg-white">
-        <h1 className="text-2xl md:text-3xl md:pt-10 lg:text-4xl font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-500 leading-normal">
+        <h1 className="text-2xl md:text-2xl xl:text-2xl md:pt-10 font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-500 leading-normal">
           Frequently Asked Questions
         </h1>
 
@@ -782,8 +772,8 @@ const ServiceDetailsPage = ({ params }) => {
           </div>
 
           {/* Consultation Form */}
-          <div className="w-full md:w-[400px] lg:w-[500px] h-[500px] px-5 md:px-0">
-            <h2 className="text-lg md:text-xl font-semibold mb-3">
+          <div className="w-full md:w-[300px] lg:w-[400px] h-[400px] px-5 md:px-0">
+            <h2 className="text-lg md:text-xl font-semibold">
               Send your Query
             </h2>
             <form onSubmit={handleSubmit}>
@@ -796,7 +786,7 @@ const ServiceDetailsPage = ({ params }) => {
                   onChange={handleInputChange}
                   required
                   placeholder="Name"
-                  className={`mt-1 block w-full px-2 py-2 border ${errors.name ? "border-red-500" : "border-gray-300"
+                  className={`mt-1 block w-full px-2 py-2 md:py-[1px] xl:py-1 border ${errors.name ? "border-red-500" : "border-gray-300"
                     } rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm`}
                 />
                 {errors.name && (
@@ -812,7 +802,7 @@ const ServiceDetailsPage = ({ params }) => {
                   onChange={handleInputChange}
                   required
                   placeholder="Email"
-                  className={`mt-1 block w-full px-2 py-2 border ${errors.email ? "border-red-500" : "border-gray-300"
+                  className={`mt-1 block w-full px-2 py-2 md:py-[1px] xl:py-1 border ${errors.email ? "border-red-500" : "border-gray-300"
                     } rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm`}
                 />
                 {errors.email && (
@@ -828,7 +818,7 @@ const ServiceDetailsPage = ({ params }) => {
                   onChange={handleInputChange}
                   required
                   placeholder="Subject"
-                  className={`mt-1 block w-full px-2 py-1 border ${errors.subject ? "border-red-500" : "border-gray-300"
+                  className={`mt-1 block w-full px-2 py-1 md:py-[1px] xl:py-1 border ${errors.subject ? "border-red-500" : "border-gray-300"
                     } rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm`}
                 />
                 {errors.subject && (
@@ -844,7 +834,7 @@ const ServiceDetailsPage = ({ params }) => {
                   onChange={handleInputChange}
                   required
                   placeholder="Mobile"
-                  className={`mt-1 block w-full px-2 py-2 border ${errors.mobile ? "border-red-500" : "border-gray-300"
+                  className={`mt-1 block w-full px-2 py-2 md:py-[1px] xl:py-1 border ${errors.mobile ? "border-red-500" : "border-gray-300"
                     } rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm`}
                 />
                 {errors.mobile && (
@@ -859,7 +849,7 @@ const ServiceDetailsPage = ({ params }) => {
                   onChange={handleInputChange}
                   required
                   placeholder="Message"
-                  className={`mt-1 block w-full px-2 py-2 border ${errors.message ? "border-red-500" : "border-gray-300"
+                  className={`mt-1 block w-full px-2 py-2 md:py-[1px] xl:py-1 border ${errors.message ? "border-red-500" : "border-gray-300"
                     } rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm`}
                   style={{ minHeight: "80px" }}
                 />
@@ -869,7 +859,7 @@ const ServiceDetailsPage = ({ params }) => {
               </div>
               <button
                 type="submit"
-                className="w-full bg-indigo-600 text-white py-2 px-4 border border-transparent rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                className="w-full bg-indigo-600 text-white py-2 md:py-[1px] xl:py-1 px-4 border border-transparent rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
               >
                 Send
               </button>
