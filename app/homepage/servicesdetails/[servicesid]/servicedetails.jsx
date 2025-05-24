@@ -449,7 +449,7 @@ const ServiceDetailsPage = ({ params }) => {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <p
-              className="text-gray-700 text-lg md:text-[12px] xl:text-lg"
+              className="text-gray-700 text-lg md:text-[12px] xl:text-[14px]"
               dangerouslySetInnerHTML={{ __html: sanitizeHtml(service.why_need_agency_description) }}
             />
           </motion.div>
@@ -512,7 +512,7 @@ const ServiceDetailsPage = ({ params }) => {
           </motion.div>
 
           <motion.div
-            className="flex flex-col px-2 md:px-4 md:text-sm xl:text-xl"
+            className="flex flex-col px-2 md:px-4 md:text-sm xl:text-base"
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }} // Animation for text when in view
             transition={{ duration: 0.5, delay: 0.4, ease: "easeInOut" }}
@@ -540,7 +540,7 @@ const ServiceDetailsPage = ({ params }) => {
         <div className="flex flex-col md:flex-row gap-4">
           {/* Mobile view: Content last, then Image */}
           <motion.div
-            className="flex-1 flex flex-col px-2 md:px-4 order-3 md:order-2 md:mt-5 text-xl md:text-sm lg:text-sm"
+            className="flex-1 flex flex-col px-2 md:px-4 order-3 md:order-2 md:mt-5 text-xl md:text-sm lg:text-base"
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }} // Animation for text when in view
             transition={{ duration: 0.5, delay: 0.2, ease: "easeInOut" }}
@@ -645,7 +645,7 @@ const ServiceDetailsPage = ({ params }) => {
                 <h3 className="text-center font-bold text-2xl md:text-xl xl:text-xl mb-3">
                   {service.How_We_Work_Step[activeStep].How_We_Work_Step_Title}
                 </h3>
-                <p className="text-center text-gray-600 text-sm md:text-[12px] xl:text-xl leading-relaxed px-4">
+                <p className="text-center text-gray-600 text-sm md:text-[12px] xl:text-base leading-relaxed px-4">
                   {service.How_We_Work_Step[activeStep].How_We_Work_Step_short_description}
                 </p>
               </div>
