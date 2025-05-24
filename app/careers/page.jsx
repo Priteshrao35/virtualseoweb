@@ -42,9 +42,6 @@ export default function Careers() {
 
   return (
     <div className='bg-white'>
-      <Header />
-      <hr />
-      <Navbar />
       <section className="bg-cover bg-center py-20" style={{ backgroundImage: `url('/img/webpall/carrire_banner.webp')` }}>
         <div className="container mx-auto text-center px-4">
           <h1 className="text-4xl font-extrabold text-black mb-4">Join Our Team and Make a Difference</h1>
@@ -198,7 +195,6 @@ export default function Careers() {
         </div>
       )}
 
-      <FooterSection />
     </div>
   );
 }
