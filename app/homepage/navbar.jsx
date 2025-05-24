@@ -59,20 +59,19 @@ const Navbar = () => {
 
   return (
     <div className="hidden md:flex z-50 justify-center items-center space-x-2 w-full text-xl md:text-sm xl:text-[18px] p-3 cursor-pointer mt-14">
-  {Object.keys(menuData).map((category) => (
-    <Dropdown key={category} menu={{ items: menuData[category] }} trigger={['hover']}>
-      <a onClick={(e) => e.preventDefault()} className="text-black font-bold hover:text-blue-500">
-        <Space>
-          {categoryLabels[category] || category} <DownOutlined />
-        </Space>
-      </a>
-    </Dropdown>
-  ))}
+      {Object.keys(menuData).map((category) => (
+        <Dropdown key={category} menu={{ items: menuData[category] }} trigger={['hover']}>
+          <a onClick={(e) => e.preventDefault()} className="text-black font-bold hover:text-blue-500 capitalize">
+            <Space>
+              {categoryLabels[category] || category} <DownOutlined />
+            </Space>
+          </a>
+        </Dropdown>
+      ))}
 
-  <a onClick={() => router.push("/portfolio")} className="text-black font-bold hover:text-blue-500">Portfolio</a>
-  <a onClick={() => router.push("/aboutus")} className="text-black font-bold hover:text-blue-500">About Us</a>
-  <a onClick={() => router.push("/contactus")} className="text-black font-bold hover:text-blue-500">Contacts</a>
-</div>
+      <a onClick={() => router.push("/portfolio")} className="text-black font-bold hover:text-blue-500">Portfolio</a>
+      <a onClick={() => router.push("/contactus")} className="text-black font-bold hover:text-blue-500">Contacts</a>
+    </div>
 
   );
 };

@@ -1,8 +1,5 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import Header from "../homepage/header";
-import Navbar from "../homepage/navbar";
-import FooterSection from "../homepage/footer";
 import Brands from "../homepage/brands";
 import ServicesSliderSection from "../homepage/servicesslider";
 
@@ -32,14 +29,11 @@ function PortFolio() {
   };
 
   return (
-    <div className="bg-gray-100">
-      <Header />
-      <hr />
-      <Navbar />
-      <p className="text-black text-xl md:text-5xl font-bold p-2 md:p-5 text-center md:mt-10">
+    <div className="bg-white">
+      <p className="text-black text-xl md:text-2xl xl:text-2xl py-5 font-bold p-2 text-center">
         Our Best Portfolio – VirtualSEOweb
       </p>
-      <p className="text-black text-sm md:text-lg font-bold px-5 md:px-48 md:text-center">
+      <p className="text-black text-sm md:text-[11px] xl:text-base font-bold px-12 md:text-center">
         At VirtualSEOweb, we are dedicated to delivering innovative web
         development and SEO solutions that enhance online visibility and drive
         meaningful engagement. Our portfolio reflects a diverse range of
@@ -58,24 +52,23 @@ function PortFolio() {
       </p>
 
       {/* Render category tabs */}
-      <div className="text-center md:p-10 p-2 bg-gradient-to-t from-slate-100 to-red-200 mt-10">
+      <div className="text-center md:p-10 p-2 py-1 bg-gradient-to-t from-white to-red-50 mt-10">
         {categories.map((category, index) => (
           <button
             key={index}
             onClick={() => handleTabClick(category)}
-            className={`m-1 p-2 md:m-2 md:p-3 ${
-              activeCategory === category
-                ? "bg-blue-500 text-white"
-                : "bg-gray-300 text-black"
-            } rounded-md border-none cursor-pointer`}
+            className={`m-1 p-2 md:m- md:py-[1px] ${activeCategory === category
+              ? "bg-blue-500 text-white"
+              : "bg-gray-300 text-black"
+              } rounded-md border-none cursor-pointer`}
           >
             {category}
           </button>
         ))}
       </div>
 
-      <div className="md:px-40 px-4">
-        <div className="mt-5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+      <div className="md:px-10 px-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
           {projects
             .filter((project) => project.category === activeCategory)
             .map((project) => (
@@ -92,13 +85,13 @@ function PortFolio() {
                   <h3 className="text-black font-semibold">
                     {project.Project_Name}
                   </h3>
-                  <p className="text-black">{project.Sort_descrition}</p>
+                  <p className="text-black md:text-[10px] xl:text-base">{project.Sort_descrition}</p>
                 </div>
                 <a
                   href={project.Project_url_Link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block text-blue-500 mt-3 hover:underline"
+                  className="block text-blue-500 mt-3 hover:underline md:text-sm"
                 >
                   Visit Project
                 </a>
@@ -107,27 +100,10 @@ function PortFolio() {
         </div>
       </div>
 
-      <div className="mt-5">
-        <Brands />
-      </div>
-
-      <div className="md:px-28 bg-slate-200">
+      <div className=" bg-slate-200">
         <ServicesSliderSection />
       </div>
 
-      <div className="flex flex-col md:flex-row items-center justify-center p-5 bg-gradient-to-t from-slate-100 to-red-50 mt-20">
-        <p className="text-black font-bold text-center md:text-left text-lg md:text-3xl mb-4 md:mb-0 md:mr-4">
-          Have any questions and need to talk with us directly?
-        </p>
-        <a
-          href="/contactus"
-          className="px-6 py-2 md:py-3 bg-blue-500 text-white text-sm font-semibold rounded-lg shadow-lg hover:bg-blue-600 transition-colors"
-        >
-          Contact Now
-        </a>
-      </div>
-
-      <FooterSection />
     </div>
   );
 }
