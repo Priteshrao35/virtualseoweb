@@ -106,7 +106,7 @@ function AboutusPage() {
         <Brands />
       </div>
 
-      <div className="px-4 md:px-28 bg-slate-200">
+      <div className="px-4 bg-slate-200">
         <ServicesSliderSection />
       </div>
       <OurProjects />
