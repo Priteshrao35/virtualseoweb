@@ -72,7 +72,7 @@ export default function OurBlogs() {
   };
 
   return (
-    <div className="p-8 bg-white md:pt-28">
+    <div className="p-8 bg-white">
       {/* Categories */}
       <div className="text-center mb-5 space-x-3">
         {categories.map((category, index) => (

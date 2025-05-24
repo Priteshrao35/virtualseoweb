@@ -158,7 +158,7 @@ function FooterSection() {
                 Blogs
               </div>
               <div
-                onClick={() => router.push("/aboutus")}
+                onClick={() => router.push("/about")}
                 className="text-white font-bold hover:text-blue-500 cursor-pointer md:text-[11px] xl:text-[15px]"
               >
                 About Us
@@ -218,7 +218,7 @@ function FooterSection() {
       </div>
       <div className="bg-gray-700 text-center py-2 px-2 md:px-0">
         <p className="text-gray-300 md:text-[14px] xl:text-xl text-sm">
-          ©2024 virtualseoweb. All rights reserved.
+          ©virtualseoweb. All rights reserved.
         </p>
       </div>
     </footer>

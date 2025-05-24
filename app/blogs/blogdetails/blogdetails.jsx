@@ -124,7 +124,7 @@ export default function BlogDetails() {
   }
 
   return (
-    <div className="flex flex-col md:flex-row p-6 md:p-12 bg-gray-50 md:pt-28">
+    <div className="flex flex-col md:flex-row p-6 md:p-12 bg-gray-50">
       <div className="md:w-1/3 bg-white shadow-lg rounded-lg p-6 mb-6 md:mb-0 mr-0 md:mr-6">
         <h2 className="text-2xl font-bold text-gray-800 mb-4">Inquiry Form</h2>
         <form onSubmit={handleSubmit} className="space-y-4">
