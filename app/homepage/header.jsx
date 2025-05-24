@@ -123,8 +123,8 @@ const Header = () => {
         </div>
 
         <p
-          className="text-white bg-blue-600 hover:bg-white hover:text-blue-600 rounded-xl font-bold p-1 xl:p-1 px-5 xl:px-7 cursor-pointer"
-          onClick={() => router.push("/contactus")}
+          className="text-blue-500 bg-gradient-to-r from-red-300 via-yellow-100 to-red-300 hover:bg-white hover:text-green-600 rounded-xl font-bold p-1 xl:p-1 px-5 xl:px-7 cursor-pointer"
+          onClick={() => router.push("/contact")}
         >
           Get Quote
         </p>

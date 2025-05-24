@@ -139,7 +139,7 @@ const GetQuite = () => {
               Points of contact
             </h2>
             <h2 className="text-xl xl:text-xl md:text-[17px] font-semibold mb-4 md:text-left text-center">
-              Ghaziabad, Uttar Pradesh, India VirtualSeoWeb
+              Building 17A 2nd Floor, 7C, Sector 118  Noida Uttar Pradesh 201306
             </h2>
 
             <h3 className="text-lg font-semibold mt-4 md:text-left text-center">Information & Sales</h3>

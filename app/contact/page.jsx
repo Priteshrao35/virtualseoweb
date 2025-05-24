@@ -2,9 +2,6 @@
 import Image from "next/image";
 import { useState } from "react";
 import axios from "axios";
-import Header from "../homepage/header";
-import Navbar from "../homepage/navbar";
-import FooterSection from "../homepage/footer";
 import ServicesSliderSection from "../homepage/servicesslider";
 
 const cardData = [
@@ -88,10 +85,10 @@ const ContactForm = () => {
           className="object-cover h-64 sm:h-96 md:h-auto"
         />
         <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white bg-black bg-opacity-50">
-          <h1 className="text-xl sm:text-5xl md:text-[5em] font-bold md:mb-4">
+          <h1 className="text-xl xl:text-5xl md:text-4xl font-bold md:mb-4">
             Contact Us
           </h1>
-          <p className="text-sm sm:text-xl md:text-2xl font-bold">
+          <p className="text-sm xl:text-2xl md:text-xl font-bold">
             We are here to help you with any questions or concerns you may have.
           </p>
         </div>
@@ -99,7 +96,7 @@ const ContactForm = () => {
 
 
       {/* Top Cards Section */}
-      <div className="p-5 bg-blue-50 rounded-xl md:px-[15em] px-5">
+      <div className="p-5 bg-blue-50 rounded-xl md:px-10 px-5">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
           {cardData.map((card, index) => (
             <div
@@ -119,10 +116,10 @@ const ContactForm = () => {
         </div>
 
         <div className="md:p-5 text-center">
-          <p className="text-black text-2xl md:text-3xl font-bold ">
+          <p className="text-black text-2xl md:text-2xl xl:text-3xl font-bold ">
             We're Here to Help You 24/7!
           </p>
-          <p className="text-black text-lg md:text-xl md:m-5 ">
+          <p className="text-black text-lg md:text-lg xl:text-xl md:m-3 ">
             Get in touch with our expert team for swift support and personalized
             solutions tailored to your needs.
           </p>
@@ -132,24 +129,23 @@ const ContactForm = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {/* Company Information Section */}
           <div className="md:p-6  mt-5 text-center md:text-left col-span-1  md:mt-[3em]">
-            <h2 className="text-2xl md:text-4xl font-semibold mb-4">
+            <h2 className="text-2xl md:text-2xl xl:text-3xl font-semibold mb-4">
               Points of Contact
             </h2>
-            <h2 className="text-lg md:text-xl font-semibold mb-4">
+            <h2 className="text-lg md:text-sm font-semibold mb-4">
               Uttar Pradesh, India VIRTUALSEOWEB
             </h2>
 
-            <p>
-              Building 17 A 2rd Floor 7C Shri Ram Apartment, Sector 118, Noida,
-              Uttar Pradesh 201306
+            <p className="text-sm">
+              Building 17A 2nd Floor, 7C, Sector 118  Noida Uttar Pradesh 201306
             </p>
 
             <h3 className="text-md md:text-lg font-semibold mt-4">
               Information & Sales
             </h3>
-            <p>info@virtualseoweb.com</p>
+            <p className="text-sm">info@virtualseoweb.com</p>
             <h3 className="text-md md:text-lg font-semibold mt-4">Support</h3>
-            <p>info@virtualseoweb.com</p>
+            <p className="text-sm">info@virtualseoweb.com</p>
 
             <h3 className="text-md md:text-lg font-semibold mt-4">
               Our Other Office
@@ -157,7 +153,7 @@ const ContactForm = () => {
             <h3 className="text-md md:text-lg font-semibold mt-4">
               Mirzapur, Uttar Pradesh, India
             </h3>
-            <p>Mirzapur, Uttar Pradesh, India</p>
+            <p className="text-sm">Mirzapur, Uttar Pradesh, India</p>
           </div>
 
           {/* Contact Form Section */}
@@ -176,7 +172,7 @@ const ContactForm = () => {
                 value={formData.name}
                 onChange={handleChange}
                 placeholder="Name"
-                className={`p-2 border ${errors.name ? "border-red-500" : "border-gray-300"
+                className={`p-2 border py-2 md:py-[1px] xl:py-1 ${errors.name ? "border-red-500" : "border-gray-300"
                   } rounded-md text-black w-full`}
               />
               <input
@@ -185,7 +181,7 @@ const ContactForm = () => {
                 value={formData.email}
                 onChange={handleChange}
                 placeholder="Email"
-                className={`p-2 border ${errors.email ? "border-red-500" : "border-gray-300"
+                className={`p-2 border py-2 md:py-[1px] xl:py-1 ${errors.email ? "border-red-500" : "border-gray-300"
                   } rounded-md text-black w-full`}
               />
               <input
@@ -194,7 +190,7 @@ const ContactForm = () => {
                 value={formData.subject}
                 onChange={handleChange}
                 placeholder="Subject"
-                className={`p-2 border ${errors.subject ? "border-red-500" : "border-gray-300"
+                className={`p-2 border py-2 md:py-[1px] xl:py-1 ${errors.subject ? "border-red-500" : "border-gray-300"
                   } rounded-md text-black w-full`}
               />
               <input
@@ -203,7 +199,7 @@ const ContactForm = () => {
                 value={formData.mobile}
                 onChange={handleChange}
                 placeholder="Mobile"
-                className={`p-2 border ${errors.mobile ? "border-red-500" : "border-gray-300"
+                className={`p-2 border py-2 md:py-[1px] xl:py-1 ${errors.mobile ? "border-red-500" : "border-gray-300"
                   } rounded-md text-black w-full`}
               />
               <textarea
@@ -211,7 +207,7 @@ const ContactForm = () => {
                 value={formData.message}
                 onChange={handleChange}
                 placeholder="Message"
-                className={`p-2 border ${errors.message ? "border-red-500" : "border-gray-300"
+                className={`p-2 border py-2 md:py-[1px] xl:py-1 ${errors.message ? "border-red-500" : "border-gray-300"
                   } rounded-md text-black w-full`}
                 rows="4"
               />
@@ -227,7 +223,7 @@ const ContactForm = () => {
               )}
               <button
                 type="submit"
-                className="bg-blue-500 text-white p-2 rounded-md hover:bg-blue-700 w-full md:w-60"
+                className="bg-blue-500 text-white p-2 py-2 md:py-[1px] xl:py-1 rounded-md hover:bg-blue-700 w-full md:w-60"
               >
                 Submit
               </button>
@@ -238,18 +234,18 @@ const ContactForm = () => {
 
         <div className="mt-5 md:mt-20">
           <div className="flex flex-col items-center text-center">
-            <h2 className="text-2xl md:text-3xl font-bold mb-4">
+            <h2 className="text-2xl md:text-xl xl:text-xl font-bold mb-4">
               GOT A QUESTION? TALK WITH US DIRECT
             </h2>
             <a
               href="tel:+919450977593"
-              className="text-black font-bold text-xl md:text-3xl mb-2"
+              className="text-black font-bold text-xl md:text-lg xl:text-xl mb-2"
             >
               <span className="text-yellow-600">Call:</span> +91 9450977593
             </a>
             <a
               href="mailto:info@virtualseoweb.com"
-              className="text-white py-1 px-3 rounded-lg text-lg md:text-xl font-bold bg-blue-500"
+              className="text-white py-1 md:py-[1px] px-3 rounded-lg text-lg md:text-xl font-bold bg-blue-500"
             >
               info@virtualseoweb.com
             </a>
@@ -261,7 +257,7 @@ const ContactForm = () => {
               <img
                 src="/sales-inquiry-icon.png"
                 alt="Sales Inquiry"
-                className="w-24 h-24 md:w-40 md:h-40 object-contain rounded-md mb-4"
+                className="w-24 h-24 md:w-28 md:h-28 object-contain rounded-md mb-4"
               />
               <h3 className="text-md md:text-lg font-semibold mb-2 text-center">
                 Sales Inquiry
@@ -288,7 +284,7 @@ const ContactForm = () => {
               <img
                 src="/customer-support-icon.png"
                 alt="Customer Support"
-                className="w-24 h-24 md:w-40 md:h-40 object-contain rounded-md mb-4"
+                className="w-24 h-24 md:w-28 md:h-28 object-contain rounded-md mb-4"
               />
               <h3 className="text-md md:text-lg font-semibold mb-2 text-center">
                 Customer Support
@@ -315,7 +311,7 @@ const ContactForm = () => {
               <img
                 src="/career-icon.png"
                 alt="Career"
-                className="w-24 h-24 md:w-40 md:h-40 object-contain rounded-md mb-4"
+                className="w-24 h-24 md:w-28 md:h-28 object-contain rounded-md mb-4"
               />
               <h3 className="text-md md:text-lg font-semibold mb-2 text-center">
                 Career
