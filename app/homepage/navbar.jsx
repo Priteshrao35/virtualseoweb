@@ -70,7 +70,7 @@ const Navbar = () => {
       ))}
 
       <a onClick={() => router.push("/portfolio")} className="text-black font-bold hover:text-blue-500">Portfolio</a>
-      <a onClick={() => router.push("/contactus")} className="text-black font-bold hover:text-blue-500">Contacts</a>
+      <a onClick={() => router.push("/contact")} className="text-black font-bold hover:text-blue-500">Contacts</a>
     </div>
 
   );

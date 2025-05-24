@@ -78,10 +78,6 @@ const ContactForm = () => {
 
   return (
     <div className="bg-gray-100 text-black">
-      <Header />
-      <hr />
-      <Navbar />
-
       <div className="relative w-full md:mt-0 mt-14">
         <Image
           src="/contactbanner.png"
@@ -180,9 +176,8 @@ const ContactForm = () => {
                 value={formData.name}
                 onChange={handleChange}
                 placeholder="Name"
-                className={`p-2 border ${
-                  errors.name ? "border-red-500" : "border-gray-300"
-                } rounded-md text-black w-full`}
+                className={`p-2 border ${errors.name ? "border-red-500" : "border-gray-300"
+                  } rounded-md text-black w-full`}
               />
               <input
                 type="email"
@@ -190,9 +185,8 @@ const ContactForm = () => {
                 value={formData.email}
                 onChange={handleChange}
                 placeholder="Email"
-                className={`p-2 border ${
-                  errors.email ? "border-red-500" : "border-gray-300"
-                } rounded-md text-black w-full`}
+                className={`p-2 border ${errors.email ? "border-red-500" : "border-gray-300"
+                  } rounded-md text-black w-full`}
               />
               <input
                 type="text"
@@ -200,9 +194,8 @@ const ContactForm = () => {
                 value={formData.subject}
                 onChange={handleChange}
                 placeholder="Subject"
-                className={`p-2 border ${
-                  errors.subject ? "border-red-500" : "border-gray-300"
-                } rounded-md text-black w-full`}
+                className={`p-2 border ${errors.subject ? "border-red-500" : "border-gray-300"
+                  } rounded-md text-black w-full`}
               />
               <input
                 type="tel"
@@ -210,27 +203,24 @@ const ContactForm = () => {
                 value={formData.mobile}
                 onChange={handleChange}
                 placeholder="Mobile"
-                className={`p-2 border ${
-                  errors.mobile ? "border-red-500" : "border-gray-300"
-                } rounded-md text-black w-full`}
+                className={`p-2 border ${errors.mobile ? "border-red-500" : "border-gray-300"
+                  } rounded-md text-black w-full`}
               />
               <textarea
                 name="message"
                 value={formData.message}
                 onChange={handleChange}
                 placeholder="Message"
-                className={`p-2 border ${
-                  errors.message ? "border-red-500" : "border-gray-300"
-                } rounded-md text-black w-full`}
+                className={`p-2 border ${errors.message ? "border-red-500" : "border-gray-300"
+                  } rounded-md text-black w-full`}
                 rows="4"
               />
               {formStatus && (
                 <p
-                  className={`text-center mt-4 ${
-                    formStatus.includes("successfully")
+                  className={`text-center mt-4 ${formStatus.includes("successfully")
                       ? "text-green-600"
                       : "text-red-600"
-                  }`}
+                    }`}
                 >
                   {formStatus}
                 </p>
@@ -350,11 +340,10 @@ const ContactForm = () => {
         </div>
       </div>
 
-      <div className="md:px-28 bg-slate-200">
+      <div className="bg-slate-200">
         <ServicesSliderSection />
       </div>
 
-      <FooterSection />
     </div>
   );
 };
