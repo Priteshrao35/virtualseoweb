@@ -13,11 +13,13 @@ import {
 import { FaXTwitter } from "react-icons/fa6";
 import MobileNavMenu from "./mobilenavbar";
 import { useRouter } from "next/navigation";
+import GetQuoteModal from "./getqutepopup";
 
 const Header = () => {
   // State and functions for drawer
   const [open, setOpen] = useState(false);
   const router = useRouter();
+  const [isOpen, setIsOpen] = useState(false);
 
   const showDrawer = () => {
     setOpen(true);
@@ -122,12 +124,7 @@ const Header = () => {
           </Link>
         </div>
 
-        <p
-          className="text-blue-500 bg-gradient-to-r from-red-300 via-yellow-100 to-red-300 hover:bg-white hover:text-green-600 rounded-xl font-bold p-1 xl:p-1 px-5 xl:px-7 cursor-pointer"
-          onClick={() => router.push("/contact")}
-        >
-          Get Quote
-        </p>
+        <GetQuoteModal isOpen={isOpen} setIsOpen={setIsOpen} />
       </div>
     </header>
   );

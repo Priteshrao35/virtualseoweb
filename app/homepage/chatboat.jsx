@@ -81,7 +81,7 @@ const ChatButton = () => {
 
     try {
       const response = await axios.post(
-        "https://apis.prwebtechno.com/apis/apis/send_email/",
+        "https://apis.prwebtechno.com/apis/apis/send_email",
         formData,
         {
           headers: {
