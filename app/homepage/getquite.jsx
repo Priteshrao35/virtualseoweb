@@ -27,7 +27,7 @@ const GetQuite = () => {
       try {
         setLoading(true);
         const response = await axios.get(
-          "https://virtualseoweb.pythonanywhere.com/navmenuandservices/"
+          "https://virtualseoweb.pythonanywhere.com/menu-items/"
         );
         const serviceData = response.data.map((service) => ({
           value: service.name,
@@ -75,7 +75,7 @@ const GetQuite = () => {
 
     try {
       const response = await axios.post(
-        "https://virtualseoweb.pythonanywhere.com/send_email/",
+        "https://virtualseoweb.pythonanywhere.com/send-email",
         formData, // Send all form data including selectedService
         {
           headers: {
@@ -106,13 +106,13 @@ const GetQuite = () => {
 
   return (
     <div className="text-black md:mt-5 overflow-hidden">
-      <p className="text-black text-center md:text-2xl xl:text-3xl text-xl md:px-0 px-2 font-bold mt-5">
+      <p className="text-black text-center md:text-2xl xl:text-2xl text-xl md:px-0 px-2 font-bold mt-5">
         Your Digital Success Starts Here. Let's Make It Happen!
       </p>
       <hr className="w-1/2 mx-auto my-4 border-t-2 border-gray-400 rounded-full" />
 
       {/* Top Cards Section */}
-      <div className="p-5 md:pb-5 rounded-xl md:px-[5em]">
+      <div className="p-5 md:pb-5 rounded-xl md:px-[2em]">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:mb-8">
           {cardData.map((card, index) => (
             <div
@@ -138,7 +138,7 @@ const GetQuite = () => {
             <h2 className="md:text-2xl text-2xl xl:text-xl font-semibold mb-4 md:text-left text-center">
               Points of contact
             </h2>
-            <h2 className="text-xl xl:text-xl md:text-[17px] font-semibold mb-4 md:text-left text-center">
+            <h2 className="text-xl xl:text-base md:text-[14px] font-semibold mb-4 md:text-left text-center">
               Building 17A 2nd Floor, 7C, Sector 118  Noida Uttar Pradesh 201306
             </h2>
 
@@ -149,10 +149,6 @@ const GetQuite = () => {
 
             <h3 className="text-lg font-semibold mt-4 md:text-left text-center md:block hidden">Contacts</h3>
             <p className="md:text-left text-center md:block hidden">+91 9450977593</p>
-
-            <h3 className="text-lg font-semibold mt-4 md:text-left text-center md:block hidden">Our Other Office</h3>
-            <h3 className="mt-2 md:text-left text-center md:block hidden">Uttar Pradesh, India</h3>
-            <p className="md:text-left text-center md:block hidden">Mirzapur, Uttar Pradesh, India</p>
           </div>
 
           {/* Contact Form Section */}
@@ -184,7 +180,7 @@ const GetQuite = () => {
                 onChange={handleChange}
                 placeholder="Name"
                 style={{ fontSize: '16px' }}
-                className={`p-2 border ${errors.name ? "border-red-500" : "border-gray-300"
+                className={`p-2 py-2 md:py-[3px] xl:py-1 border ${errors.name ? "border-red-500" : "border-gray-300"
                   } rounded-md text-black w-full`}
               />
               <input
@@ -194,7 +190,7 @@ const GetQuite = () => {
                 value={formData.email}
                 onChange={handleChange}
                 placeholder="Email"
-                className={`p-2 border ${errors.email ? "border-red-500" : "border-gray-300"
+                className={`p-2 py-2 md:py-[3px] xl:py-1 border ${errors.email ? "border-red-500" : "border-gray-300"
                   } rounded-md text-black w-full`}
               />
               <input
@@ -204,7 +200,7 @@ const GetQuite = () => {
                 value={formData.subject}
                 onChange={handleChange}
                 placeholder="Subject"
-                className={`p-2 border ${errors.subject ? "border-red-500" : "border-gray-300"
+                className={`p-2 py-2 md:py-[3px] xl:py-1 border ${errors.subject ? "border-red-500" : "border-gray-300"
                   } rounded-md text-black w-full`}
               />
               <input
@@ -214,7 +210,7 @@ const GetQuite = () => {
                 onChange={handleChange}
                 placeholder="Mobile"
                 style={{ fontSize: '16px' }}
-                className={`p-2 border ${errors.mobile ? "border-red-500" : "border-gray-300"
+                className={`p-2 py-2 md:py-[3px] xl:py-1 border ${errors.mobile ? "border-red-500" : "border-gray-300"
                   } rounded-md text-black w-full`}
               />
               <textarea
@@ -223,7 +219,7 @@ const GetQuite = () => {
                 onChange={handleChange}
                 placeholder="Message"
                 style={{ fontSize: '16px' }}
-                className={`p-2 border ${errors.message ? "border-red-500" : "border-gray-300"
+                className={`p-2 py-2 md:py-[3px] xl:py-1 border ${errors.message ? "border-red-500" : "border-gray-300"
                   } rounded-md text-black w-full`}
                 rows="4"
               />
@@ -240,7 +236,7 @@ const GetQuite = () => {
               <div className="flex justify-center">
                 <button
                   type="submit"
-                  className="bg-blue-700 text-white py-2 px-4 rounded-md w-full md:w-2/4"
+                  className="bg-blue-700 md:py-[3px] xl:py-1 text-white py-2 px-4 rounded-md w-full md:w-2/4"
                 >
                   Submit
                 </button>

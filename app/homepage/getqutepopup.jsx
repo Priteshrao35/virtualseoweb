@@ -109,7 +109,7 @@ const GetQuoteModal = ({ isOpen, setIsOpen }) => {
     return (
         <>
             <button
-                className="text-blue-500 bg-gradient-to-r from-red-300 via-yellow-100 to-red-300 hover:bg-white hover:text-green-600 rounded-lg font-bold p-1 xl:p-1 px-5 xl:px-7 md:py-[1px] xl:py-2 cursor-pointer"
+                className="text-blue-500 bg-gradient-to-r md:text-sm font-bold from-red-50 via-yellow-50 to-blue-50 hover:bg-white hover:text-green-600 rounded-lg p-1 xl:p-1 px-5 xl:px-7 md:py-[1px] xl:py-2 cursor-pointer"
                 onClick={toggleModal}
             >
                 Get Quote

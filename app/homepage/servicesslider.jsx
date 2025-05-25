@@ -55,7 +55,7 @@ export default function ServicesSliderSection() {
 
   return (
     <motion.div
-      className="p-1 md:p-10 md:px-10 bg-white"
+      className="p-1 md:pb-5 md:px-10 bg-white"
       initial={{ opacity: 0, y: 50 }} // Start animation: invisible and moved down
       whileInView={{ opacity: 1, y: 0 }} // Animate to visible and original position
       transition={{ duration: 0.8, ease: "easeOut" }} // Smooth transition

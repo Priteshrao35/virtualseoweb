@@ -17,7 +17,7 @@ function AboutusPage() {
       .get("https://virtualseoweb.pythonanywhere.com/aboutus/")
       .then((response) => {
         if (Array.isArray(response.data) && response.data.length > 0) {
-          setAboutData(response.data[0]); 
+          setAboutData(response.data[0]);
         } else {
           setAboutData(null);
         }
@@ -46,8 +46,8 @@ function AboutusPage() {
               className="w-full h-auto mb-4 md:mt-0 mt-10"
             />
           )}
-          <div className="px-1 md:px-40">
-            <h1 className="text-xl md:text-2xl font-bold mb-4 text-black text-center p-5 md:p-10">
+          <div className="px-1 md:px-10">
+            <h1 className="text-xl md:px-20 md:text-xl xl:text-2xl font-bold mb-4 text-black text-center p-5 md:p-5">
               {aboutData.About_Heading}
             </h1>
 
@@ -56,9 +56,8 @@ function AboutusPage() {
                 {aboutData.details.map((detail, index) => (
                   <div
                     key={detail.id}
-                    className={`flex flex-col ${
-                      index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
-                    } items-center gap-4`}
+                    className={`flex flex-col ${index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
+                      } items-center gap-4`}
                   >
                     {detail.About_Image && (
                       <div className="w-full md:w-1/2">
@@ -70,10 +69,10 @@ function AboutusPage() {
                       </div>
                     )}
                     <div className="w-full md:w-1/2 mt-0 text-center md:text-left">
-                      <p className="text-xl md:text-3xl font-bold py-2 text-black">
+                      <p className="text-xl md:text-xl xl:text-2xl font-bold py-2 text-black">
                         {detail.About_Title}
                       </p>
-                      <p className="text-base md:text-lg text-black">
+                      <p className="text-base md:text-sm xl:text-base text-black">
                         {detail.Abouts_Content}
                       </p>
                     </div>
@@ -89,15 +88,12 @@ function AboutusPage() {
         <div className="text-center py-4">No data available</div>
       )}
       <hr className="md:mt-20 mt-10" />
-      <div className="mt-5">
-        <Brands />
-      </div>
-      <div className="px-4 bg-slate-200">
-        <ServicesSliderSection />
-      </div>
       <OurProjects />
-      <LatestBlog />
+
       <GetQuite />
+
+      <hr />
+      <Brands />
     </div>
   );
 }

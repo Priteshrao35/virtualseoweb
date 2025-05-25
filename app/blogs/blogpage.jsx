@@ -80,7 +80,7 @@ export default function OurBlogs() {
           <button
             key={index}
             onClick={() => setSelectedCategory(category)}
-            className={`px-6 py-1 mb-3 rounded-full transition transform hover:scale-105 duration-300 text-lg font-medium ${selectedCategory === category
+            className={`px-6 py-1  md:py-[1px] xl:py-[4px] mb-3 rounded-full transition transform hover:scale-105 duration-300 text-lg font-medium ${selectedCategory === category
               ? "bg-blue-600 text-white"
               : "bg-white text-gray-800 border-2 border-gray-300"
               }`}
@@ -97,7 +97,7 @@ export default function OurBlogs() {
           placeholder="Search blogs..."
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
-          className="w-full max-w-xl px-6 py-1 text-black border-2 border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 text-lg"
+          className="w-full max-w-xl px-6 py-1 md:py-[1px] xl:py-[4px] text-black border-2 border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 text-lg"
         />
       </div>
 
@@ -106,31 +106,35 @@ export default function OurBlogs() {
         {currentBlogs.map((blog) => (
           <div
             key={blog.id}
-            className="bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition transform hover:scale-105 duration-300"
+            className="relative bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition transform hover:scale-105 duration-300"
           >
+            <Link
+              href={{
+                pathname: `/blogs/blogdetails/${blog.id}`,
+                query: {
+                  Blog_Name: blog.Blog_Name.toLowerCase().replace(/[^a-z0-9\s-]/g, '').replace(/\s+/g, '-').replace(/-+/g, '-'),
+                },
+              }}
+              className="absolute inset-0 z-10"
+            >
+              <span className="sr-only">View Blog</span>
+            </Link>
             <img
               src={blog.Blog_Image}
               alt={blog.Blog_Name}
               className="w-full h-48 object-cover"
             />
-            <div className="p-6">
-              <h3 className="text-xl font-semibold mb-3 text-gray-800 hover:text-blue-600 transition duration-300">
+            <div className="p-6 z-0 relative">
+              <h3 className="text-xl md:text-base xl:text-base font-semibold mb-3 text-gray-800">
                 {truncateText(blog.Blog_Name, 5)}
               </h3>
-              <p className="text-black mb-4 text-sm">{truncateText(blog.Sort_description, 15)}</p>
-              <Link className="text-blue-700 font-bold"
-                href={{
-                  pathname: `/blogs/blogdetails/${blog.id}`,
-                  query: {
-                    Blog_Name: blog.Blog_Name.toLowerCase().replace(/[^a-z0-9\s-]/g, '').replace(/\s+/g, '-').replace(/-+/g, '-'),
-                  }
-                }}
-              >
-                Learn More ....................
-              </Link>
+              <p className="text-black mb-4 text-sm">
+                {truncateText(blog.Sort_description, 15)}
+              </p>
             </div>
           </div>
         ))}
+
       </div>
 
       {/* Pagination */}

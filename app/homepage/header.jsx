@@ -104,19 +104,13 @@ const Header = () => {
               size={22}
             />
           </Link>
-          <Link href="#">
-            <FaXTwitter
-              className="text-black hover:text-blue-400 cursor-pointer"
-              size={22}
-            />
-          </Link>
-          <Link href="#">
+          <Link href="https://www.instagram.com/virtualseoweb/">
             <FaInstagram
               className="text-orange-900 hover:text-pink-600 cursor-pointer"
               size={22}
             />
           </Link>
-          <Link href="https://www.facebook.com/Virtualseowebsoftware/about">
+          <Link href="https://www.linkedin.com/company/virtualseowebtechnology/about/">
             <FaLinkedin
               className="text-blue-700 hover:text-blue-700 cursor-pointer"
               size={22}

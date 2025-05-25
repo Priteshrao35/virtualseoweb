@@ -29,7 +29,7 @@ function Brands() {
 
   return (
     <div>
-      <div className="w-full bg-white flex items-center justify-center px-10 md:px-[2em] xl:px-[3em] py-5 md:mt-5">
+      <div className="w-full bg-white flex items-center justify-center px-10 md:px-[2em] xl:px-[3em] py-5 md:my-1">
         <Swiper
           slidesPerView={2} // Show 1 item on mobile
           spaceBetween={10} // Space between slides on mobile

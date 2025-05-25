@@ -64,7 +64,7 @@ export default function BlogDetails() {
         phone: phone,
       });
 
-      const response = await fetch('https://apis.prwebtechno.com/apis/apis/send_email/', {
+      const response = await fetch('https://virtualseoweb.pythonanywhere.com/send-email', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -129,28 +129,28 @@ export default function BlogDetails() {
         <h2 className="text-2xl font-bold text-gray-800 mb-4">Inquiry Form</h2>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label htmlFor="website-url" className="block text-sm font-medium mb-2">Website URL</label>
+            <label htmlFor="website-url" className="block text-sm font-medium">Website URL</label>
             <input
               type="url"
               id="website-url"
-              placeholder="https://prwebtechno.com"
+              placeholder="https://virtualseoweb.com"
               value={url}
               onChange={(e) => setUrl(e.target.value)}
               required
-              className="border border-gray-300 rounded-lg w-full p-2 text-black focus:outline-none focus:ring focus:ring-blue-400"
+              className="border py-2 md:py-[3px] xl:py-1 border-gray-300 rounded-lg w-full p-2 text-black focus:outline-none focus:ring focus:ring-blue-400"
             />
           </div>
 
           <div>
-            <label htmlFor="email" className="block text-sm font-medium mb-2">Email</label>
+            <label htmlFor="email" className="block text-sm font-medium">Email</label>
             <input
               type="email"
               id="email"
-              placeholder="prwebtechno@gmail.com"
+              placeholder="info@virtualseoweb.com"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              className="border border-gray-300 text-black rounded-lg w-full p-2 focus:outline-none focus:ring focus:ring-blue-400"
+              className="border py-2 md:py-[3px] xl:py-1 border-gray-300 text-black rounded-lg w-full p-2 focus:outline-none focus:ring focus:ring-blue-400"
             />
           </div>
 
@@ -159,17 +159,17 @@ export default function BlogDetails() {
             <input
               type="tel"
               id="phone"
-              placeholder="+91 9170475552"
+              placeholder="+91 91xxxxxxxx"
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
               required
-              className="border border-gray-300 text-black rounded-lg w-full p-2 focus:outline-none focus:ring focus:ring-blue-400"
+              className="border py-2 md:py-[3px] xl:py-1 border-gray-300 text-black rounded-lg w-full p-2 focus:outline-none focus:ring focus:ring-blue-400"
             />
           </div>
 
           <button
             type="submit"
-            className="w-full bg-blue-500 text-white font-semibold py-2 rounded-lg hover:bg-blue-600 transition duration-200 mt-4"
+            className="w-full md:py-[3px] xl:py-1 bg-blue-500 text-white font-semibold py-2 rounded-lg hover:bg-blue-600 transition duration-200 mt-4"
           >
             Get My Free SEO Report
           </button>
@@ -208,11 +208,11 @@ export default function BlogDetails() {
       </div>
 
       {/* Right Section - Blog Details */}
-      <div className="md:w-2/3 bg-white shadow-lg rounded-lg p-6">
-        <h1 className="text-4xl font-extrabold text-center text-gray-800 py-8 px-6">
+      <div className="md:w-2/3 bg-white shadow-lg rounded-lg p-3">
+        <h1 className="text-4xl md:text-xl xl:text-3xl font-extrabold text-gray-800 pb-3">
           {blog.Blog_Name}
         </h1>
-        <div className="relative w-full h-[500px] mb-6 overflow-hidden rounded-lg">
+        <div className="relative w-full h-[500px] md:h-[300px] xl:h-[400px] mb-6 overflow-hidden rounded-lg">
           <img
             src={blog.Blog_Image}
             alt={blog.Blog_Name}
@@ -229,9 +229,9 @@ export default function BlogDetails() {
         {/* FAQ */}
         {/* FAQ */}
         <div className="md:px-5 md:lg:px-[5em] bg-white">
-          <h1 className="text-2xl md:text-3xl md:pt-10 lg:text-4xl font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-500 leading-normal">
+          <p className="text-2xl md:text-2xl xl:text-3xl md:pt-10 font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-500 leading-normal">
             Frequently Asked Questions
-          </h1>
+          </p>
 
           <div className="flex flex-col md:flex-row gap-6 md:mt-10">
             {/* FAQ Section */}

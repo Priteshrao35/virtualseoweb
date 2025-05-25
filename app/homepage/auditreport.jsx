@@ -11,7 +11,7 @@ function FreeSEOAuditPage() {
     e.preventDefault();
 
     try {
-      const response = await fetch('https://apis.prwebtechno.com/apis/apis/send_email/', {
+      const response = await fetch('https://virtualseoweb.pythonanywhere.com/send-email', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

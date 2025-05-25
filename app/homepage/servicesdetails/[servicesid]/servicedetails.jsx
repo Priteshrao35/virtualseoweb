@@ -85,23 +85,30 @@ const ServiceDetailsPage = ({ params }) => {
   const [errors, setErrors] = useState({});
 
   useEffect(() => {
-    axios
-      .get("https://virtualseoweb.pythonanywhere.com/menu-items/")
-      .then((response) => {
+    const fetchServices = async () => {
+      try {
+        setLoading(true);
+        const response = await axios.get(
+          "https://virtualseoweb.pythonanywhere.com/menu-items/"
+        );
         const data = response.data;
-        const service = data.find(
+        const matchedService = data.find(
           (item) => createSlug(item.name) === servicesid
         );
-        if (service) {
-          setService(service);
+        if (matchedService) {
+          setService(matchedService); // setService for UI (if needed)
+          setFormData((prev) => ({ ...prev, servicename: matchedService.name })); // store in formData
         }
+      } catch (error) {
+        console.error("Error fetching services:", error);
+      } finally {
         setLoading(false);
-      })
-      .catch((error) => {
-        console.error("Error fetching service details:", error);
-        setLoading(false);
-      });
+      }
+    };
+
+    fetchServices();
   }, [servicesid]);
+
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -133,7 +140,7 @@ const ServiceDetailsPage = ({ params }) => {
 
     try {
       const response = await axios.post(
-        "https://apis.prwebtechno.com/apis/apis/send_email/",
+        "https://virtualseoweb.pythonanywhere.com/send-email",
         formData,
         {
           headers: {
@@ -153,6 +160,10 @@ const ServiceDetailsPage = ({ params }) => {
           message: ""
         });
         setErrors({});
+        // Hide success message after 5 seconds
+        setTimeout(() => {
+          setFormStatus("");
+        }, 5000);
       }
     } catch (error) {
       setFormStatus("Failed to send email.");
@@ -263,6 +274,8 @@ const ServiceDetailsPage = ({ params }) => {
           <div className="bg-white p-4 rounded-lg shadow-lg transform transition-transform hover:scale-105 w-full md:w-1/3">
             <h2 className="text-xl md:text-sm xl:text-xl font-semibold mb-3">GET A QUOTE</h2>
             <form onSubmit={handleSubmit}>
+              <input type="hidden" name="servicename" value={formData.servicename} />
+
               <div className="mb-5">
                 <input
                   type="text"
@@ -777,6 +790,8 @@ const ServiceDetailsPage = ({ params }) => {
               Send your Query
             </h2>
             <form onSubmit={handleSubmit}>
+              <input type="hidden" name="servicename" value={formData.servicename} />
+
               <div className="mb-5">
                 <input
                   type="text"

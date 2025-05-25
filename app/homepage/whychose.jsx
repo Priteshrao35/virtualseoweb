@@ -41,7 +41,7 @@ function Whychose() {
   };
 
   const handleSubmit = () => {
-    axios.post('https://apis.prwebtechno.com/apis/apis/send_email/', {
+    axios.post('https://virtualseoweb.pythonanywhere.com/send-email', {
       servicename: selectedService, // Include service name
       name: name, // Include name
       email: email, // Include email
@@ -105,7 +105,7 @@ function Whychose() {
               placeholder="Enter Your Email Id" 
               value={email} 
               onChange={e => setEmail(e.target.value)} 
-              style={{ fontSize: '16px' }}
+              style={{ fontSize: '15px' }}
             />
             <Button className='bg-blue-800' type="primary" onClick={handleSubmit}>
               Get Quote
