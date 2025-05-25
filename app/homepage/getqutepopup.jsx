@@ -127,7 +127,7 @@ const GetQuoteModal = ({ isOpen, setIsOpen }) => {
 
                         <span className="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
 
-                        <div className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-6xl sm:w-full md:max-w-4xl md:max-h-[90vh] xl:max-w-5xl xl:max-h-80vh]">
+                        <div className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-6xl sm:w-full md:max-w-4xl md:max-h-[92vh] xl:max-w-5xl xl:max-h-80vh]">
                             <div className="bg-white">
                                 <div className="modal-content">
                                     <button
@@ -283,7 +283,7 @@ const GetQuoteModal = ({ isOpen, setIsOpen }) => {
                                                                         <div className="form-group main_class_btn">
                                                                             <button
                                                                                 type="submit"
-                                                                                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-10 rounded md:text-xs xl:text-sm"
+                                                                                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-20 rounded md:text-xs xl:text-sm"
                                                                             >
                                                                                 Submit
                                                                             </button>
@@ -297,7 +297,7 @@ const GetQuoteModal = ({ isOpen, setIsOpen }) => {
                                                     {/* Right Side - Image */}
                                                     <div className="w-full md:w-1/2 p-0 hidden md:block">
                                                         <div className="login-figure h-full relative">
-                                                            <h4 className="absolute top-4 left-4 text-white text-xl font-bold z-10 md:text-sm xl:text-xl">
+                                                            <h4 className="absolute top-2 left-4 text-white text-xl font-bold z-10 md:text-sm xl:text-xl">
                                                                 Discover The Possibilities
                                                             </h4>
                                                             <Image

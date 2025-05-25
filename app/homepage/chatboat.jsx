@@ -123,12 +123,12 @@ const ChatButton = () => {
           right: "20px",
           backgroundColor: "#007bff",
           color: "white",
-          padding: "10px 15px",
+          padding: "10px 10px",
           borderRadius: "50%",
           boxShadow: "0 4px 8px rgba(0,0,0,0.2)",
           zIndex: 1000,
-          width: "50px",
-          height: "50px",
+          width: "45px",
+          height: "45px",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
@@ -141,7 +141,7 @@ const ChatButton = () => {
       {isFormVisible && (
         <div className="chat-form" style={{
           position: "fixed",
-          bottom: "80px",
+          bottom: "50px",
           right: "20px",
           backgroundColor: "white",
           border: "1px solid #ccc",
@@ -193,7 +193,7 @@ const ChatButton = () => {
               onChange={handleChange}
               placeholder="Name"
               style={{ fontSize: '16px' }}
-              className={`p-2 border py-2 md:py-[3px] xl:py-1 ${errors.name ? "border-red-500" : "border-gray-300"
+              className={`p-2 border py-2 md:py-[1px] xl:py-1 ${errors.name ? "border-red-500" : "border-gray-300"
                 } rounded-md text-black w-full`}
             />
             <input
@@ -203,7 +203,7 @@ const ChatButton = () => {
               onChange={handleChange}
               placeholder="Email"
               style={{ fontSize: '16px' }}
-              className={`p-2 border py-2 md:py-[3px] xl:py-1 ${errors.email ? "border-red-500" : "border-gray-300"
+              className={`p-2 border py-2 md:py-[1px] xl:py-1 ${errors.email ? "border-red-500" : "border-gray-300"
                 } rounded-md text-black w-full`}
             />
             {errors.email && (
@@ -216,7 +216,7 @@ const ChatButton = () => {
               value={formData.subject}
               onChange={handleChange}
               placeholder="Subject"
-              className={`p-2 py-2 md:py-[3px] xl:py-1 border ${errors.subject ? "border-red-500" : "border-gray-300"
+              className={`p-2 py-2 md:py-[1px] xl:py-1 border ${errors.subject ? "border-red-500" : "border-gray-300"
                 } rounded-md text-black w-full`}
             />
             <input
@@ -226,7 +226,7 @@ const ChatButton = () => {
               style={{ fontSize: '16px' }}
               onChange={handleChange}
               placeholder="Mobile Number"
-              className={`p-2 py-2 md:py-[3px] xl:py-1 border ${errors.mobile ? "border-red-500" : "border-gray-300"
+              className={`p-2 py-2 md:py-[1px] xl:py-1 border ${errors.mobile ? "border-red-500" : "border-gray-300"
                 } rounded-md text-black w-full`}
             />
             {errors.mobile && (
@@ -240,7 +240,7 @@ const ChatButton = () => {
               placeholder="Message"
               className={`p-2 py-2 md:py-[1px] xl:py-1 border ${errors.message ? "border-red-500" : "border-gray-300"
                 } rounded-md text-black w-full`}
-              rows="4"
+              rows="2"
             />
             {errors.message && (
               <p className="text-red-500" style={{ fontSize: '16px' }}>{errors.message}</p>
