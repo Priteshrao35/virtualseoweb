@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://virtualseoweb.com
+
+# Sitemaps
+Sitemap: https://virtualseoweb.com/sitemap.xml
