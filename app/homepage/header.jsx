@@ -10,7 +10,6 @@ import {
   FaEnvelope,
   FaSkype,
 } from "react-icons/fa";
-import { FaXTwitter } from "react-icons/fa6";
 import MobileNavMenu from "./mobilenavbar";
 import { useRouter } from "next/navigation";
 import GetQuoteModal from "./getqutepopup";

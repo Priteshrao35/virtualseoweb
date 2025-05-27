@@ -129,7 +129,7 @@ const MobileNavMenu = ({ open, showDrawer, onClose }) => {
               </p>
               <p
                 onClick={() => {
-                  router.push("/aboutus");
+                  router.push("/about");
                   onClose();
                 }}
                 className="text-black font-bold hover:text-blue-500 mb-4 text-lg"
@@ -147,7 +147,7 @@ const MobileNavMenu = ({ open, showDrawer, onClose }) => {
               </p>
               <p
                 onClick={() => {
-                  router.push("/contactus");
+                  router.push("/contact");
                   onClose();
                 }}
                 className="text-black font-bold hover:text-blue-500 mb-4 text-lg"
