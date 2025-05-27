@@ -76,10 +76,10 @@ const ContactForm = () => {
               <p className="mb-2 text-center text-sm md:text-base">
                 Email:{" "}
                 <a
-                  href="mailto:sales@mediasearchgroup.com"
+                  href="mailto:sales@virtualseoweb.com"
                   className="text-blue-500"
                 >
-                  info@virtualseoweb.com
+                  sales@virtualseoweb.com
                 </a>
               </p>
               <p className="text-center text-sm md:text-base">
@@ -103,10 +103,10 @@ const ContactForm = () => {
               <p className="mb-2 text-center text-sm md:text-base">
                 Email:{" "}
                 <a
-                  href="mailto:supports@mediasearchgroup.com"
+                  href="mailto:supports@virtualseoweb.com"
                   className="text-blue-500"
                 >
-                  info@virtualseoweb.com
+                  supports@virtualseoweb.com
                 </a>
               </p>
               <p className="text-center text-sm md:text-base">
@@ -130,10 +130,10 @@ const ContactForm = () => {
               <p className="mb-2 text-center text-sm md:text-base">
                 Email:{" "}
                 <a
-                  href="mailto:career@mediasearchgroup.com"
+                  href="mailto:career@virtualseoweb.com"
                   className="text-blue-500"
                 >
-                  info@virtualseoweb.com
+                  career@virtualseoweb.com
                 </a>
               </p>
               <p className="text-center text-sm md:text-base">
@@ -149,6 +149,17 @@ const ContactForm = () => {
 
       <div className="bg-slate-200">
         <ServicesSliderSection />
+      </div>
+
+
+      <div className="relative w-full h-[300px]">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d112118.23175556315!2d77.32039629088526!3d28.578927808388233!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m0!4m5!1s0xa3eaad55e59a2cf9%3A0x890522c714371ff3!2sBuilding%2017%20A%202nd%20Floor%2C%207%20C%2C%20Sorkha%2C%20Noida%2C%20Uttar%20Pradesh%20201306!3m2!1d28.5789527!2d77.4027977!5e0!3m2!1sen!2sin!4v1748319579012!5m2!1sen!2sin"
+          className="absolute top-0 left-0 w-full h-full border-0"
+          allowFullScreen
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+        ></iframe>
       </div>
 
     </div>
