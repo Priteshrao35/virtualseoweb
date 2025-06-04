@@ -78,7 +78,7 @@ export default function Careers() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-xl md:text-lg xl:text-xl text-white mb-8 max-w-3xl mx-auto"
           >
-            Start your career journey with BK Arogyam and pave the way to a future filled with innovation, growth, and endless possibilities.
+            Start your career journey with virtualseoweb and pave the way to a future filled with innovation, growth, and endless possibilities.
           </motion.p>
           <motion.button
             initial={{ scale: 0.9, opacity: 0 }}
