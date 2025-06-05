@@ -297,11 +297,8 @@ const GetQuoteModal = ({ isOpen, setIsOpen }) => {
                                                     {/* Right Side - Image */}
                                                     <div className="w-full md:w-1/2 p-0 hidden md:block">
                                                         <div className="login-figure h-full relative">
-                                                            <h4 className="absolute top-2 left-4 text-white text-xl font-bold z-10 md:text-sm xl:text-xl">
-                                                                Discover The Possibilities
-                                                            </h4>
                                                             <Image
-                                                                src="/paperrr-4.jpg"
+                                                                src="/getcoutebanner.jpeg"
                                                                 alt="Discover possibilities"
                                                                 layout="fill"
                                                                 objectFit="cover"

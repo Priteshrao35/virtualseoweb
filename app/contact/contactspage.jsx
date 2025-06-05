@@ -1,6 +1,5 @@
 "use client";
 import Image from "next/image";
-import ServicesSliderSection from "../homepage/servicesslider";
 import GetQuite from "../homepage/getquite";
 
 const cardData = [
@@ -12,7 +11,7 @@ const ContactForm = () => {
     <div className="bg-gray-100 text-black">
       <div className="relative w-full md:mt-0 mt-14">
         <Image
-          src="/contactpagebanner.jpeg"
+          src="/contactpagebanner.png"
           layout="responsive"
           width={500}
           height={500}
@@ -26,6 +25,7 @@ const ContactForm = () => {
           <p className="text-sm xl:text-2xl md:text-xl font-bold">
             We are here to help you with any questions or concerns you may have.
           </p>
+          
         </div>
       </div>
 
@@ -155,10 +155,6 @@ const ContactForm = () => {
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
         ></iframe>
-      </div>
-
-      <div className="bg-slate-200">
-        <ServicesSliderSection />
       </div>
 
     </div>
