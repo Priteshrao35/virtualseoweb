@@ -31,7 +31,6 @@ export default function OurProjects() {
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
-        // keep safe defaults
         setProjects([]);
         setCategories([]);
         setActiveCategory(null);
@@ -54,6 +53,14 @@ export default function OurProjects() {
     if (!trimmed) return null;
     if (/^https?:\/\//i.test(trimmed)) return trimmed;
     return `https://${trimmed}`;
+  };
+
+  // Truncate text to maxWords
+  const truncateWords = (text, maxWords = 30) => {
+    if (!text) return "";
+    const words = text.trim().split(/\s+/);
+    if (words.length <= maxWords) return text;
+    return words.slice(0, maxWords).join(" ") + "...";
   };
 
   // If no activeCategory selected, show all projects; otherwise filter by category (handle nulls)
@@ -168,7 +175,7 @@ export default function OurProjects() {
                     {project.Project_Name}
                   </h3>
                   <p className="text-black hover:text-blue-500 hover:pl-2 transition duration-300 mb-2 md:text-sm xl:text-[16px] text-xl">
-                    {project.Sort_descrition}
+                    {truncateWords(project.Sort_descrition, 30)}
                   </p>
                 </div>
               </>
