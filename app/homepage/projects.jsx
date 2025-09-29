@@ -56,7 +56,7 @@ export default function OurProjects() {
   };
 
   // Truncate text to maxWords
-  const truncateWords = (text, maxWords = 30) => {
+  const truncateWords = (text, maxWords = 25) => {
     if (!text) return "";
     const words = text.trim().split(/\s+/);
     if (words.length <= maxWords) return text;
