@@ -13,19 +13,33 @@ export default function OurProjects() {
   const [activeCategory, setActiveCategory] = useState(null);
 
   useEffect(() => {
-    // Fetch data from the API
+    let mounted = true;
     fetch("https://virtualseoweb.pythonanywhere.com/ourproject/")
       .then((response) => response.json())
       .then((data) => {
-        // Extract categories and projects from the data
-        const categoryList = [
-          ...new Set(data.map((project) => project.category))
-        ];
+        if (!mounted) return;
+        const items = Array.isArray(data) ? data : [];
+
+        // Normalize categories, replace null/undefined with "Uncategorized"
+        const categoryList = Array.from(
+          new Set(items.map((project) => project.category ?? "Uncategorized"))
+        );
+
+        setProjects(items);
         setCategories(categoryList);
-        setProjects(data);
-        setActiveCategory(categoryList[0]); // Set the first category as active by default
+        setActiveCategory(categoryList.length ? categoryList[0] : null);
       })
-      .catch((error) => console.error("Error fetching data:", error));
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+        // keep safe defaults
+        setProjects([]);
+        setCategories([]);
+        setActiveCategory(null);
+      });
+
+    return () => {
+      mounted = false;
+    };
   }, []);
 
   // Function to handle tab click
@@ -33,14 +47,19 @@ export default function OurProjects() {
     setActiveCategory(category);
   };
 
-
+  // Returns a normalized URL string or null if the url is missing/invalid
   const normalizeUrl = (url) => {
-    if (!url.startsWith("http://") && !url.startsWith("https://")) {
-      return `https://${url}`;
-    }
-    return url;
+    if (!url) return null;
+    const trimmed = String(url).trim();
+    if (!trimmed) return null;
+    if (/^https?:\/\//i.test(trimmed)) return trimmed;
+    return `https://${trimmed}`;
   };
 
+  // If no activeCategory selected, show all projects; otherwise filter by category (handle nulls)
+  const visibleProjects = activeCategory
+    ? projects.filter((project) => (project.category ?? "Uncategorized") === activeCategory)
+    : projects;
 
   return (
     <div className="p-5 md:ml-10">
@@ -54,18 +73,18 @@ export default function OurProjects() {
           Case Studies
         </p>
       </div>
+
       {/* Tabs and Navigation Buttons */}
-      <div className="flex flex-col md:flex-row md:items-center md:justify-between mt-5 md:pl-[18em] xl:md:pl-[28em]">
+      <div className="flex flex-col md:flex-row md:items-center md:justify-between mt-5 md:pl-[18em]">
         {/* Category Tabs */}
         <div className="flex flex-wrap justify-center md:justify-center gap-2 mb-5">
           {categories.map((category, index) => (
             <button
               key={index}
               onClick={() => handleTabClick(category)}
-              className={`px-1 md:px-2 xl:px-3 py-1 md:py-1 xl:py-2  rounded-lg transition-colors text-sm md:text-[14px] xl:text-[15px] ${activeCategory === category
-                ? "bg-blue-500 text-white"
-                : "bg-gray-300 text-black"
-                }`}
+              className={`px-1 md:px-2 xl:px-3 py-1 md:py-1 xl:py-2 rounded-lg transition-colors text-sm md:text-[14px] xl:text-[15px] ${
+                activeCategory === category ? "bg-blue-500 text-white" : "bg-gray-300 text-black"
+              }`}
             >
               {category}
             </button>
@@ -90,73 +109,86 @@ export default function OurProjects() {
           spaceBetween={10}
           autoplay={{
             delay: 5000,
-            disableOnInteraction: false
+            disableOnInteraction: false,
           }}
           breakpoints={{
             640: {
               slidesPerView: 1,
-              spaceBetween: 20
+              spaceBetween: 20,
             },
             767: {
               slidesPerView: 2,
-              spaceBetween: 30
+              spaceBetween: 30,
             },
             1024: {
               slidesPerView: 4,
-              spaceBetween: 20
-            }
+              spaceBetween: 20,
+            },
           }}
           pagination={{
-            clickable: true
+            clickable: true,
           }}
           navigation={{
             nextEl: ".swiper-button-nexts",
-            prevEl: ".swiper-button-prevs"
+            prevEl: ".swiper-button-prevs",
           }}
           modules={[Autoplay, Navigation]}
           className="h-auto mt-2"
         >
-          {projects
-            .filter((project) => project.category === activeCategory)
-            .map((project) => (
-              <SwiperSlide
-                key={project.id}
-                className="border border-black hover:border-red-600 hover:bg-gray-100 transition duration-300 flex flex-col items-center p-4 rounded-xl"
-              >
+          {visibleProjects.map((project) => {
+            const href = normalizeUrl(project.Project_url_Link);
+            const imgSrc = project.Project_Image ? String(project.Project_Image).trim() : null;
 
-                <a
-                  href={normalizeUrl(project.Project_url_Link)}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full h-full"
-                >
-                  <div className="relative w-full h-auto">
+            const CardInner = (
+              <>
+                <div className="relative w-full h-48 overflow-hidden rounded-lg">
+                  {imgSrc ? (
                     <Image
-                      src={project.Project_Image}
-                      alt={project.Project_Name}
+                      src={imgSrc}
+                      alt={project.Project_Name ?? "project image"}
                       className="object-cover w-full h-full rounded-lg"
                       preview={false}
                     />
-                  </div>
-                  <hr
-                    style={{
-                      width: "100%",
-                      margin: "10px auto",
-                      borderColor: "red"
-                    }}
-                  />
-                  <div className="text-left">
-                    <h3 className="text-2xl md:text-sm xl:text-xl font-bold text-black hover:text-blue-500 hover:pl-2 transition duration-300 mb-2">
-                      {project.Project_Name}
-                    </h3>
-                    <p className="text-black hover:text-blue-500 hover:pl-2 transition duration-300 mb-2 md:text-sm xl:text-[16px] text-xl">
-                      {project.Sort_descrition}
-                    </p>
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center bg-gray-200 rounded-lg">
+                      <span className="text-sm text-gray-600">No image</span>
+                    </div>
+                  )}
+                </div>
 
-                  </div>
-                </a>
+                <hr
+                  style={{
+                    width: "100%",
+                    margin: "10px auto",
+                    borderColor: "red",
+                  }}
+                />
+                <div className="text-left">
+                  <h3 className="text-2xl md:text-sm xl:text-xl font-bold text-black hover:text-blue-500 hover:pl-2 transition duration-300 mb-2">
+                    {project.Project_Name}
+                  </h3>
+                  <p className="text-black hover:text-blue-500 hover:pl-2 transition duration-300 mb-2 md:text-sm xl:text-[16px] text-xl">
+                    {project.Sort_descrition}
+                  </p>
+                </div>
+              </>
+            );
+
+            return (
+              <SwiperSlide
+                key={project.id ?? Math.random()}
+                className="border border-black hover:border-red-600 hover:bg-gray-100 transition duration-300 flex flex-col items-center p-4 rounded-xl"
+              >
+                {href ? (
+                  <a href={href} target="_blank" rel="noopener noreferrer" className="w-full h-full">
+                    {CardInner}
+                  </a>
+                ) : (
+                  <div className="w-full h-full">{CardInner}</div>
+                )}
               </SwiperSlide>
-            ))}
+            );
+          })}
         </Swiper>
       </div>
     </div>
