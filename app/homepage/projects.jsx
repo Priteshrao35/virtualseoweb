@@ -56,7 +56,7 @@ export default function OurProjects() {
   };
 
   // Truncate text to maxWords
-  const truncateWords = (text, maxWords = 25) => {
+  const truncateWords = (text, maxWords = 20) => {
     if (!text) return "";
     const words = text.trim().split(/\s+/);
     if (words.length <= maxWords) return text;
@@ -175,7 +175,7 @@ export default function OurProjects() {
                     {project.Project_Name}
                   </h3>
                   <p className="text-black hover:text-blue-500 hover:pl-2 transition duration-300 mb-2 md:text-sm xl:text-[16px] text-xl">
-                    {truncateWords(project.Sort_descrition, 25)}
+                    {truncateWords(project.Sort_descrition, 20)}
                   </p>
                 </div>
               </>
